@@ -23,7 +23,8 @@
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
 \usepackage[latin1]{inputenc}
-\usepackage[spanish]{babel} % Comenta esta línea si tu memoria es en inglés
+%\usepackage[spanish]{babel} % Comenta esta línea si tu memoria es en inglés
+\usepackage[english]{babel} 
 \usepackage{url}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
@@ -38,8 +39,10 @@
 
 \begin{document}
 
-\renewcommand{\refname}{Bibliografía}  %% Renombrando
 \renewcommand{\appendixname}{Apéndice}
+\renewcommand{\listfigurename}{Lista de Figuras}
+\renewcommand{\contentsname}{Indice General}
+\renewcommand{\chaptername}{Cap\'itulo}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PORTADA
@@ -61,27 +64,27 @@
 \vspace{3cm}
 
 \Large
-TITULACIÓN EN MAYÚSCULAS
+INGENIERÍA EN TECNOLOGÍAS DE LA TELECOMUNICACIÓN
 
 \vspace{0.4cm}
 
 \large
-Curso Académico 20XX/20XX
+Curso Académico 2019/2020
 
 \vspace{0.8cm}
 
-Trabajo Fin de Grado/Máster
+Trabajo Fin de Grado
 
 \vspace{2.5cm}
 
 \LARGE
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
+INTERFACES FOR BUILDING SCENES IN VIRTUAL REALITY
 
 \vspace{4cm}
 
 \large
-Autor : Nombre del Alumno/a \\
-Tutor : Dr. Gregorio Robles
+Autor : Javier Jesús Bravo Donaire \\
+Tutor : Dr. Jesús María González Barahona
 \end{center}
 \end{titlepage}
 
@@ -103,12 +106,12 @@ Tutor : Dr. Gregorio Robles
 
 \vspace{1cm}
 \large
-Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
+Interfaces for Building Scenes in Virtual Reality
 
 \vspace{1cm}
 \large
-\textbf{Autor :} Nombre del Alumno/a \\
-\textbf{Tutor :} Dr. Gregorio Robles Martínez
+\textbf{Autor :} Javier Jesús Bravo Donaire \\
+\textbf{Tutor :} Dr. Jesús María González Barahona
 
 \end{center}
 
@@ -145,7 +148,7 @@ Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20XX
 \pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
 \begin{flushright}
 \textit{Dedicado a \\
-mi familia / mi abuelo / mi abuela}
+mi familia / mis amigos / mis compañeros}
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -155,8 +158,10 @@ mi familia / mi abuelo / mi abuela}
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
 
-Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
-Además, la pareja quizás no sea para siempre, pero tu madre sí.
+
+Página de agradecimientos en proceso.
+%Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
+%Además, la pareja quizás no sea para siempre, pero tu madre sí.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -165,17 +170,18 @@ Además, la pareja quizás no sea para siempre, pero tu madre sí.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto.
-Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-Han de quedar respondidas las siguientes preguntas:
+Resumen en proceso. Mejor escribirlo al final.
+%Aquí viene un resumen del proyecto.
+%Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
+%Han de quedar respondidas las siguientes preguntas:
 
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
-\end{itemize}
+%\begin{itemize}
+  %\item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
+  %\item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
+  %\item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
+%\end{itemize}
 
-Lo mejor es escribir el resumen al final.
+%Lo mejor es escribir el resumen al final.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -184,9 +190,11 @@ Lo mejor es escribir el resumen al final.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-Here comes a translation of the ``Resumen'' into English. 
-Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out just before submitting.
+Página de resumen escrito en inglés. Al igual que el 
+resumen, se escribe lo último.
+%Here comes a translation of the ``Resumen'' into English. 
+%Please, double check it for correct grammar and spelling.
+%As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out just before submitting.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -220,97 +228,130 @@ As it is the translation of the ``Resumen'', which is supposed to be written at 
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-En este capítulo se introduce el proyeto.
-Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
+Introducción en la que se nombre un poco las tecnologías empleadas y 
+los objetivos de este.
+%En este capítulo se introduce el proyecto.
+%Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
+%
+%No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
+%
+%Aconsejo a todo el mundo que mire y se inspire en memorias pasadas.
+%Las memorias de los proyetos que he llevado yo están (casi) todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
 
-No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
-
-Aconsejo a todo el mundo que mire y se inspire en memorias pasadas.
-Las memorias de los proyetos que he llevado yo están (casi) todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
-
-\section{Sección}
+\section{Contexto}
 \label{sec:seccion}
 
-Esto es una sección, que es una estructura menor que un capítulo. 
+Aquí se encuentra el contexto basado en cosas que se han creado
+con la misma tecnología.
 
-Por cierto, a veces me comentáis que no os compila por las tildes.
-Eso es un problema de codificación.
-Cambiad de ``UTF-8'' a ``ISO-Latin-1'' (o vicecersa) y funcionará.
+%\subsection{Estilo}
+%\label{subsec:estilo}
+%
+%Recomiendo leer los consejos prácticos sobre escribir documentos científicos en \LaTeX \ de Diomidis Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
+%
+%Lee sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}. 
+%Las comas en español no se ponen al tuntún.
+%Y nunca, nunca entre el objeto y el predicado (p.ej. en ``Yo, hago el TFG'' sobre la coma).
+%
+%A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
+%Observarás que el texto dentro de la referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
+%También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
+%Nota que hay unas comillas de inicio (``) y otras de cierre (''), y que son diferentes.
+%Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
+%Por eso hay que compilar dos veces tu memoria.
+%Si no, no se crearán las referencias.
+%
+% \begin{figure}
+%    \centering
+%    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
+%    \caption{Página con enlaces a hilos}
+%    \label{figura:foro_hilos}
+% \end{figure}
+%
+%A continuación un bloque ``verbatim'', que se utiliza para mostrar texto tal cual.
+%Se puede utilizar para ofrecer el contenido de correos electrónicos, código, entre otras cosas.
+%
+%{\footnotesize
+%\begin{verbatim}
+%    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
+%    From: gaurav at gold-solutions.co.uk (gaurav_gold)
+%    Date: Fri Jan 14 19:25:51 2005
+%    Subject: [Mailman-Users] mailman issues
+%    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
+%
+%    Dear Sir/Madam,
+%    How can people reply to the mailing list?  How do i turn off
+%    this feature? How can i also enable a feature where if someone
+%    replies the newsletter the email gets deleted?
+%    Thanks
+%
+%    From msapiro at value.net  Fri Jan 14 19:48:51 2005
+%    From: msapiro at value.net (Mark Sapiro)
+%    Date: Fri Jan 14 19:49:04 2005
+%    Subject: [Mailman-Users] mailman issues
+%    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
+%    Message-ID: <PC173020050114104851057801b04d55@msapiro>
+%
+%    gaurav_gold wrote:
+%    >How can people reply to the mailing list?  How do i turn off
+%    this feature? How can i also enable a feature where if someone
+%    replies the newsletter the email gets deleted?
+%
+%    See the FAQ
+%    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
+%    article 3.11
+%\end{verbatim}
+%}
 
-\subsection{Estilo}
-\label{subsec:estilo}
+\section{Objetivos principales}
+\label{sec:estructura}
 
-Recomiendo leer los consejos prácticos sobre escribir documentos científicos en \LaTeX \ de Diomidis Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
+Sección en la que se expone el objetivo principal del proyecto.
 
-Lee sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}. 
-Las comas en español no se ponen al tuntún.
-Y nunca, nunca entre el objeto y el predicado (p.ej. en ``Yo, hago el TFG'' sobre la coma).
+\section{Objetivos secundarios}
+\label{sec:estructura}
 
-A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
-Observarás que el texto dentro de la referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
-También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
-Nota que hay unas comillas de inicio (``) y otras de cierre (''), y que son diferentes.
-Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
-Por eso hay que compilar dos veces tu memoria.
-Si no, no se crearán las referencias.
+Objetivos secundarios, como futuras implementaciones siguiendo el
+actual trabajo.
 
- \begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-    \caption{Página con enlaces a hilos}
-    \label{figura:foro_hilos}
- \end{figure}
+\section{Planificación temporal}
+\label{sec:estructura}
 
-A continuación un bloque ``verbatim'', que se utiliza para mostrar texto tal cual.
-Se puede utilizar para ofrecer el contenido de correos electrónicos, código, entre otras cosas.
+Este proyecto se inici\'o con la apertura del segundo semestre de curso, y se ha ido desarrollando mientras terminaba este y realizaba las pr\'acticas en empresa. Para ello, seguimos el modelo Scrum, en el cual, el proyecto se divide en distintas etapas denominadas "Sprints". Para distinguir estas etapas, manteníamos reuniones (al principio presenciales y más tarde por videoconferencia) en las que se resolvían dudas y se aclaraban los distintos objetivos a conseguir en casa Sprint. La duración de este han sido un total de 9 meses, en los cuales ha habido temporadas más activas y otras más calmadas debido a exámenes o trabajo, pero en todas ellas el periodo de trabajo era por las tardes después de clase, y sobretodo los fines de semana. En general, todo el proceso de creación 
+de este proyecto se puede simplificar en cuatro fases:
 
-{\footnotesize
-\begin{verbatim}
-    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-    Date: Fri Jan 14 19:25:51 2005
-    Subject: [Mailman-Users] mailman issues
-    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-
-    Dear Sir/Madam,
-    How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-    Thanks
-
-    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-    From: msapiro at value.net (Mark Sapiro)
-    Date: Fri Jan 14 19:49:04 2005
-    Subject: [Mailman-Users] mailman issues
-    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-    Message-ID: <PC173020050114104851057801b04d55@msapiro>
-
-    gaurav_gold wrote:
-    >How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-
-    See the FAQ
-    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-    article 3.11
-\end{verbatim}
-}
+\begin{itemize}
+	\item Decisión del objetivo. Esta fase consta de las reuniones que llev\'e a cabo mi tutor Jes\'us. En ellas, se hablaba
+	de las distintas corrientes de estudio que se podían seguir, 
+	decant\'andome al final por la presente.
+	
+	\item Adaptaci\'on a la tecnolog\'ia. Para adentrarme en las tecnologías mencionadas más adelante en el capítulo \ref{chap:tecnologias}, realicé un minijuego que me permitiese
+	aprender el funcionamiento de Aframe \ref{sec:aframe} o aprender lenguajes de programación como JavaScript \ref{sec:javascript}.
+	
+	\item Ejecuci\'on de los objetivos. Las distintas reuniones marcaban el inicio y final de las distintas etapas con las
+	que avanzaba el proyecto. Es la fase más amplia de todas ya que es en la que mas documentación es necesaria para avanzar y más tiempo se invierte en la escritura de código, pruebas, etc.
+	
+	
+	\item Redacción de la memoria.
+\end{itemize}
+ 
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se debería introducir la esctura de la memoria. 
-
-Así:
+Para una correcta lectura del presente proyecto, se aclara la estructura que se sigue a continuaci\'on:
 
 \begin{itemize}
-  \item En el primer capítulo se hace una intro al proyecto.
+  \item En este primer capítulo se presenta una introducci\'on al
+  proyecto, exponiendo sus objetivos y contexto actual, así como la planificación temporal de todo el proyecto.
   
-  \item En el capítulo~\ref{chap:objetivos} (ojo, otra referencia automática) se muestran los objetivos del proyecto.
+  \item En el capítulo~\ref{chap:tecnologias} se muestran las distintas tecnologías que se enlazan a lo largo del proyecto con algunos ejemplos de uso.
   
-  \item A continuación se presenta el estado del arte en el capítulo~\ref{chap:estado}.
+  \item A continuación, se presenta el proceso de desarrollo en el capítulo~\ref{chap:disenio}. Además, en él se explica detalladamente el modelo Scrum, los diferentes Sprints y tanto los problemas como objetivos que se van solucionando.
   
-  \item \ldots
+  \item El capítulo \ref{chap:resultado} muestra el resultado final desde dos distintas perspectivas, una en la que se expone una guía para el usuario y otra más técnica donde se explica la arquitectura resultante, focalizándose en los componentes que implementa la escena.
+  
+  \item Las conclusiones quedan recogidas en el capítulo \ref{chap:conclusiones}, donde se analizará todo lo aprendido durante este periodo, los objetivos logrados y los problemas resueltos. 
 \end{itemize}
 
 
@@ -321,106 +362,118 @@ Así:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage % empezamos en página impar
-\chapter{Objetivos} % título del capítulo (se muestra)
-\label{chap:objetivos} % identificador del capítulo (no se muestra, es para poder referenciarlo)
+\chapter{Tecnolog\'ias} % título del caivopítulo (se muestra)
+\label{chap:tecnologias} % identificador del capítulo (no se muestra, es para poder referenciarlo)
 
-\section{Objetivo general} % título de sección (se muestra)
-\label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
+%\section{Objetivo general} % título de sección (se muestra)
+%\label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
+%
+%Aquí vendría el objetivo general en una frase:
+%Mi trabajo fin de grado consiste en crear de una herramienta de análisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
+%
+%Recuerda que los objetivos siempre vienen en infinitivo.
+%
+%
+%\section{Objetivos específicos}
+%\label{sec:objetivos-especificos}
+%
+%Los objetivos específicos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
+%Y, sí, también vienen en infinitivo.
+%
+%
+%\section{Planificación temporal}
+%\label{sec:planificacion-temporal}
+%
+%A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
+%Hay gente que añade un diagrama de GANTT.
+%Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ESTADO DEL ARTE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\cleardoublepage
+%\chapter{Estado del arte}
+%\label{chap:estado}
 
-Aquí vendría el objetivo general en una frase:
-Mi trabajo fin de grado consiste en crear de una herramienta de análisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
-
-Recuerda que los objetivos siempre vienen en infinitivo.
-
-
-\section{Objetivos específicos}
-\label{sec:objetivos-especificos}
-
-Los objetivos específicos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
-Y, sí, también vienen en infinitivo.
-
-
-\section{Planificación temporal}
-\label{sec:planificacion-temporal}
-
-A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
-Hay gente que añade un diagrama de GANTT.
-Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ESTADO DEL ARTE %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\chapter{Estado del arte}
-\label{chap:estado}
-
-Descripción de las tecnologías que utilizas en tu trabajo. 
-Con dos o tres párrafos por cada tecnología, vale. 
-Se supone que aquí viene todo lo que no has hecho tú.
-
-Puedes citar libros, como el de Bonabeau et al., sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. 
-Me encantan los procesos estigmérgicos.
-Deberías leer más sobre ellos.
-Pero quizás no ahora, que tenemos que terminar la memoria para sacarnos por fin el título.
-Nota que el \~ \ añade un espacio en blanco, pero no deja que exista un salto de línea. 
-Imprescindible ponerlo para las citas.
-
-Citar es importantísimo en textos científico-técnicos. 
-Porque no partimos de cero.
-Es más, partir de cero es de tontos; lo suyo es aprovecharse de lo ya existente para construir encima y hacer cosas más sofisticadas.
-¿Dónde puedo encontrar textos científicos que referenciar?
-Un buen sitio es Google Scholar\footnote{\url{http://scholar.google.com}}.
-Por ejemplo, si buscas por ``stigmergy libre software'' para encontrar trabajo sobre software libre y el concepto de estigmergia (¿te he comentado que me gusta el concepto de estigmergia ya?), encontrarás un artículo que escribí hace tiempo cuyo título es ``Self-organized development in libre software: a model based on the stigmergy concept''.
-Si pulsas sobre las comillas dobles (entre la estrella y el ``citado por ...'', justo debajo del extracto del resumen del artículo, te saldrá una ventana emergente con cómo citar.
-Abajo a la derecha, aparece un enlace BibTeX.
-Púlsalo y encontrarás la referencia en formato BibTeX, tal que así:
-
-{\footnotesize
-\begin{verbatim}
-@inproceedings{robles2005self,
-  title={Self-organized development in libre software:
-         a model based on the stigmergy concept},
-  author={Robles, Gregorio and Merelo, Juan Juli\'an 
-          and Gonz\'alez-Barahona, Jes\'us M.},
-  booktitle={ProSim'05},
-  year={2005}
-}
-\end{verbatim}
-}
-
-Copia el texto en BibTeX y pégalo en el fichero \texttt{memoria.bib}, que es donde están las referencias bibliográficas.
-Para incluir la referencia en el texto de la memoria, deberás citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendrás que poner el nuevo (robles2005self).
-Compila el fichero \texttt{memoria.tex} (\texttt{pdflatex memoria.tex}), añade la bibliografía (\texttt{bibtex memoria.aux}) y vuelve a compilar \texttt{memoria.tex} (\texttt{pdflatex memoria.tex})\ldots y \emph{voilà} ¡tenemos una nueva cita!
-
-También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
+%Descripción de las tecnologías que utilizas en tu trabajo. 
+%Con dos o tres párrafos por cada tecnología, vale. 
+%Se supone que aquí viene todo lo que no has hecho tú.
+%
+%Puedes citar libros, como el de Bonabeau et al., sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. 
+%Me encantan los procesos estigmérgicos.
+%Deberías leer más sobre ellos.
+%Pero quizás no ahora, que tenemos que terminar la memoria para sacarnos por fin el título.
+%Nota que el \~ \ añade un espacio en blanco, pero no deja que exista un salto de línea. 
+%Imprescindible ponerlo para las citas.
+%
+%Citar es importantísimo en textos científico-técnicos. 
+%Porque no partimos de cero.
+%Es más, partir de cero es de tontos; lo suyo es aprovecharse de lo ya existente para construir encima y hacer cosas más sofisticadas.
+%¿Dónde puedo enrar textos científicos que referenciar?
+%Un buen sitio es Google Scholar\footnote{\url{http://scholar.google.com}}.
+%Por ejemplo, si buscas por ``stigmergy libre software'' para encontrar trabajo sobre software libre y el concepto de estigmergia (¿te he comentado que me gusta el concepto de estigmergia ya?), encontrarás un artículo que escribí hace tiempo cuyo título es ``Self-organized development in libre software: a model based on the stigmergy concept''.
+%Si pulsas sobre las comillas dobles (entre la estrella y el ``citado por ...'', justo debajo del extracto del resumen del artículo, te saldrá una ventana emergente con cómo citar.
+%Abajo a la derecha, aparece un enlace BibTeX.
+%Púlsalo y encontrarás la referencia en formato BibTeX, tal que así:
+%
+%{\footnotesize
+%\begin{verbatim}
+%@inproceedings{robles2005self,
+%  title={Self-organized development in libre software:
+%         a model based on the stigmergy concept},
+%  author={Robles, Gregorio and Merelo, Juan Juli\'an 
+%          and Gonz\'alez-Barahona, Jes\'us M.},
+%  booktitle={ProSim'05},
+%  year={2005}
+%}
+%\end{verbatim}
+%}
+%
+%Copia el texto en BibTeX y pégalo en el fichero \texttt{memoria.bib}, que es donde están las referencias bibliográficas.
+%Para incluir la referencia en el texto de la memoria, deberás citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendrás que poner el nuevo (robles2005self).
+%Compila el fichero \texttt{memoria.tex} (\texttt{pdflatex memoria.tex}), añade la bibliografía (\texttt{bibtex memoria.aux}) y vuelve a compilar \texttt{memoria.tex} (\texttt{pdflatex memoria.tex})\ldots y \emph{voilà} ¡tenemos una nueva cita!
+%
+%También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
 
 
 
-\section{Sección 1} 
-\label{sec:seccion1}
+\section{Aframe} 
+\label{sec:aframe}
 
 Hemos hablado de cómo incluir figuras.
 Pero no hemos dicho nada de tablas.
 A mí me gustan las tablas.
 Mucho.
-Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero nota cómo he puesto la referencia).
 
-\begin{table}
- \begin{center}
-  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
-    \hline
-    Uno & 2 & 3 \\ \hline % el hline nos da una línea vertical
-    Cuatro & 5 & 6 \\ \hline
-    Siete & 8 & 9 \\
-    \hline
-  \end{tabular}
-  \label{tabla:ejemplo}
-  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
- \end{center}
-\end{table}
+
+\section{HTML5}
+\label{sec:html}
+
+Aqui describo una nueva tecnolog\'ia.
+Por ejemplo, HTML5.
+
+\section{JavaScript}
+\label{sec:javascript}
+
+Aqui describo una nueva tecnolog\'ia.
+Por ejemplo, JavaScript.
+
+%\begin{table}
+% \begin{center}
+%  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
+%    \hline
+%    Uno & 2 & 3 \\ \hline % el hline nos da una línea vertical
+%    Cuatro & 5 & 6 \\ \hline
+%    Siete & 8 & 9 \\
+%    \hline
+%  \end{tabular}
+%  \label{tabla:ejemplo}
+%  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
+% \end{center}
+%\end{table}
 
 
 
@@ -431,6 +484,7 @@ Aquí un ejemplo de tabla, la Tabla~\ref{tabla:ejemplo} (siento ser pesado, pero 
 
 \cleardoublepage
 \chapter{Diseño e implementación}
+\label{chap:disenio}
 
 Aquí viene todo lo que has hecho tú (tecnológicamente). 
 Puedes entrar hasta el detalle. 
@@ -469,7 +523,8 @@ Si utilizas una base de datos, no te olvides de incluir también un diagrama de e
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
-\chapter{Resultados}
+\chapter{Resultado Final}
+\label{chap:resultado}
 
 En este capítulo se incluyen los resultados de tu trabajo fin de grado.
 
@@ -538,12 +593,12 @@ Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
 
 \cleardoublepage
 \appendix
-\chapter{Manual de usuario}
-\label{app:manual}
-
-Esto es un apéndice.
-Si has creado una aplicación, siempre viene bien tener un manual de usuario.
-Pues ponlo aquí.
+%\chapter{Manual de usuario}
+%\label{app:manual}
+%
+%Esto es un apéndice.
+%Si has creado una aplicación, siempre viene bien tener un manual de usuario.
+%Pues ponlo aquí.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -562,5 +617,4 @@ Pues ponlo aquí.
 % y verás que lo puedes hacer de manera sencilla.
 % Más información: 
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
-
 \end{document}
