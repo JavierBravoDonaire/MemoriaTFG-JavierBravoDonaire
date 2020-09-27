@@ -1,22 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Plantilla de memoria en LaTeX para la ETSIT - Universidad Rey Juan Carlos
-%%
-%% Por Gregorio Robles <grex arroba gsyc.urjc.es>
-%%     Grupo de Sistemas y Comunicaciones
-%%     Escuela Técnica Superior de Ingenieros de Telecomunicación
-%%     Universidad Rey Juan Carlos
-%% (muchas ideas tomadas de Internet, colegas del GSyC, antiguos alumnos...
-%%  etc. Muchas gracias a todos)
-%%
-%% La última versión de esta plantilla está siempre disponible en:
-%%     https://github.com/gregoriorobles/plantilla-memoria
-%%
-%% Para obtener PDF, ejecuta en la shell:
-%%   make
-%% (las imágenes deben ir en PNG o JPG)
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
 
@@ -160,8 +141,6 @@ mi familia / mis amigos / mis compañeros}
 
 
 Página de agradecimientos en proceso.
-%Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja, no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo parezca disfrutará tanto de tus logros como tú\ldots 
-%Además, la pareja quizás no sea para siempre, pero tu madre sí.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -171,17 +150,6 @@ Página de agradecimientos en proceso.
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
 Resumen en proceso. Mejor escribirlo al final.
-%Aquí viene un resumen del proyecto.
-%Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto. 
-%Han de quedar respondidas las siguientes preguntas:
-
-%\begin{itemize}
-  %\item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  %\item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  %\item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto dentro de un marco general?
-%\end{itemize}
-
-%Lo mejor es escribir el resumen al final.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -192,19 +160,12 @@ Resumen en proceso. Mejor escribirlo al final.
 
 Página de resumen escrito en inglés. Al igual que el 
 resumen, se escribe lo último.
-%Here comes a translation of the ``Resumen'' into English. 
-%Please, double check it for correct grammar and spelling.
-%As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out just before submitting.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ÍNDICES %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Las buenas noticias es que los índices se generan automáticamente.
-% Lo único que tienes que hacer es elegir cuáles quieren que se generen,
-% y comentar/descomentar esa instrucción de LaTeX.
 
 %%%% Índice de contenidos
 \tableofcontents 
@@ -230,13 +191,6 @@ resumen, se escribe lo último.
 
 Introducción en la que se nombre un poco las tecnologías empleadas y 
 los objetivos de este.
-%En este capítulo se introduce el proyecto.
-%Debería tener información general sobre el mismo, dando la información sobre el contexto en el que se ha desarrollado.
-%
-%No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
-%
-%Aconsejo a todo el mundo que mire y se inspire en memorias pasadas.
-%Las memorias de los proyetos que he llevado yo están (casi) todas almacenadas en mi web del GSyC\footnote{\url{https://gsyc.urjc.es/~grex/pfcs/}}.
 
 \section{Contexto}
 \label{sec:seccion}
@@ -244,64 +198,7 @@ los objetivos de este.
 Aquí se encuentra el contexto basado en cosas que se han creado
 con la misma tecnología.
 
-%\subsection{Estilo}
-%\label{subsec:estilo}
-%
-%Recomiendo leer los consejos prácticos sobre escribir documentos científicos en \LaTeX \ de Diomidis Spinellis\footnote{\url{https://github.com/dspinellis/latex-advice}}.
-%
-%Lee sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}. 
-%Las comas en español no se ponen al tuntún.
-%Y nunca, nunca entre el objeto y el predicado (p.ej. en ``Yo, hago el TFG'' sobre la coma).
-%
-%A continuación, viene una figura, la Figura~\ref{figura:foro_hilos}. 
-%Observarás que el texto dentro de la referencia es el identificador de la figura (que se corresponden con el ``label'' dentro de la misma). 
-%También habrás tomado nota de cómo se ponen las ``comillas dobles'' para que se muestren correctamente. 
-%Nota que hay unas comillas de inicio (``) y otras de cierre (''), y que son diferentes.
-%Volviendo a las referencias, nota que al compilar, la primera vez se crea un diccionario con las referencias, y en la segunda compilación se ``rellenan'' estas referencias. 
-%Por eso hay que compilar dos veces tu memoria.
-%Si no, no se crearán las referencias.
-%
-% \begin{figure}
-%    \centering
-%    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-%    \caption{Página con enlaces a hilos}
-%    \label{figura:foro_hilos}
-% \end{figure}
-%
-%A continuación un bloque ``verbatim'', que se utiliza para mostrar texto tal cual.
-%Se puede utilizar para ofrecer el contenido de correos electrónicos, código, entre otras cosas.
-%
-%{\footnotesize
-%\begin{verbatim}
-%    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-%    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-%    Date: Fri Jan 14 19:25:51 2005
-%    Subject: [Mailman-Users] mailman issues
-%    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-%
-%    Dear Sir/Madam,
-%    How can people reply to the mailing list?  How do i turn off
-%    this feature? How can i also enable a feature where if someone
-%    replies the newsletter the email gets deleted?
-%    Thanks
-%
-%    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-%    From: msapiro at value.net (Mark Sapiro)
-%    Date: Fri Jan 14 19:49:04 2005
-%    Subject: [Mailman-Users] mailman issues
-%    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-%    Message-ID: <PC173020050114104851057801b04d55@msapiro>
-%
-%    gaurav_gold wrote:
-%    >How can people reply to the mailing list?  How do i turn off
-%    this feature? How can i also enable a feature where if someone
-%    replies the newsletter the email gets deleted?
-%
-%    See the FAQ
-%    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-%    article 3.11
-%\end{verbatim}
-%}
+
 
 \section{Objetivos principales}
 \label{sec:estructura}
@@ -317,7 +214,7 @@ actual trabajo.
 \section{Planificación temporal}
 \label{sec:estructura}
 
-Este proyecto se inici\'o con la apertura del segundo semestre de curso, y se ha ido desarrollando mientras terminaba este y realizaba las pr\'acticas en empresa. Para ello, seguimos el modelo Scrum, en el cual, el proyecto se divide en distintas etapas denominadas "Sprints". Para distinguir estas etapas, manteníamos reuniones (al principio presenciales y más tarde por videoconferencia) en las que se resolvían dudas y se aclaraban los distintos objetivos a conseguir en casa Sprint. La duración de este han sido un total de 9 meses, en los cuales ha habido temporadas más activas y otras más calmadas debido a exámenes o trabajo, pero en todas ellas el periodo de trabajo era por las tardes después de clase, y sobretodo los fines de semana. En general, todo el proceso de creación 
+Este proyecto se inici\'o con la apertura del segundo semestre de curso, y se ha ido desarrollando mientras terminaba este y realizaba las pr\'acticas en empresa. Para ello, seguimos el modelo Scrum, en el cual, el proyecto se divide en distintas etapas denominadas "Sprints". Para distinguir estas etapas, manteníamos reuniones (al principio presenciales y más tarde por videoconferencia) en las que se resolvían dudas y se aclaraban los distintos objetivos a conseguir en casa Sprint. La duración de este han sido un total de 9 meses, en los cuales ha habido temporadas más activas y otras más calmadas debido a exámenes o trabajo, pero en todas ellas el periodo de trabajo era por las tardes después de clase, y sobre todo los fines de semana. En general, todo el proceso de creación 
 de este proyecto se puede simplificar en cuatro fases:
 
 \begin{itemize}
@@ -365,80 +262,11 @@ Para una correcta lectura del presente proyecto, se aclara la estructura que se 
 \chapter{Tecnolog\'ias} % título del caivopítulo (se muestra)
 \label{chap:tecnologias} % identificador del capítulo (no se muestra, es para poder referenciarlo)
 
-%\section{Objetivo general} % título de sección (se muestra)
-%\label{sec:objetivo-general} % identificador de sección (no se muestra, es para poder referenciarla)
-%
-%Aquí vendría el objetivo general en una frase:
-%Mi trabajo fin de grado consiste en crear de una herramienta de análisis de los comentarios jocosos en repositorios de software libre alojados en la plataforma GitHub.
-%
-%Recuerda que los objetivos siempre vienen en infinitivo.
-%
-%
-%\section{Objetivos específicos}
-%\label{sec:objetivos-especificos}
-%
-%Los objetivos específicos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
-%Y, sí, también vienen en infinitivo.
-%
-%
-%\section{Planificación temporal}
-%\label{sec:planificacion-temporal}
-%
-%A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
-%Hay gente que añade un diagrama de GANTT.
-%Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
-%
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ESTADO DEL ARTE %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\cleardoublepage
-%\chapter{Estado del arte}
-%\label{chap:estado}
-
-%Descripción de las tecnologías que utilizas en tu trabajo. 
-%Con dos o tres párrafos por cada tecnología, vale. 
-%Se supone que aquí viene todo lo que no has hecho tú.
-%
-%Puedes citar libros, como el de Bonabeau et al., sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. 
-%Me encantan los procesos estigmérgicos.
-%Deberías leer más sobre ellos.
-%Pero quizás no ahora, que tenemos que terminar la memoria para sacarnos por fin el título.
-%Nota que el \~ \ añade un espacio en blanco, pero no deja que exista un salto de línea. 
-%Imprescindible ponerlo para las citas.
-%
-%Citar es importantísimo en textos científico-técnicos. 
-%Porque no partimos de cero.
-%Es más, partir de cero es de tontos; lo suyo es aprovecharse de lo ya existente para construir encima y hacer cosas más sofisticadas.
-%¿Dónde puedo enrar textos científicos que referenciar?
-%Un buen sitio es Google Scholar\footnote{\url{http://scholar.google.com}}.
-%Por ejemplo, si buscas por ``stigmergy libre software'' para encontrar trabajo sobre software libre y el concepto de estigmergia (¿te he comentado que me gusta el concepto de estigmergia ya?), encontrarás un artículo que escribí hace tiempo cuyo título es ``Self-organized development in libre software: a model based on the stigmergy concept''.
-%Si pulsas sobre las comillas dobles (entre la estrella y el ``citado por ...'', justo debajo del extracto del resumen del artículo, te saldrá una ventana emergente con cómo citar.
-%Abajo a la derecha, aparece un enlace BibTeX.
-%Púlsalo y encontrarás la referencia en formato BibTeX, tal que así:
-%
-%{\footnotesize
-%\begin{verbatim}
-%@inproceedings{robles2005self,
-%  title={Self-organized development in libre software:
-%         a model based on the stigmergy concept},
-%  author={Robles, Gregorio and Merelo, Juan Juli\'an 
-%          and Gonz\'alez-Barahona, Jes\'us M.},
-%  booktitle={ProSim'05},
-%  year={2005}
-%}
-%\end{verbatim}
-%}
-%
-%Copia el texto en BibTeX y pégalo en el fichero \texttt{memoria.bib}, que es donde están las referencias bibliográficas.
-%Para incluir la referencia en el texto de la memoria, deberás citarlo, como hemos hecho antes con~\cite{bonabeau:_swarm}, lo que pasa es que en vez de el identificador de la cita anterior (bonabeau:\_swarm), tendrás que poner el nuevo (robles2005self).
-%Compila el fichero \texttt{memoria.tex} (\texttt{pdflatex memoria.tex}), añade la bibliografía (\texttt{bibtex memoria.aux}) y vuelve a compilar \texttt{memoria.tex} (\texttt{pdflatex memoria.tex})\ldots y \emph{voilà} ¡tenemos una nueva cita!
-%
-%También existe la posibilidad de poner notas al pie de página, por ejemplo, una para indicarte que visite la página de LibreSoft\footnote{\url{http://www.libresoft.es}}.
-
-
 
 \section{Aframe} 
 \label{sec:aframe}
@@ -458,23 +286,50 @@ Por ejemplo, HTML5.
 \section{JavaScript}
 \label{sec:javascript}
 
+JavaScript\cite{javascript} es un lenguaje de programación interpretado, lo que significa que no necesita de compilación para su ejecución. Su motivo consiste en infundir dinamicidad a nuestras aplicaciones web mediante distintas animaciones, manejo de eventos y modificaciones del DOM en general. Como cualquier otro lenguaje de programación puede realizar operaciones, tratamiento de strings, almacenamiento de variables y métodos algorítmicos.
+
+Acceder al DOM gracias a JavaScript se convierte en una tarea sencilla además de potente. El código HTML es estático, pero con JavaScript podemos alterarlo en vivo con distintos eventos. Gracias a sentencias como la siguiente podemos acceder a cualquier elemento, por ejemplo, al título:
+\begin{verbatim}
+
+document.getElementsByTagName("h1");
+
+\end{verbatim}
+
+Dicho esto, igual que accedemos al título, podemos acceder a un componente de nuestra escena en Aframe: cubos, cilindros, el cielo o incluso a la cámara de nuestra escena. Nos aporta infinidad de opciones: crear botones que activen eventos, movimiento a distintas entidades, etc. Junto con todo lo que nos ofrece Aframe, JavaScript será la base este proyecto.
+
+
+Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creo una versión con la capacidad de ser ejecutada en el lado del servidor Node.js.\cite{nodejs} Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
+
+\section{WebGL}
+\label{sec:webgl}
+
 Aqui describo una nueva tecnolog\'ia.
-Por ejemplo, JavaScript.
+Por ejemplo, webgl.
 
-%\begin{table}
-% \begin{center}
-%  \begin{tabular}{ | l | c | r |} % tenemos tres colummnas, la primera alineada a la izquierda (l), la segunda al centro (c) y la tercera a la derecha (r). El | indica que entre las columnas habrá una línea separadora.
-%    \hline
-%    Uno & 2 & 3 \\ \hline % el hline nos da una línea vertical
-%    Cuatro & 5 & 6 \\ \hline
-%    Siete & 8 & 9 \\
-%    \hline
-%  \end{tabular}
-%  \label{tabla:ejemplo}
-%  \caption{Ejemplo de tabla. Aquí viene una pequeña descripción (el \emph{caption}) del contenido de la tabla. Si la tabla no es autoexplicativa, siempre viene bien aclararla aquí.}
-% \end{center}
-%\end{table}
+\section{WorldGL}
+\label{sec:worldgl}
 
+Aqui describo una nueva tecnolog\'ia.
+Por ejemplo, worldgl.
+
+\section{Three.js}
+\label{sec:three}
+
+Aqui describo una nueva tecnolog\'ia.
+Por ejemplo, three.
+
+\section{Github}
+\label{sec:github}
+
+Aqui describo una nueva tecnolog\'ia.
+Por ejemplo, github.
+
+\section{LaTeX}
+\label{sec:latex}
+
+LaTeX\cite{lamport1994latex} trata de un procesador de textos de software libre típicamente utilizado para textos técnico-científicos. Su objetivo principal es separar las reglas de estilo del contenido. La diferencia más importante respecto a otros editores de textos es su estructura basada en instrucciones. Entre sus ventajas se encuentran la capacidad de establecer órdenes al inicio de nuestro texto que afectarán a este, o la despreocupación a la hora de situar figuras y tablas, ya que como he comentado antes, él se encarga del estilo, nosotros del contenido.
+
+Al tratarse de un software libre su uso es completamente gratuito (además, de que se mantiene siempre en desarrollo) y se encuentra disponible para múltiples sistemas operativos.\footnote{\url{https://www.latex-project.org}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -491,30 +346,18 @@ Puedes entrar hasta el detalle.
 Es la parte más importante de la memoria, porque describe lo que has hecho tú.
 Eso sí, normalmente aconsejo no poner código, sino diagramas.
 
-\section{Arquitectura general} 
-\label{sec:arquitectura}
+\section{Sprint 1} 
+\label{sec:sprint1}
 
-Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
+\section{Sprint 2} 
+\label{sec:sprint2}
 
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
-\LaTeX \ pone las figuras donde mejor cuadran. 
-Y eso quiere decir que quizás no lo haga donde lo hemos puesto...
-Eso no es malo.
-A veces queda un poco raro, pero es la filosofía de \LaTeX: tú al contenido, que yo me encargo de la maquetación.
+\section{Sprint 3} 
+\label{sec:sprint3}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico.}
-  \label{fig:arquitectura}
-\end{figure}
+\section{Sprint 4} 
+\label{sec:sprint4}
 
-Recuerda que toda figura que añadas a tu memoria debe ser explicada.
-Sí, aunque te parezca evidente lo que se ve en la figura~\ref{fig:arquitectura}, la figura en sí solamente es un apoyo a tu texto.
-Así que explica lo que se ve en la figura, haciendo referencia a la misma tal y como ves aquí.
-Por ejemplo: En la figura~\ref{fig:arquitectura} se puede ver que la estructura del \emph{parser} básico, que consta de seis componentes diferentes: los datos se obtienen de la red, y según el tipo de dato, se pasará a un \emph{parser} específico y bla, bla, bla\ldots
-
-Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -530,6 +373,11 @@ En este capítulo se incluyen los resultados de tu trabajo fin de grado.
 
 Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
 
+\section{Manual de Usuario}
+\label{sec:manual}
+
+\section{Arquitectura resultante}
+\label{sec:arquitectura}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
