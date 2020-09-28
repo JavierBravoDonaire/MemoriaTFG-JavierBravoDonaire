@@ -341,13 +341,156 @@ Al tratarse de un software libre su uso es completamente gratuito (además, de qu
 \chapter{Diseño e implementación}
 \label{chap:disenio}
 
-Aquí viene todo lo que has hecho tú (tecnológicamente). 
-Puedes entrar hasta el detalle. 
-Es la parte más importante de la memoria, porque describe lo que has hecho tú.
-Eso sí, normalmente aconsejo no poner código, sino diagramas.
+Para poder explicar todo el proceso de diseño del proyecto, tengo que comenzar hablando de Scrum\cite{scrum}. Scrum es una metodología de trabajo desarrollada en el año 1993 por Jeff Sutherland\footnote{https://www.scrumguides.org/jeff.html} y Ken Schwaber\footnote{https://www.scrumguides.org/ken.html}, y finalmente formalizada en el año 1995. El objetivo de esta es conseguir un desarrollo ágil y productivo con la mejor organización posible para llegar a un producto completo. En ella, se define que el trabajo realizado debe organizarse en distintos espacios de tiempo denominados iteraciones o "Sprints" en los que se definen una serie de objetivos, y no se da paso al siguiente "Sprint" hasta que se solucionan los problemas y se consigue todo lo planeado en el anterior.
+
+El equipo que emplee esta metodología debería dividirse en tres partes: el Scrum Master, el Equipo de Trabajo y el Cliente. En este caso, el papel de Scrum Master lo lleva a cabo el profesor, Jesús, (aunque también podría adquirir el papel de Cliente) y el papel del Equipo de Trabajo lo representa el alumno, en este caso, yo. El objetivo del Scrum Master consiste en asegurar el entendimiento de las reglas y prácticas llevadas acabo. Además, mantiene una estrecha relación con el Cliente haciendo de intermediario entre este y el Equipo de Trabajo, consiguiendo y aclarando los objetivos propuestos y aportando técnicas para una efectiva producción. Por otro lado, el Equipo de Trabajo esta formado por los profesionales que se encargar del desarrollo y resolución de problemas que propone el Cliente. Son los encargados de la consecución de los objetivos para poner fin a los distintos "Sprints".
+
+Para este caso en particular, cada reunión entre Jesús (Scrum Master/Cliente) y yo (Equipo de Desarrollo), marcarán el inicio y final de cada "Sprint". Inicialmente, una reunión marcará los objetivos a conseguir en ese "Sprint", durante unas semanas se trabaja en ello y finalmente se prepara una nueva reunión. En esta nueva reunión, se hablan de los problemas que han surgido y lo conseguido. Si se han logrado con éxito cada una de las metas propuestas, esta reunión será la que dará fin a ese "Sprint" y iniciará el siguiente. Normalmente, en cada "Sprint" se crea una versión funcional que implementa lo conseguido y da paso como versión inicial al siguiente. En caso contrario, se tratan las dudas y problemas surgidos intentando llegar a una solución. Se trabaja en esto durante un periodo y se vuelve a tener la reunión hasta conseguir la versión funcional y dar paso al siguiente "Sprint" hasta llegar a la versión final del producto, como podemos observar en la Figura \ref{fig:scrum}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=15cm, keepaspectratio]{IMAGENES/scrum}
+  \caption{Estructura de la metodología Scrum}
+  \label{fig:scrum}
+\end{figure}
+
+Por último, algunas de las ventajas del uso de Scrum son las siguientes:
+\begin{itemize}
+	\item Los "Sprints" se realizan de manera mensual (o de varias semanas), lo que permite un avance rápido y marcado del trabajo, además de conseguir gradualmente resultados antes del producto final.
+	\item Existe una flexibilidad entre el cliente y el equipo de desarrollo que permite el intercambio de ideas o soluciones de problemas, debido a las reuniones mensuales.
+	\item Rígida definición de plazos y tareas.
+	\item Reducción de la complejidad de un proyecto complejo gracias a su desglose en etapas.
+	\item Mayor satisfacción moral del equipo y por consiguiente, mejora del ambiente de trabajo.
+\end{itemize}
+
 
 \section{Sprint 1} 
 \label{sec:sprint1}
+
+Esta iteración comienza con la primera reunión que mantuvimos Jesús y yo. En ella se acordó que para empezar debía iniciarme en Aframe junto con JavaScript (hasta el momento desconocido para mí) y HTML entre otros, por lo que la idea sería crear un minijuego básico que uniese todas las tecnologías.
+
+\subsection{Objetivo}
+
+El objetivo de esta fase es aprender a usar Aframe, en esto se incluye: aprender que son las entidades, crear entidades, crear eventos, crear componentes, dinámicas y físicas, etc. Como JavaScript es desconocido para mí, otro gran objetivo es ir aprendiendo a la vez que lo enlazo con Aframe. El fin del minijuego es hacer un pequeño recorrido en el tengas que realizar distintas acciones para llegar a la meta.
+
+\subsection{Desarrollo}
+La idea es crear un recorrido con distintos obstáculos que implementen distintas acciones y eventos para adecuarme a ellos. El recorrido es el que sigue a continuación: 
+\begin{enumerate}
+	\item Apareces en un estrecho pasillo con una puerta delante, la cual debes abrir llamando al timbre y evitando los dos obstáculos que tratarán de tirarte como se puede observar en la Figura \ref{fig:mini_inicio}.
+	\begin{figure}
+		\centering
+		\includegraphics[width=15cm, keepaspectratio]{IMAGENES/mini_inicio}
+		\caption{Punto de partida Minijuego}
+		\label{fig:mini_inicio}
+	\end{figure}
+	
+	\item Una vez abiertas las puertas, el pasillo continúa  dejando paso a dos plataformas que te permiten llegar al segundo piso (Figura \ref{fig:mini_plataforma}). Para ello, debes subirte en una de las dos plataformas en el momento correcto. 
+	\begin{figure}
+		\centering
+		\includegraphics[width=15cm, keepaspectratio]{IMAGENES/mini_plataforma}
+		\caption{Plataformas para subir de nivel}
+		\label{fig:mini_plataforma}
+	\end{figure}
+	
+	\item Ya subidos en la plataforma giraremos 180 grados para encontrarnos un nuevo obstáculo en movimiento, la piedra gigante (Figura \ref{fig:mini_bloque}). Pero para llegar a ella primero debemos empujar las dos piedras que nos cortan el camino, haciendo así que caigan al vacío.
+	\begin{figure}
+		\centering
+		\includegraphics[width=15cm, keepaspectratio]{IMAGENES/mini_bloque}
+		\caption{Piedras que bloquean el camino y bloque gigante}
+		\label{fig:mini_bloque}
+	\end{figure}
+	
+	\item Para conseguir cruzar debemos parar el bloque gigante a nuestros pies, lo que nos dejará ver el siguiente y último reto,
+	las baldosas móviles (Figura \ref{fig:mini_baldosas}). Cruzando con cuidado llegaremos a la última plataforma gigante.
+	\begin{figure}
+		\centering
+		\includegraphics[width=15cm, keepaspectratio]{IMAGENES/mini_baldosas}
+		\caption{Obstáculo de baldosas con movimiento}
+		\label{fig:mini_baldosas}
+	\end{figure}
+	
+	\item En el centro de esta plataforma nos espera un botón que invoca un evento de felicitación junto con las palabras de fin del juego.
+\end{enumerate}
+
+Son muchos obstáculos pero esto permite que utilice el mayor número de entidades y cree los eventos necesarios. Por último, si caes en cualquier momento volverás al inicio para además añadirle un nivel de dificultad, al fin y al cabo, es un juego.
+
+Para crear este pequeño juego se comienza con un archivo HTML en el que se importan los scripts necesarios de Aframe para poder comenzar a crear entidades, estos son algunos de ellos:
+\begin{verbatim}
+	<script src="../../assets/js/aframe.min.js"></script>
+	<script src="../../assets/js/aframe-physics-system.min.js"></script>
+\end{verbatim}
+Gracias a esto podemos empezar a crear nuestras entidades. Las entidades son los distintos objetos que podemos crear como pueden ser un plano, un cilindro o un cubo, entre otros. Para este caso, el pasillo será un plano, las puertas serán cubos y las plataformas cilindros. Todas las entidades tienen propiedades que pueden ser modificadas dinámicamente, mediante eventos por ejemplo. Modificando las propiedades rotación, ancho y largo del plano, podemos crear nuestro pasillo:
+
+\begin{verbatim}
+	<a-plane position="0 0 0" rotation="-90 0 0" width="3.25" height="20"
+	src="#floor" repeat="1 5" static-body></a-plane>
+\end{verbatim}
+
+En el apartado "src" podemos asignar una textura a nuestras entidades, mientras que con "repeat" podemos hacer que se repita la textura para que no pierda calidad, o crear incluso un pasillo de baldosas como el visto anteriormente. Siguiendo estas reglas, podemos crear todas las entidades necesarias para nuestra escena. Ahora sólo queda añadir las dinámicas y eventos a estas, al igual que animaciones. 
+
+Aframe no nos aporta figuras más complejas que cubos, cilindros, etc. Por eso, podemos crearlos nosotros con distintas aplicaciones de edición 3D en formato gltf\footnote{https://es.wikipedia.org/wiki/GlTF} e importarlas a nuestra escena. Podemos usar distintas páginas web con diseños completamente gratuitos de modelos 3D para nuestras aplicaciones, una de ellas es Sketchfab \footnote{https://sketchfab.com/feed}. Por ejemplo, los diseños del obstáculo de las hachas lo encontré en esta página.
+
+Para hablar de los eventos, tomaré como ejemplo el botón para abrir las puertas. El botón es una caja que tiene como propiedad el componente "clickable". Esto permite acceder a el gracias a JavaScript y que cada vez que se posicione el ratón encima de la entidad y se haga click en él, se dispare un nuevo evento. Al capturar ese evento, podemos modificar propiedades de una entidad en tiempo real. El siguiente código muestra un ejemplo de ello:
+
+\begin{verbatim}
+	buttonEl.addEventListener('mouseenter', function() {
+		buttonEl.setAttribute('color', "gray");
+		buttonEl.setAttribute('scale', "0.22 0.22 0.22");
+	});
+\end{verbatim}
+
+Así podemos hacer que al pulsar el timbre (que es un cubo), la rotación de las puertas cambien 90 grados (lo que hace que la puerta se abra). Los mismos principios se siguen para hacer que el bloque gigante se pare para que podamos pasar o el botón que activa la escena final del juego.
+
+El movimiento de las hachas, las plataformas que nos suben de piso o las baldosas que nos impiden cruzar es a lo que se llama animación. Una animación nos permite establecer un patrón de movimiento en una entidad (las entidades son estáticas). La animación es otra propiedad de la entidad como puede ser el ancho, se declara como sigue:
+\begin{verbatim}
+<a-cylinder class="platform" position="1.5 22 -12" 
+animation="property: position; dur: 10000; to: 1.5 -1 -12;
+dir: alternate; loop: true" static-body></a-cylinder>
+\end{verbatim}
+
+En este trozo de código declaramos la duración de la animación, la posición final donde acaba, si es infinita y si se alterna o no. Este es el código que usan las plataformas para subir, empiezan en una posición acaban en otra y gracias al atributo "alternate" cuando llegan a la posición final vuelven a la inicial como si de un ascensor se tratara.
+
+Para completar este apartado, resta explicar los usos de los componentes. Un componente es un comportamiento que se asocia a una entidad, por ejemplo el antes mencionado "clickable". Para conseguir la función de reaparición del jugador cada vez que caía del escenario cree el siguiente componente, en el que se detallan estas condiciones:
+
+\begin{verbatim}
+AFRAME.registerComponent('restart', {
+// ...
+schema: {
+checkpoint: {type: 'string', default: '0 0 9'},
+},
+
+tick: function () {
+var audio = document.querySelector('#deathsound');
+var data = this.data;
+
+if(this.el.getAttribute('position').y < -6){
+this.el.setAttribute('position', data.checkpoint);
+audio.play();
+}
+}
+});
+\end{verbatim}
+En este componente aparece la función "tick", la cual se ejecuta cada milisegundo, comprobando si la posición "y" del jugador es menor (para así saber si ha caído) y haciendo que reaparezca en el inicio. Los componentes son herramientas muy potentes, ya que nos permiten crear funciones complejas como esta y simplifica el código. Para asociar un componente a una entidad debemos añadirlo como ya hemos visto anteriormente como un atributo cualquiera.
+
+\subsection{Funcionalidades añadidas}
+Siguiendo todo lo comentado en el anterior apartado, se añadieron unas funcionalidad no tan básicas para complementar el juego.
+\begin{itemize}
+	\item Dinámicas. Como se puede observar en las figuras anteriores, el jugador tiene alrededor un cilindro verde. Este cilindro es el que marca la caja de colisión del jugador para que no pueda atravesar las puertas, pueda empujar las piedras y pueda subirse en las plataformas sin caer. Estas dinámicas vienen dadas en el script kinema.js\footnote{https://www.npmjs.com/package/kinema/v/0.0.1}.
+	\item Aprovechando el componente "restart" para cuando el jugador caiga, añadí una funcionalidad de punto de guardado. Cuando llegas al piso de arriba se puede observar un boton de "checkpoint" (Figura \ref{fig:mini_bloque}) para no tener que iniciar desde el principio y reaparecer arriba.
+	\item Efectos de sonido. Se añadieron efectos de sonido en el evento final del juego, al abrir puertas o al detener el bloque.
+	\item Gafas VR. Por último, se adecuó el minijuego para poder jugarlo con las gafas de realidad virtual. Para ello, se necesitaron nuevos componentes que representasen nuestras mando en la escena y pudiesemos usarlas como si fuesen el ratón. Este componente podemos encontrarlo su propia página de GitHub\footnote{https://github.com/wmurphyrd/aframe-super-hands-component}.
+\end{itemize}
+
+\subsection{Resultado}
+Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. Pude practicar con muchas de las posibilidades que me ofrecía Aframe mientras aprendía JavaScript. Además, tuve mi primer contacto con las gafas de realidad virtual en las que pude depurar el final de mi juego (Figura \ref{fig:mini_fin}). El minijuego se encuentra alojado en la página de GitHub del proyecto y puede ser jugado\footnote{https://javierbravodonaire.github.io/A-frame/Fase\%200/my-examples/minigame.html}. El código JavaScript\footnote{EN PROCESO} se encuentra a su vez alojado en la carpeta correspondiente a este "Sprint" junto a su HTML\footnote{EN PROCESO}. Para terminar, se mantuvo una reunión en la que se comentó lo aprendido gracias a este "Sprint" y dió comienzo al siguiente apartado.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/mini_fin}
+	\caption{Escena victoria}
+	\label{fig:mini_fin}
+\end{figure}
+
 
 \section{Sprint 2} 
 \label{sec:sprint2}
@@ -394,11 +537,11 @@ Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejempl
 
 Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
 
-Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
-
-Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
-Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
+%Es aquí donde hay que debatir qué se ha conseguido y qué no. 
+%Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
+%
+%Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
+%Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
 
 \begin{verbatim}
   aspell --lang=es_ES -c memoria.tex
