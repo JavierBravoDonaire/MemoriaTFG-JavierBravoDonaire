@@ -214,7 +214,7 @@ actual trabajo.
 \section{Planificación temporal}
 \label{sec:estructura}
 
-Este proyecto se inici\'o con la apertura del segundo semestre de curso, y se ha ido desarrollando mientras terminaba este y realizaba las pr\'acticas en empresa. Para ello, seguimos el modelo Scrum, en el cual, el proyecto se divide en distintas etapas denominadas "Sprints". Para distinguir estas etapas, manteníamos reuniones (al principio presenciales y más tarde por videoconferencia) en las que se resolvían dudas y se aclaraban los distintos objetivos a conseguir en casa Sprint. La duración de este han sido un total de 9 meses, en los cuales ha habido temporadas más activas y otras más calmadas debido a exámenes o trabajo, pero en todas ellas el periodo de trabajo era por las tardes después de clase, y sobre todo los fines de semana. En general, todo el proceso de creación 
+Este proyecto se inici\'o con la apertura del segundo semestre de curso, y se ha ido desarrollando mientras terminaba este y realizaba las pr\'acticas en empresa. Para ello, seguimos el modelo Scrum, en el cual, el proyecto se divide en distintas etapas denominadas "Sprints". Para distinguir estas etapas, manteníamos reuniones (al principio presenciales y más tarde por videoconferencia) en las que se resolvían dudas y se aclaraban los distintos objetivos a conseguir en cada "Sprint". La duración de este han sido un total de 9 meses, en los cuales ha habido temporadas más activas y otras más calmadas debido a exámenes o trabajo, pero en todas ellas el periodo de trabajo era por las tardes después de clase, y sobre todo los fines de semana. En general, todo el proceso de creación 
 de este proyecto se puede simplificar en cuatro fases:
 
 \begin{itemize}
@@ -222,7 +222,7 @@ de este proyecto se puede simplificar en cuatro fases:
 	de las distintas corrientes de estudio que se podían seguir, 
 	decant\'andome al final por la presente.
 	
-	\item Adaptaci\'on a la tecnolog\'ia. Para adentrarme en las tecnologías mencionadas más adelante en el capítulo \ref{chap:tecnologias}, realicé un minijuego que me permitiese
+	\item Adaptaci\'on a la tecnolog\'ia. Para adentrarme en las tecnologías mencionadas más adelante en el capítulo \ref{chap:tecnologias}, dicidimos realizar un minijuego que me permitiese
 	aprender el funcionamiento de Aframe \ref{sec:aframe} o aprender lenguajes de programación como JavaScript \ref{sec:javascript}.
 	
 	\item Ejecuci\'on de los objetivos. Las distintas reuniones marcaban el inicio y final de las distintas etapas con las
@@ -298,7 +298,7 @@ document.getElementsByTagName("h1");
 Dicho esto, igual que accedemos al título, podemos acceder a un componente de nuestra escena en Aframe: cubos, cilindros, el cielo o incluso a la cámara de nuestra escena. Nos aporta infinidad de opciones: crear botones que activen eventos, movimiento a distintas entidades, etc. Junto con todo lo que nos ofrece Aframe, JavaScript será la base este proyecto.
 
 
-Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creo una versión con la capacidad de ser ejecutada en el lado del servidor Node.js.\cite{nodejs} Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
+Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creo una versión con la capacidad de ser ejecutada en el lado del servidor, Node.js.\cite{nodejs} Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
 
 \section{WebGL}
 \label{sec:webgl}
@@ -327,7 +327,7 @@ Por ejemplo, github.
 \section{LaTeX}
 \label{sec:latex}
 
-LaTeX\cite{lamport1994latex} trata de un procesador de textos de software libre típicamente utilizado para textos técnico-científicos. Su objetivo principal es separar las reglas de estilo del contenido. La diferencia más importante respecto a otros editores de textos es su estructura basada en instrucciones. Entre sus ventajas se encuentran la capacidad de establecer órdenes al inicio de nuestro texto que afectarán a este, o la despreocupación a la hora de situar figuras y tablas, ya que como he comentado antes, él se encarga del estilo, nosotros del contenido.
+LaTeX\cite{lamport1994latex} trata de un procesador de textos de software libre típicamente utilizado para textos técnico-científicos. Su objetivo principal es separar las reglas de estilo del contenido. La diferencia más importante con respecto a otros editores de textos es su estructura basada en instrucciones. Entre sus ventajas se encuentran la capacidad de establecer órdenes al inicio de nuestro texto que afectarán a este, o la despreocupación a la hora de situar figuras y tablas, ya que como he comentado antes, él se encarga del estilo, nosotros del contenido.
 
 Al tratarse de un software libre su uso es completamente gratuito (además, de que se mantiene siempre en desarrollo) y se encuentra disponible para múltiples sistemas operativos.\footnote{\url{https://www.latex-project.org}}
 
@@ -345,7 +345,7 @@ Para poder explicar todo el proceso de diseño del proyecto, tengo que comenzar h
 
 El equipo que emplee esta metodología debería dividirse en tres partes: el Scrum Master, el Equipo de Trabajo y el Cliente. En este caso, el papel de Scrum Master lo lleva a cabo el profesor, Jesús, (aunque también podría adquirir el papel de Cliente) y el papel del Equipo de Trabajo lo representa el alumno, en este caso, yo. El objetivo del Scrum Master consiste en asegurar el entendimiento de las reglas y prácticas llevadas acabo. Además, mantiene una estrecha relación con el Cliente haciendo de intermediario entre este y el Equipo de Trabajo, consiguiendo y aclarando los objetivos propuestos y aportando técnicas para una efectiva producción. Por otro lado, el Equipo de Trabajo esta formado por los profesionales que se encargar del desarrollo y resolución de problemas que propone el Cliente. Son los encargados de la consecución de los objetivos para poner fin a los distintos "Sprints".
 
-Para este caso en particular, cada reunión entre Jesús (Scrum Master/Cliente) y yo (Equipo de Desarrollo), marcarán el inicio y final de cada "Sprint". Inicialmente, una reunión marcará los objetivos a conseguir en ese "Sprint", durante unas semanas se trabaja en ello y finalmente se prepara una nueva reunión. En esta nueva reunión, se hablan de los problemas que han surgido y lo conseguido. Si se han logrado con éxito cada una de las metas propuestas, esta reunión será la que dará fin a ese "Sprint" y iniciará el siguiente. Normalmente, en cada "Sprint" se crea una versión funcional que implementa lo conseguido y da paso como versión inicial al siguiente. En caso contrario, se tratan las dudas y problemas surgidos intentando llegar a una solución. Se trabaja en esto durante un periodo y se vuelve a tener la reunión hasta conseguir la versión funcional y dar paso al siguiente "Sprint" hasta llegar a la versión final del producto, como podemos observar en la Figura \ref{fig:scrum}.
+Para este caso en particular, cada reunión entre Jesús (Scrum Master/Cliente) y yo (Equipo de Desarrollo), marcarán el inicio y final de cada "Sprint". Inicialmente, una reunión marcará los objetivos a conseguir en ese "Sprint", durante unas semanas se trabaja en ello y finalmente se prepara una nueva reunión. En esta nueva reunión, se hablan de los problemas que han surgido y lo conseguido. Si se han logrado con éxito cada una de las metas propuestas, esta reunión será la que dará fin a ese "Sprint" e iniciará el siguiente. Normalmente, en cada "Sprint" se crea una versión funcional que implementa lo conseguido y da paso como versión inicial al siguiente. En caso contrario, se tratan las dudas y problemas surgidos intentando llegar a una solución. Se trabaja en esto durante un periodo y se vuelve a tener la reunión hasta conseguir la versión funcional y dar paso al siguiente "Sprint" hasta llegar a la versión final del producto, como podemos observar en la Figura \ref{fig:scrum}.
 
 \begin{figure}
   \centering
@@ -412,7 +412,7 @@ La idea es crear un recorrido con distintos obstáculos que implementen distintas
 	\item En el centro de esta plataforma nos espera un botón que invoca un evento de felicitación junto con las palabras de fin del juego.
 \end{enumerate}
 
-Son muchos obstáculos pero esto permite que utilice el mayor número de entidades y cree los eventos necesarios. Por último, si caes en cualquier momento volverás al inicio para además añadirle un nivel de dificultad, al fin y al cabo, es un juego.
+Son muchos obstáculos pero esto permite que utilice el mayor número de entidades y cree los eventos necesarios. Por último, si caes en cualquier momento, volverás al inicio para además añadirle un nivel de dificultad, al fin y al cabo, es un juego.
 
 Para crear este pequeño juego se comienza con un archivo HTML en el que se importan los scripts necesarios de Aframe para poder comenzar a crear entidades, estos son algunos de ellos:
 \begin{verbatim}
@@ -428,7 +428,7 @@ Gracias a esto podemos empezar a crear nuestras entidades. Las entidades son los
 
 En el apartado "src" podemos asignar una textura a nuestras entidades, mientras que con "repeat" podemos hacer que se repita la textura para que no pierda calidad, o crear incluso un pasillo de baldosas como el visto anteriormente. Siguiendo estas reglas, podemos crear todas las entidades necesarias para nuestra escena. Ahora sólo queda añadir las dinámicas y eventos a estas, al igual que animaciones. 
 
-Aframe no nos aporta figuras más complejas que cubos, cilindros, etc. Por eso, podemos crearlos nosotros con distintas aplicaciones de edición 3D en formato gltf\footnote{https://es.wikipedia.org/wiki/GlTF} e importarlas a nuestra escena. Podemos usar distintas páginas web con diseños completamente gratuitos de modelos 3D para nuestras aplicaciones, una de ellas es Sketchfab \footnote{https://sketchfab.com/feed}. Por ejemplo, los diseños del obstáculo de las hachas lo encontré en esta página.
+Aframe no nos aporta figuras más complejas que cubos, cilindros, etc. Por eso, podemos crearlos nosotros con distintas aplicaciones de edición 3D en formato gltf\footnote{https://es.wikipedia.org/wiki/GlTF} e importarlas a nuestra escena. Podemos usar distintas páginas web con diseños completamente gratuitos de modelos 3D para nuestras aplicaciones, una de ellas es Sketchfab \footnote{https://sketchfab.com/feed}. Por ejemplo, los diseños del obstáculo de las hachas los encontré en esta página.
 
 Para hablar de los eventos, tomaré como ejemplo el botón para abrir las puertas. El botón es una caja que tiene como propiedad el componente "clickable". Esto permite acceder a el gracias a JavaScript y que cada vez que se posicione el ratón encima de la entidad y se haga click en él, se dispare un nuevo evento. Al capturar ese evento, podemos modificar propiedades de una entidad en tiempo real. El siguiente código muestra un ejemplo de ello:
 
@@ -448,9 +448,9 @@ animation="property: position; dur: 10000; to: 1.5 -1 -12;
 dir: alternate; loop: true" static-body></a-cylinder>
 \end{verbatim}
 
-En este trozo de código declaramos la duración de la animación, la posición final donde acaba, si es infinita y si se alterna o no. Este es el código que usan las plataformas para subir, empiezan en una posición acaban en otra y gracias al atributo "alternate" cuando llegan a la posición final vuelven a la inicial como si de un ascensor se tratara.
+En este trozo de código declaramos la duración de la animación, la posición final donde acaba, si es infinita y si se alterna o no. Este es el código que usan las plataformas para subir, empiezan en una posición, acaban en otra y gracias al atributo "alternate", cuando llegan a la posición final vuelven a la inicial como si de un ascensor se tratara.
 
-Para completar este apartado, resta explicar los usos de los componentes. Un componente es un comportamiento que se asocia a una entidad, por ejemplo el antes mencionado "clickable". Para conseguir la función de reaparición del jugador cada vez que caía del escenario cree el siguiente componente, en el que se detallan estas condiciones:
+Para completar este apartado, resta explicar los usos de los componentes. Un componente es un comportamiento que se asocia a una entidad, por ejemplo el antes mencionado "clickable". Para conseguir la función de reaparición del jugador cada vez que caía del escenario, creé el siguiente componente, en el que se detallan estas condiciones:
 
 \begin{verbatim}
 AFRAME.registerComponent('restart', {
@@ -470,15 +470,15 @@ audio.play();
 }
 });
 \end{verbatim}
-En este componente aparece la función "tick", la cual se ejecuta cada milisegundo, comprobando si la posición "y" del jugador es menor (para así saber si ha caído) y haciendo que reaparezca en el inicio. Los componentes son herramientas muy potentes, ya que nos permiten crear funciones complejas como esta y simplifica el código. Para asociar un componente a una entidad debemos añadirlo como ya hemos visto anteriormente como un atributo cualquiera.
+En este componente aparece la función "tick", la cual se ejecuta cada milisegundo, comprobando si la posición "y" del jugador es menor (para así saber si ha caído) y haciendo que reaparezca en el inicio. Los componentes son herramientas muy potentes, ya que nos permiten crear funciones complejas como esta y simplifica el código. Para asociar un componente a una entidad debemos incluirlo como, ya hemos visto anteriormente, un atributo cualquiera.
 
 \subsection{Funcionalidades añadidas}
-Siguiendo todo lo comentado en el anterior apartado, se añadieron unas funcionalidad no tan básicas para complementar el juego.
+Siguiendo todo lo comentado en el anterior apartado, se agregaron unas funcionalidades no tan básicas para complementar el juego.
 \begin{itemize}
 	\item Dinámicas. Como se puede observar en las figuras anteriores, el jugador tiene alrededor un cilindro verde. Este cilindro es el que marca la caja de colisión del jugador para que no pueda atravesar las puertas, pueda empujar las piedras y pueda subirse en las plataformas sin caer. Estas dinámicas vienen dadas en el script kinema.js\footnote{https://www.npmjs.com/package/kinema/v/0.0.1}.
 	\item Aprovechando el componente "restart" para cuando el jugador caiga, añadí una funcionalidad de punto de guardado. Cuando llegas al piso de arriba se puede observar un boton de "checkpoint" (Figura \ref{fig:mini_bloque}) para no tener que iniciar desde el principio y reaparecer arriba.
-	\item Efectos de sonido. Se añadieron efectos de sonido en el evento final del juego, al abrir puertas o al detener el bloque.
-	\item Gafas VR. Por último, se adecuó el minijuego para poder jugarlo con las gafas de realidad virtual. Para ello, se necesitaron nuevos componentes que representasen nuestras mando en la escena y pudiesemos usarlas como si fuesen el ratón. Este componente podemos encontrarlo su propia página de GitHub\footnote{https://github.com/wmurphyrd/aframe-super-hands-component}.
+	\item Efectos de sonido. Se incorporaron efectos de sonido en el evento final del juego, al abrir puertas o al detener el bloque.
+	\item Gafas VR. Por último, se adecuó el minijuego para poder jugarlo con las gafas de realidad virtual. Para ello, se necesitaron nuevos componentes que representasen nuestras manos en la escena y pudiesemos usarlas como si fuesen el ratón. Este componente podemos encontrarlo su propia página de GitHub\footnote{https://github.com/wmurphyrd/aframe-super-hands-component}.
 \end{itemize}
 
 \subsection{Resultado}
