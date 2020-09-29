@@ -318,11 +318,35 @@ Por ejemplo, worldgl.
 Aqui describo una nueva tecnolog\'ia.
 Por ejemplo, three.
 
-\section{Github}
+\section{GitHub}
 \label{sec:github}
 
-Aqui describo una nueva tecnolog\'ia.
-Por ejemplo, github.
+GitHub\cite{munaiah2017curating} es una de las mayores plataformas de almacenamiento de software y proyectos basado en el sistema de control de versiones Git\cite{git}, creado por Linus Torvalds\footnote{https://es.wikipedia.org/wiki/Linus\_Torvalds} en el año 2005.
+
+El propósito de Git es la eficiencia de producción y el mantenimiento de un registro de los cambios que se producen, con el fin de coordinar el trabajo compartido. Para lograr esto, se aclaran unas normas a seguir que recibe el nombre de Flujo de Trabajo.
+
+Git sigue una estructura de árbol, en la que cada rama representa un flujo de trabajo. La rama principal recibe el nombre de "master", esta rama contiene la versión funcional del proyecto que se esté llevando a cabo, es la rama de producción. Para crear esta rama necesitamos establecer un repositorio en el que poder añadir nuestros archivos y añadirlos. Git tiene una serie de comandos para realizar todas estas acciones, por ejemplo, para crear el repositorio usamos \textit{git init}, y para añadir nuestros archivos (consiguiendo así protegerlos) \textit{git commit} seguido de \textit{git push}.
+
+Para prevenir que se trabaje todo sobre la versión de producción, Git aporta un comando para crear ramas adicionales en las que distintos grupos de trabajo pueden trabajar para evitar modificar los mismos archivos y eliminar sus propios avances, \textit{git branch}. Una vez terminada la funcionalidad en la que se trabaja en una rama aparte, se debe enlazar con la rama maestra, para ello empleamos el comando \textit{git merge}. Se forma así una estructura de árbol como la que podemos observar en la Figura \ref{fig:git}, en la que cada nodo corresponde con una representación de nuestros archivos comprometidos, lo que se llama "log". Gracias a esto, podemos volver a antiguos nodos del árbol para recuperar versiones anteriores, eliminar otros, etc.
+
+Tomando como base Git, GitHub nos permite visualizar en su plataforma web el flujo de trabajo conseguido. La principal diferencia entre ambos consiste en que GitHub nos aporta una interfaz gráfica de nuestro árbol, mientras que Git solo funciona a través de comandos en una terminal. Asimismo, GitHub añade más herramientas que nos aportan claridad y orden al proyecto:
+
+\begin{itemize}
+	\item Creación de perfiles para cada usuario donde se muestran los repositorios en los que trabaja (tanto propios como conjuntos), junto con estadísticas de trabajo: lenguajes de programación más usados, historial de producción, etc.
+	\item Página de "wiki" para cada repositorio en la que se puede comentar cada apartado de este para que los lectores puedan apoyarse. 
+	\item Una sección llamada "issues" donde los usuarios pueden dejar un mensaje comentando cualquier fallo que haya encontrado en nuestro trabajo.
+	\item La casilla "projects" permite crear tareas que se pueden asignar a distintos grupos de trabajo para tener un control de las funcionalidades que se están creando, así como creación de columnas para ordenar estas tareas según si se encuentran finalizadas, en proceso o por iniciar.
+	\item Capacidad de copiar un repositorio ajeno para trabajar sobre él. Esto es lo que se conoce como "fork", nos permite editar los archivos y en el caso de mejorar alguna funcionalidad, podemos solicitar al autor una unión (merge) con lo que se denomina "pull request". 
+\end{itemize}
+
+Todas estas cualidades mostradas, han sido las responsables para decidirme a alojar y proteger mi proyecto en GitHub\footnote{https://github.com/JavierBravoDonaire/A-frame}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/git}
+	\caption{Estructura de ramas Git}
+	\label{fig:git}
+\end{figure}
 
 \section{LaTeX}
 \label{sec:latex}
