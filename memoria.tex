@@ -268,20 +268,71 @@ Para una correcta lectura del presente proyecto, se aclara la estructura que se 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
-\section{Aframe} 
+\section{A-Frame} 
 \label{sec:aframe}
 
-Hemos hablado de cómo incluir figuras.
-Pero no hemos dicho nada de tablas.
-A mí me gustan las tablas.
-Mucho.
+La gran base de este proyecto es A-Frame\cite{aframe}, un framework cimentado sobre JavaScript que nos ofrece la oportunidad de crear escenas en VR (Virtual Reality o Realidad Virtual) sin la necesidad de instalar ninguna dependencia. Gracias a la unión de HTML, JavaScript, WebGL, WebXR y Three.js (comentados en sus respectivos apartados más adelante), A-Frame lleva la arquitectura ECS (Entity-Component-System o Entidad-Componente-Sistema) a otro nivel. Gracias a esta arquitectura, podemos enlazar componentes a entidades, actualizarlos e incluso eliminarlos. Al obtener el DOM característico de HTML, podemos acceder a las entidades con sentencias simples (Query Selectors).
 
+Se definen así, entidades y componentes. Una entidad es un objeto que tiene sus propiedades como cualquier elemento HTML; en cambio, un componente es un comportamiento especial que se puede asignar a una entidad. La relación entidad-componente será la esencia de aquellos trabajos realizados en A-Frame. 
+
+A-frame tiene su propia sección de tutorial práctico en el que se introduce al usuario a los distintos elementos y entidades, realizando pequeñas escenas. El código de ejemplo\footnote{https://aframe.io/examples/showcase/helloworld/} que propone la documentación de Aframe, y que da lugar a la imagen de la Figura \ref{fig:aframe} es el siguiente:
+ 
+\begin{verbatim}
+<html>
+   <head>
+      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+   </head>
+   <body>
+      <a-scene>
+         <a-box position="-1 0.5 -3" rotation="0 45 0"
+             color="#4CC3D9"></a-box>
+         <a-sphere position="0 1.25 -5" radius="1.25"
+             color="#EF2D5E"></a-sphere>
+         <a-cylinder position="1 0.75 -3" radius="0.5"
+             height="1.5" color="#FFC65D"></a-cylinder>
+         <a-plane position="0 0 -4" rotation="-90 0 0" width="4" 
+             height="4" color="#7BC8A4"></a-plane>
+         <a-sky color="#ECECEC"></a-sky>
+      </a-scene>
+   </body>
+</html>
+\end{verbatim}
+
+Como se puede observar, dentro del campo "head" del código, añadiremos todas las dependencias necesarias. En este caso, al ser un ejemplo sencillo, es necesario únicamente el script básico de A-Frame. En el elemento "body" se inserta la escena (que agrupará todos los elementos que posteriormente queramos añadir). En él, se encuentran un total de cinco entidades: un cubo, una esfera, un cilindro, un plano y el cielo, respectivamente. Todas ellas contienen unos atributos únicos que definen su tamaño, color o posición.
+
+Por el momento, no se añade ningún componente en la escena, ya que se usarán en el capítulo \ref{chap:disenio}, pero se añadirían como si de un atributo más se tratase. Estos son creados mediante JavaScript, y se dividen en schema (propiedades del componente) y las funciones init (se ejecuta al inicializar la entidad), update (se ejecuta cuando se modifica la entidad), tick (se ejecuta cada milisegundo), remove (se ejecuta al eliminar la entidad), pause y play. Lo adecuado sería alojarlos en un fichero distinto a este y enlazarlo en el elemento "head" al igual que hemos añadido el script básico de A-Frame.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/aframe}
+	\caption{Escena de ejemplo Introducción a Aframe}
+	\label{fig:aframe}
+\end{figure} 
 
 \section{HTML5}
 \label{sec:html}
 
-Aqui describo una nueva tecnolog\'ia.
-Por ejemplo, HTML5.
+HTML (HyperText Markup Language)\cite{10.5555/2339435} es el lenguaje de marcado empleado para la creación y estructuración de páginas web. Actualmente se encuentra en su versión HTML5 publicada en 2014 y es en la que se ha desarrollado este proyecto. Algunas de sus novedades frente a su versión HTML4 son:
+
+\begin{itemize}
+	\item Se incluyeron nuevas etiquetas al documento: footer, header, section, nav, aside, etc. 
+	\item Nuevos componentes de audio y video para la manipulación de elementos multimedia.
+	\item Los formularios ahora contienen valores adicionales para la etiqueta input y se incorpora el elemento output.
+	\item Nueva interfaz para arrastrar y soltar elementos.
+	\item Trabajo off-line descargando todos los contenidos necesarios.
+	\item Geolocalización
+	\item Ejecución de tareas paralelas (WebWorkers) e interfaz de comunicación entre páginas (WebSockets).
+	\item Almacenamiento de datos en el propio navegador gracias a una base de datos (API Storage).
+\end{itemize}
+
+Para finalizar, resta detallar el papel del DOM (Document Object Model) en un documento HTML. Consiste de una interfaz que nos proporciona una estructura lógica de todos los elementos implicados en el documento y los organiza en nodos apodando a esta unión árbol de nodos (Figura \ref{fig:dom}). Esto crea una potente unión entre las entidades mencionadas antes en Aframe y lo que comentaremos a continuación en el apartado de JavaScript, gracias al DOM podremos acceder a ellas y manejarlas a nuestro antojo.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/dom}
+	\caption{Estructura en forma de árbol DOM}
+	\label{fig:dom}
+\end{figure} 
 
 \section{JavaScript}
 \label{sec:javascript}
@@ -303,20 +354,31 @@ Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero de
 \section{WebGL}
 \label{sec:webgl}
 
-Aqui describo una nueva tecnolog\'ia.
-Por ejemplo, webgl.
+WebGL\cite{Cozzi15} define una API (Application Programming Interfaces o Interfaz de Programación de Aplicaciones) basada en OpenGL\footnote{https://www.opengl.org//documentation/} cuyo fin es la representación tanto en 3D como en 2D de elementos gráficos. Como se ejecuta en el elemento "canvas" de HTML, se integra a la perfección con la interfaz del DOM. Su creación nació en 2006 con el primer prototipo de Canvas 3D presentado por Vladimir Vukicevic\footnote{https://en.wikipedia.org/wiki/Vladimir\_Vuki\%C4\%87evi\%C4\%87}, y no fue hasta principios de 2009 que el consorcio Kronos Group consolidaron el WebGL Working Group junto con Google, Mozilla, Apple y Opera, entre otros. Finalmente, en 2011 fue lanzado la primera versión con sus correspondientes especificaciones.
 
-\section{WorldGL}
-\label{sec:worldgl}
+Al estar asentado en OpenGL, su código está escrito en JavaScript y "shading language". Shading language o lenguaje de sombreado, es un lenguaje de programación basado en la creación de efectos de sombreado, así como superficies, volúmenes, etc. Usa unos tipos de datos más específicos que otros lenguajes, como pueden ser: vectores, matrices o colores. Para el caso de OpenGL, recibe el nombre de GLSL o "glslang".
 
-Aqui describo una nueva tecnolog\'ia.
-Por ejemplo, worldgl.
 
 \section{Three.js}
 \label{sec:three}
 
-Aqui describo una nueva tecnolog\'ia.
-Por ejemplo, three.
+Three.js\cite{three} es una biblioteca escrita en JavaScript que se ayuda de WebGL para pintar en 3D. Three se encarga de tareas más específicas que las que aporta WebGL, lo que conlleva a escribir un poco más de código. Estas tareas son la inyección en nuestro proyecto de texturas, iluminación, sombras, etc.
+
+Actualmente se encuentra en constante desarrollo, y al estar alojada en GitHub\footnote{https://github.com/mrdoob/three.js/}, se pueden crear funcionalidades nuevas siguiendo determinadas reglas comentadas en el apartado correspondiente a GitHub.
+
+\section{WebXR}
+\label{sec:webxr}
+
+WebXR \cite{baruah2021ar} es un grupo de estándares que apoyan a la creación de escenas 3D tanto en realidad virtual como en realidad aumentada, que junto con Aframe, WebGL y Three.js permitirán el correcto funcionamiento de la escena y la apropiada ejecución en un dispositivo XR. Es la sucesora de WebVR, la cuál se ha dado como desactualizada este mismo año (2020), y añade la compatibilidad con realidad aumentada, de ahi que nombre cambie de WebVR a WebXR. La API de WebXR aporta unas funcionalidades extra de las cuales, el usuario puede no necesita hacerse cargo:
+
+\begin{itemize}
+	\item Duplicar la salida 3D (en el dispositivo) a una 2D en el caso que fuese necesaria, por ejemplo, para la depuración de una aplicación.
+	\item Crear los vectores que representan los movimientos que transmiten los controles de entrada (mandos).
+	\item Renderizar la escena que se envía al dispositivo para que tenga el ratio de frames por segundo adecuado para su correcto funcionamiento.
+	\item Averiguar si el dispositivo de salida es compatible con realidad aumentada o con realidad virtual.
+\end{itemize}
+
+Los dispositivos XR serán entonces, aquellos que pueden presentar imágenes al usuario e incorporen un sistema de rastreo de movimiento y orientación, permitiendo la inmersión completa de este.
 
 \section{GitHub}
 \label{sec:github}
@@ -347,6 +409,18 @@ Todas estas cualidades mostradas, han sido las responsables para decidirme a alo
 	\caption{Estructura de ramas Git}
 	\label{fig:git}
 \end{figure}
+
+\section{Atom}
+\label{sec:atom}
+
+Atom\cite{atom} ha sido el editor de textos elegidos para aposentar todo el código necesario para el funcionamiento de esta idea. Gracias a tratarse de un programa de código abierto, podemos encontrar infinidad de bibliotecas para modificarlo a nuestro gusto. Entre sus ventajas se encuentran:
+
+\begin{itemize}
+	\item Autocompletado de sentencias. Si existe un paquete relacionado con el lenguaje de programación que se va a usar, atom completará las sentencias añadiendo los paréntesis, corchetes, tabuladores o elemento que se necesite.
+	\item Reglas de estilo. Semejante al anterior punto, dotará de distintos estilos al código, las variables serán de un color, los nombres de función de otro, etc.
+	\item Sincronización con repositorios. Una de las herramientas más potentes es la capacidad de sincronizar con GitHub tu proyecto. Esto permite a atom mostrarte los archivos que han sido modificados, los que no se han comprometido, los nuevos o los que siguen intactos.
+	\item Edición múltiple. Tolera varias flujos de escritura a la vez, por ejemplo si necesitamos añadir a varios elementos el mismo atributo, escribiéndolo una vez, se escribiría en todos ellos sin necesidad de copiar y pegar.
+\end{itemize}
 
 \section{LaTeX}
 \label{sec:latex}
