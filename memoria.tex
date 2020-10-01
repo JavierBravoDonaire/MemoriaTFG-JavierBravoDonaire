@@ -271,11 +271,11 @@ Para una correcta lectura del presente proyecto, se aclara la estructura que se 
 \section{A-Frame} 
 \label{sec:aframe}
 
-La gran base de este proyecto es A-Frame\cite{aframe}, un framework cimentado sobre JavaScript que nos ofrece la oportunidad de crear escenas en VR (Virtual Reality o Realidad Virtual) sin la necesidad de instalar ninguna dependencia. Gracias a la unión de HTML, JavaScript, WebGL, WebXR y Three.js (comentados en sus respectivos apartados más adelante), A-Frame lleva la arquitectura ECS (Entity-Component-System o Entidad-Componente-Sistema) a otro nivel. Gracias a esta arquitectura, podemos enlazar componentes a entidades, actualizarlos e incluso eliminarlos. Al obtener el DOM característico de HTML, podemos acceder a las entidades con sentencias simples (Query Selectors).
+La gran base de este proyecto es A-Frame\cite{aframe}, un framework cimentado sobre JavaScript que nos ofrece la oportunidad de crear escenas en VR (Virtual Reality o Realidad Virtual) sin la necesidad de instalar ninguna dependencia. Gracias a la unión de HTML, JavaScript, WebGL, WebXR y Three.js (comentados en sus respectivos apartados más adelante), A-Frame lleva la arquitectura ECS (Entity-Component-System o Entidad-Componente-Sistema) a otro nivel. Con esta arquitectura, podemos enlazar componentes a entidades, actualizarlos e incluso eliminarlos. Al obtener el DOM característico de HTML, podemos acceder a las entidades con sentencias simples (Query Selectors).
 
 Se definen así, entidades y componentes. Una entidad es un objeto que tiene sus propiedades como cualquier elemento HTML; en cambio, un componente es un comportamiento especial que se puede asignar a una entidad. La relación entidad-componente será la esencia de aquellos trabajos realizados en A-Frame. 
 
-A-frame tiene su propia sección de tutorial práctico en el que se introduce al usuario a los distintos elementos y entidades, realizando pequeñas escenas. El código de ejemplo\footnote{https://aframe.io/examples/showcase/helloworld/} que propone la documentación de Aframe, y que da lugar a la imagen de la Figura \ref{fig:aframe} es el siguiente:
+A-Frame tiene su propia sección de tutorial práctico en el que se introduce al usuario a los distintos elementos y entidades, realizando pequeñas escenas. El código de ejemplo\footnote{https://aframe.io/examples/showcase/helloworld/} que propone la documentación de A-Frame, y que da lugar a la imagen de la Figura \ref{fig:aframe} es el siguiente:
  
 \begin{verbatim}
 <html>
@@ -325,7 +325,7 @@ HTML (HyperText Markup Language)\cite{10.5555/2339435} es el lenguaje de marcado
 	\item Almacenamiento de datos en el propio navegador gracias a una base de datos (API Storage).
 \end{itemize}
 
-Para finalizar, resta detallar el papel del DOM (Document Object Model) en un documento HTML. Consiste de una interfaz que nos proporciona una estructura lógica de todos los elementos implicados en el documento y los organiza en nodos apodando a esta unión árbol de nodos (Figura \ref{fig:dom}). Esto crea una potente unión entre las entidades mencionadas antes en Aframe y lo que comentaremos a continuación en el apartado de JavaScript, gracias al DOM podremos acceder a ellas y manejarlas a nuestro antojo.
+Para finalizar, resta detallar el papel del DOM (Document Object Model) en un documento HTML. Consiste de una interfaz que nos proporciona una estructura lógica de todos los elementos implicados en el documento y los organiza en nodos, apodando a esta unión árbol de nodos (Figura \ref{fig:dom}). Esto crea una potente unión entre las entidades mencionadas antes en Aframe y lo que comentaremos a continuación en el apartado de JavaScript, gracias al DOM podremos acceder a ellas y manejarlas a nuestro antojo.
 
 \begin{figure}
 	\centering
@@ -337,7 +337,7 @@ Para finalizar, resta detallar el papel del DOM (Document Object Model) en un do
 \section{JavaScript}
 \label{sec:javascript}
 
-JavaScript\cite{javascript} es un lenguaje de programación interpretado, lo que significa que no necesita de compilación para su ejecución. Su motivo consiste en infundir dinamicidad a nuestras aplicaciones web mediante distintas animaciones, manejo de eventos y modificaciones del DOM en general. Como cualquier otro lenguaje de programación puede realizar operaciones, tratamiento de strings, almacenamiento de variables y métodos algorítmicos.
+JavaScript\cite{javascript} es un lenguaje de programación interpretado, lo que significa que no necesita de compilación para su ejecución. Su fin consiste en infundir dinamicidad a nuestras aplicaciones web mediante distintas animaciones, manejo de eventos y modificaciones del DOM en general. Como cualquier otro lenguaje de programación puede realizar operaciones, tratamiento de strings, almacenamiento de variables y métodos algorítmicos.
 
 Acceder al DOM gracias a JavaScript se convierte en una tarea sencilla además de potente. El código HTML es estático, pero con JavaScript podemos alterarlo en vivo con distintos eventos. Gracias a sentencias como la siguiente podemos acceder a cualquier elemento, por ejemplo, al título:
 \begin{verbatim}
@@ -346,15 +346,15 @@ document.getElementsByTagName("h1");
 
 \end{verbatim}
 
-Dicho esto, igual que accedemos al título, podemos acceder a un componente de nuestra escena en Aframe: cubos, cilindros, el cielo o incluso a la cámara de nuestra escena. Nos aporta infinidad de opciones: crear botones que activen eventos, movimiento a distintas entidades, etc. Junto con todo lo que nos ofrece Aframe, JavaScript será la base este proyecto.
+Dicho esto, igual que accedemos al título, podemos acceder a un componente de nuestra escena en A-Frame: cubos, cilindros, el cielo o incluso a la cámara de nuestra escena. Nos aporta infinidad de opciones: crear botones que activen eventos, movimiento a distintas entidades, etc. Junto con todo lo que nos ofrece A-Frame, JavaScript será la base este proyecto.
 
 
-Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creo una versión con la capacidad de ser ejecutada en el lado del servidor, Node.js.\cite{nodejs} Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
+Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creó una versión con la capacidad de ser ejecutada en el lado del servidor, Node.js.\cite{nodejs} Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
 
 \section{WebGL}
 \label{sec:webgl}
 
-WebGL\cite{Cozzi15} define una API (Application Programming Interfaces o Interfaz de Programación de Aplicaciones) basada en OpenGL\footnote{https://www.opengl.org//documentation/} cuyo fin es la representación tanto en 3D como en 2D de elementos gráficos. Como se ejecuta en el elemento "canvas" de HTML, se integra a la perfección con la interfaz del DOM. Su creación nació en 2006 con el primer prototipo de Canvas 3D presentado por Vladimir Vukicevic\footnote{https://en.wikipedia.org/wiki/Vladimir\_Vuki\%C4\%87evi\%C4\%87}, y no fue hasta principios de 2009 que el consorcio Kronos Group consolidaron el WebGL Working Group junto con Google, Mozilla, Apple y Opera, entre otros. Finalmente, en 2011 fue lanzado la primera versión con sus correspondientes especificaciones.
+WebGL\cite{Cozzi15} define una API (Application Programming Interfaces o Interfaz de Programación de Aplicaciones) basada en OpenGL\footnote{https://www.opengl.org//documentation/} cuyo fin es la representación tanto en 3D como en 2D de elementos gráficos. Como se ejecuta en el elemento "canvas" de HTML, se integra a la perfección con la interfaz del DOM. Su creación nació en 2006 con el primer prototipo de Canvas 3D presentado por Vladimir Vukicevic\footnote{https://en.wikipedia.org/wiki/Vladimir\_Vuki\%C4\%87evi\%C4\%87}, y no fue hasta principios de 2009 que el consorcio Kronos Group consolidó el WebGL Working Group junto con Google, Mozilla, Apple y Opera, entre otros. Finalmente, en 2011 fue lanzada la primera versión con sus correspondientes especificaciones.
 
 Al estar asentado en OpenGL, su código está escrito en JavaScript y "shading language". Shading language o lenguaje de sombreado, es un lenguaje de programación basado en la creación de efectos de sombreado, así como superficies, volúmenes, etc. Usa unos tipos de datos más específicos que otros lenguajes, como pueden ser: vectores, matrices o colores. Para el caso de OpenGL, recibe el nombre de GLSL o "glslang".
 
@@ -369,7 +369,7 @@ Actualmente se encuentra en constante desarrollo, y al estar alojada en GitHub\f
 \section{WebXR}
 \label{sec:webxr}
 
-WebXR \cite{baruah2021ar} es un grupo de estándares que apoyan a la creación de escenas 3D tanto en realidad virtual como en realidad aumentada, que junto con Aframe, WebGL y Three.js permitirán el correcto funcionamiento de la escena y la apropiada ejecución en un dispositivo XR. Es la sucesora de WebVR, la cuál se ha dado como desactualizada este mismo año (2020), y añade la compatibilidad con realidad aumentada, de ahi que nombre cambie de WebVR a WebXR. La API de WebXR aporta unas funcionalidades extra de las cuales, el usuario puede no necesita hacerse cargo:
+WebXR \cite{baruah2021ar} es un grupo de estándares que apoyan a la creación de escenas 3D tanto en realidad virtual como en realidad aumentada, que junto con Aframe, WebGL y Three.js permitirán el correcto funcionamiento de la escena y la apropiada ejecución en un dispositivo XR. Es la sucesora de WebVR, la cuál se ha dado como desactualizada este mismo año (2020), y añade la compatibilidad con realidad aumentada, de ahí que el nombre cambie de WebVR a WebXR. La API de WebXR aporta unas funcionalidades extra de las cuales, el usuario puede no necesitar hacerse cargo:
 
 \begin{itemize}
 	\item Duplicar la salida 3D (en el dispositivo) a una 2D en el caso que fuese necesaria, por ejemplo, para la depuración de una aplicación.
@@ -385,7 +385,7 @@ Los dispositivos XR serán entonces, aquellos que pueden presentar imágenes al us
 
 GitHub\cite{munaiah2017curating} es una de las mayores plataformas de almacenamiento de software y proyectos basado en el sistema de control de versiones Git\cite{git}, creado por Linus Torvalds\footnote{https://es.wikipedia.org/wiki/Linus\_Torvalds} en el año 2005.
 
-El propósito de Git es la eficiencia de producción y el mantenimiento de un registro de los cambios que se producen, con el fin de coordinar el trabajo compartido. Para lograr esto, se aclaran unas normas a seguir que recibe el nombre de Flujo de Trabajo.
+El propósito de Git es la eficiencia de producción y el mantenimiento de un registro de los cambios que se producen, con el fin de coordinar el trabajo compartido. Para lograr esto, se aclaran unas normas a seguir que reciben el nombre de Flujo de Trabajo.
 
 Git sigue una estructura de árbol, en la que cada rama representa un flujo de trabajo. La rama principal recibe el nombre de "master", esta rama contiene la versión funcional del proyecto que se esté llevando a cabo, es la rama de producción. Para crear esta rama necesitamos establecer un repositorio en el que poder añadir nuestros archivos y añadirlos. Git tiene una serie de comandos para realizar todas estas acciones, por ejemplo, para crear el repositorio usamos \textit{git init}, y para añadir nuestros archivos (consiguiendo así protegerlos) \textit{git commit} seguido de \textit{git push}.
 
@@ -396,7 +396,7 @@ Tomando como base Git, GitHub nos permite visualizar en su plataforma web el flu
 \begin{itemize}
 	\item Creación de perfiles para cada usuario donde se muestran los repositorios en los que trabaja (tanto propios como conjuntos), junto con estadísticas de trabajo: lenguajes de programación más usados, historial de producción, etc.
 	\item Página de "wiki" para cada repositorio en la que se puede comentar cada apartado de este para que los lectores puedan apoyarse. 
-	\item Una sección llamada "issues" donde los usuarios pueden dejar un mensaje comentando cualquier fallo que haya encontrado en nuestro trabajo.
+	\item Una sección llamada "issues" donde los usuarios pueden dejar un mensaje comentando cualquier fallo que hayan encontrado en nuestro trabajo.
 	\item La casilla "projects" permite crear tareas que se pueden asignar a distintos grupos de trabajo para tener un control de las funcionalidades que se están creando, así como creación de columnas para ordenar estas tareas según si se encuentran finalizadas, en proceso o por iniciar.
 	\item Capacidad de copiar un repositorio ajeno para trabajar sobre él. Esto es lo que se conoce como "fork", nos permite editar los archivos y en el caso de mejorar alguna funcionalidad, podemos solicitar al autor una unión (merge) con lo que se denomina "pull request". 
 \end{itemize}
