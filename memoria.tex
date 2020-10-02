@@ -142,6 +142,12 @@ mi familia / mis amigos / mis compañeros}
 
 Página de agradecimientos en proceso.
 
+% Sobre todo, gracias a mi abuela, por todas las veces que veías estudiando y aunque solo llevase diez minutos sentado frente al ordenador, me decías que descansase un poco que estudiar tanto no tiene que ser bueno. 
+
+% A mis amigos, por todas las veces que habeis venido a mi ventana a obligarme a salir de mi habitación, por todas las risas y los enfados, por compartir nuestros lamentos y por esas celebraciones de los éxitos.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
 
@@ -189,27 +195,53 @@ resumen, se escribe lo último.
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-Introducción en la que se nombre un poco las tecnologías empleadas y 
-los objetivos de este.
+En este capítulo se tratan los objetivos tanto principales como específicos, el contexto en el que surgió esta idea, la planificación temporal para la elaboración del mismo, finalizando con una explicación clarificadora sobre la estructura seguida en este escrito.
+
+El fin de este estudio es la elaboración de una interfaz en realidad virtual disponible desde cualquier navegador. El nacimiento de esta idea surgió con el deseo de introducir a usuarios con un conocimiento bajo sobre los distintos programas de edición de escenas o diseño de modelos 3D, a un entorno intuitivo y de veloz aprendizaje.
+
+El esqueleto del trabajo se compone del framework de creación de experiencias en realidad virtual, A-Frame. A este se le unen otras tecnologías que ayudan a moldear y mejorar este esqueleto, donde se incluyen JavaScript o HTML, entre otras.
 
 \section{Contexto}
 \label{sec:seccion}
 
-Aquí se encuentra el contexto basado en cosas que se han creado
-con la misma tecnología.
+En los últimos años, el sector tecnológico es uno de los departamentos que más crecimiento ha demostrado, consiguiendo récords de desarrollo en 2018 y 2019. Una de las ramas que se diferencian es la realidad virtual y realidad aumentada, originada en la Segunda Guerra Mundial con la necesidad de crear simuladores de vuelo para instruir a los pilotos. Es en 1960 que Morton Heilig\footnote{https://en.wikipedia.org/wiki/Morton\_Heilig} patenta el primer prototipo de visor que reproduce diapositivas en 3D  y sonidos estéreos. 
+
+Durante décadas, los avances en este ámbito de han ido desarrollando positivamente hasta lo que tenemos actualmente:
+
+\begin{itemize}
+	\item Distintas marcas desarrollan videojuegos en realidad virtual (Sony, Microsoft).
+	\item Múltiples empresas exponen distintos dispositivos para acceder a estos entornos (Oculus, HTC Corporation).
+	\item  Simulaciones de vuelo y entrenamiento de pilotos (Fórmula 1, MotoGP).
+	\item En medicina, se usan como simuladores de operaciones y al igual que el anterior punto, para el adiestramiento de personal sanitario lo que evita el gasto de material.
+	\item Muchos museos usan el sistema de realidad aumentada para mostrar escenas de distintas épocas al espectador.
+\end{itemize}
+
+Todas ellas coinciden en su sencillez para un usuario inexperto y el atractivo de imaginarte en un mundo paralelo donde puedes hacer lo que te plazca. Siguiendo las anteriores aplicaciones, muchas se encuentran en constante desarrollo y son el aliciente del surgimiento de este proyecto.
+
+ El modelado 3D, la creación de escenas o la representación de datos en realidad virtual son tres de las dispares ideas que se encuentran en auge en la actualidad. Aplicaciones de escritorio como podría ser Blender \footnote{https://www.blender.org/} adaptadas en un entorno de realidad virtual donde tu puedas modificar el modelo 3D con tus propias manos, o recorrer una ciudad donde cada edificio representa un archivo de tu ordenador e incluso una red de ordenadores donde puedas observar todos los paquetes de comunicación y desplegarlos para ver su información. Todo esto, es solo un pequeño desglose de los ejemplos que me mostró Jesús y llevaron a la elección de esta idea.
 
 
 
-\section{Objetivos principales}
+\section{Objetivo principal}
 \label{sec:estructura}
 
-Sección en la que se expone el objetivo principal del proyecto.
+El objetivo principal de este proyecto se centra en el desarrollo de un entorno de realidad virtual que permita al usuario realizar sus propias escenas mediante la selección y edición de múltiples entidades sin el requisito de tener conocimientos en la rama de edición, de un modo veloz, comprensible y enriquecedor.
 
-\section{Objetivos secundarios}
+\section{Objetivos específicos}
 \label{sec:estructura}
 
-Objetivos secundarios, como futuras implementaciones siguiendo el
-actual trabajo.
+Objetivos específicos a los que se irán dando solución según avance el trabajo:
+
+\begin{itemize}
+	\item Creación de un panel donde el usuario pueda decidir que objeto crear y poder crear copias infinitas de él.
+	\item Añadir una paleta de colores y texturas para cada entidad que permita al usuario decidir el estilo.
+	\item Elección del tamaño de los objetos e implementación mediante gestos en la versión con gafas VR.
+	\item Adaptación de la versión de escritorio a una versión de realidad aumentada compatible con cualquier dispositivo de visualización.
+	\item Dotar de movilidad al usuario tanto para la versión de escritorio como la de realidad virtual.
+	\item Asignar dinamismo a la cámara para simular el movimiento y conectarlo con el sonido estéreo con el objetivo de hacer sentir al usuario una experiencia completa.
+	\item Modo de edición que represente el esqueleto de las entidades así como los ejes de esta y de la propia escena, para facilitar al usuario la visión y obtener una referencia sobre el ancho y alto real.
+	\item La accesibilidad para cualquier usuario al código y a los ejemplos mediante la plataforma GitHub, además de permitir modificarlo y añadir funcionalidades.
+\end{itemize}
 
 \section{Planificación temporal}
 \label{sec:estructura}
