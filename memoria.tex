@@ -1,6 +1,5 @@
 \documentclass[a4paper, 12pt]{book}
 %\usepackage[T1]{fontenc}
-
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
 \usepackage[latin1]{inputenc}
@@ -173,6 +172,7 @@ resumen, se escribe lo último.
 % ÍNDICES %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %%%% Índice de contenidos
 \tableofcontents 
 %%%% Índice de figuras
@@ -197,16 +197,16 @@ resumen, se escribe lo último.
 
 En este capítulo se tratan los objetivos tanto principales como específicos, el contexto en el que surgió esta idea, la planificación temporal para la elaboración del mismo, finalizando con una explicación clarificadora sobre la estructura seguida en este escrito.
 
-El fin de este estudio es la elaboración de una interfaz en realidad virtual disponible desde cualquier navegador. El nacimiento de esta idea surgió con el deseo de introducir a usuarios con un conocimiento bajo sobre los distintos programas de edición de escenas o diseño de modelos 3D, a un entorno intuitivo y de veloz aprendizaje.
+El fin de este estudio es la elaboración de una interfaz en realidad virtual, disponible desde cualquier navegador. El nacimiento de esta idea surgió con el deseo de introducir a usuarios con un conocimiento bajo sobre los distintos programas de edición de escenas o diseño de modelos 3D, a un entorno intuitivo y de veloz aprendizaje.
 
 El esqueleto del trabajo se compone del framework de creación de experiencias en realidad virtual, A-Frame. A este se le unen otras tecnologías que ayudan a moldear y mejorar este esqueleto, donde se incluyen JavaScript o HTML, entre otras.
 
 \section{Contexto}
 \label{sec:seccion}
 
-En los últimos años, el sector tecnológico es uno de los departamentos que más crecimiento ha demostrado, consiguiendo récords de desarrollo en 2018 y 2019. Una de las ramas que se diferencian es la realidad virtual y realidad aumentada, originada en la Segunda Guerra Mundial con la necesidad de crear simuladores de vuelo para instruir a los pilotos. Es en 1960 que Morton Heilig\footnote{https://en.wikipedia.org/wiki/Morton\_Heilig} patenta el primer prototipo de visor que reproduce diapositivas en 3D  y sonidos estéreos. 
+En los últimos años, el sector tecnológico es uno de los departamentos que más crecimiento ha demostrado, consiguiendo récords de desarrollo en 2018 y 2019. Una de las ramas que se diferencian son la realidad virtual y realidad aumentada, originada en la Segunda Guerra Mundial por la necesidad de crear simuladores de vuelo para instruir a los pilotos. Ya en el año 1960, Morton Heilig\footnote{https://en.wikipedia.org/wiki/Morton\_Heilig} patenta el primer prototipo de visor que reproduce diapositivas en 3D  y sonidos estéreos. 
 
-Durante décadas, los avances en este ámbito de han ido desarrollando positivamente hasta lo que tenemos actualmente:
+Durante décadas, los avances en este ámbito se han ido desarrollando positivamente hasta lo que tenemos actualmente:
 
 \begin{itemize}
 	\item Distintas marcas desarrollan videojuegos en realidad virtual (Sony, Microsoft).
@@ -216,9 +216,9 @@ Durante décadas, los avances en este ámbito de han ido desarrollando positivamen
 	\item Muchos museos usan el sistema de realidad aumentada para mostrar escenas de distintas épocas al espectador.
 \end{itemize}
 
-Todas ellas coinciden en su sencillez para un usuario inexperto y el atractivo de imaginarte en un mundo paralelo donde puedes hacer lo que te plazca. Siguiendo las anteriores aplicaciones, muchas se encuentran en constante desarrollo y son el aliciente del surgimiento de este proyecto.
+Todas ellas coinciden en su sencillez para un usuario inexperto y en el atractivo de imaginarte en un mundo paralelo donde puedes hacer lo que te plazca. Siguiendo las anteriores aplicaciones, muchas se encuentran en constante desarrollo y son el aliciente del surgimiento de este proyecto.
 
- El modelado 3D, la creación de escenas o la representación de datos en realidad virtual son tres de las dispares ideas que se encuentran en auge en la actualidad. Aplicaciones de escritorio como podría ser Blender \footnote{https://www.blender.org/} adaptadas en un entorno de realidad virtual donde tu puedas modificar el modelo 3D con tus propias manos, o recorrer una ciudad donde cada edificio representa un archivo de tu ordenador e incluso una red de ordenadores donde puedas observar todos los paquetes de comunicación y desplegarlos para ver su información. Todo esto, es solo un pequeño desglose de los ejemplos que me mostró Jesús y llevaron a la elección de esta idea.
+ El modelado 3D, la creación de escenas o la representación de datos en realidad virtual son tres de las dispares ideas que se encuentran en auge en la actualidad. Aplicaciones de escritorio, como podría ser Blender \footnote{https://www.blender.org/}, adaptadas en un entorno de realidad virtual donde tu puedas modificar el modelo 3D con tus propias manos, o recorrer una ciudad donde cada edificio representa un archivo de tu ordenador e incluso una red de ordenadores donde puedas observar todos los paquetes de comunicación y desplegarlos para ver su información. Todo esto, es solo un pequeño desglose de los ejemplos que me mostró Jesús y llevaron a la elección de esta idea.
 
 
 
@@ -564,8 +564,8 @@ Para hablar de los eventos, tomaré como ejemplo el botón para abrir las puertas.
 
 \begin{verbatim}
 	buttonEl.addEventListener('mouseenter', function() {
-		buttonEl.setAttribute('color', "gray");
-		buttonEl.setAttribute('scale', "0.22 0.22 0.22");
+	   buttonEl.setAttribute('color', "gray");
+	   buttonEl.setAttribute('scale', "0.22 0.22 0.22");
 	});
 \end{verbatim}
 
@@ -585,19 +585,19 @@ Para completar este apartado, resta explicar los usos de los componentes. Un com
 \begin{verbatim}
 AFRAME.registerComponent('restart', {
 // ...
-schema: {
-checkpoint: {type: 'string', default: '0 0 9'},
-},
+   schema: {
+      checkpoint: {type: 'string', default: '0 0 9'},
+   },
 
-tick: function () {
-var audio = document.querySelector('#deathsound');
-var data = this.data;
+   tick: function () {
+      var audio = document.querySelector('#deathsound');
+      var data = this.data;
 
-if(this.el.getAttribute('position').y < -6){
-this.el.setAttribute('position', data.checkpoint);
-audio.play();
-}
-}
+      if(this.el.getAttribute('position').y < -6){
+         this.el.setAttribute('position', data.checkpoint);
+         audio.play();
+      }
+    }
 });
 \end{verbatim}
 En este componente aparece la función "tick", la cual se ejecuta cada milisegundo, comprobando si la posición "y" del jugador es menor (para así saber si ha caído) y haciendo que reaparezca en el inicio. Los componentes son herramientas muy potentes, ya que nos permiten crear funciones complejas como esta y simplifica el código. Para asociar un componente a una entidad debemos incluirlo como, ya hemos visto anteriormente, un atributo cualquiera.
@@ -612,7 +612,7 @@ Siguiendo todo lo comentado en el anterior apartado, se agregaron unas funcional
 \end{itemize}
 
 \subsection{Resultado}
-Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. Pude practicar con muchas de las posibilidades que me ofrecía Aframe mientras aprendía JavaScript. Además, tuve mi primer contacto con las gafas de realidad virtual en las que pude depurar el final de mi juego (Figura \ref{fig:mini_fin}). El minijuego se encuentra alojado en la página de GitHub del proyecto y puede ser jugado\footnote{https://javierbravodonaire.github.io/A-frame/Fase\%200/my-examples/minigame.html}. El código JavaScript\footnote{EN PROCESO} se encuentra a su vez alojado en la carpeta correspondiente a este "Sprint" junto a su HTML\footnote{EN PROCESO}. Para terminar, se mantuvo una reunión en la que se comentó lo aprendido gracias a este "Sprint" y dió comienzo al siguiente apartado.
+Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. Pude practicar con muchas de las posibilidades que me ofrecía Aframe mientras aprendía JavaScript. Además, tuve mi primer contacto con las gafas de realidad virtual en las que pude depurar el final de mi juego (Figura \ref{fig:mini_fin}). El minijuego se encuentra alojado en la página de GitHub del proyecto y puede ser jugado\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%201/my-examples/minigame.html}. El código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%201/my-examples/minijuego.js} se encuentra a su vez alojado en la carpeta correspondiente a este "Sprint" junto a su HTML\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%201/my-examples/minigame.html}. Para terminar, se mantuvo una reunión en la que se comentó lo aprendido gracias a este "Sprint" y dió comienzo al siguiente apartado.
 
 \begin{figure}
 	\centering
@@ -624,6 +624,96 @@ Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. P
 
 \section{Sprint 2} 
 \label{sec:sprint2}
+
+Debido al avance y conocimientos obtenidos gracias a la anterior iteración, en esta se expusieron las bases del proyecto. Debido a todos los objetivos que se verán a continuación, se llevaron a cabo un par más de reuniones para conseguir un asiento adecuado del trabajo.
+
+\subsection{Objetivo}
+
+El objetivo final de esta fase consiste en establecer un panel de selección que nos deje elegir entre una mesa de entidades u otro panel de entidades. Al lado de ese panel tendremos un podio en el cual, aparecerán entidades que elijamos en el panel o en la mesa infinitamente. Para ello, haré uso de distintos eventos para generarlas y definiré los elementos básicos de la escena en el archivo HTML.
+
+\subsection{Desarrollo}
+
+Al tratarse de los cimientos del programa, se trabajarán las fases una encima de otra (esto significa, en los mismo archivos). Con el propósito de explicar todo el proceso ocurrido en esta iteración se dividirá en x etapas.
+
+\subsubsection{Etapa 1:}
+
+En esta primera fase se trabajó en una escena que ofreciese un panel con distintos botones, que permitiese la elección de diferentes figuras. Para empezar, se debe crear un entorno en el que el usuario se sienta cómodo, y para ello, se crea un plano en horizontal (para ello lo dotamos de una rotación de 90 grados) que simule el suelo y se dota a la escena del elemento "sky" (con una textura que se asemeje al cielo) para que parezca que nos encontramos en un plano real. Una vez tenemos el suelo, ya podemos empezar a situar nuestros elementos.
+
+El panel será entonces un plano, de un tamaño razonable, en el cual se colocarán los botones. Para crear los botones, usaremos un cubo al que le modificaremos su propiedad "depth" (profundidad), para dar la sensación de apretar un botón (Figura \ref{fig:Rooster_TFG}). Cada botón tendrá un texto donde se indica que objeto crea. Este texto se añade creando una entidad "a-text" y enlazándola con el botón.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{IMAGENES/Rooster_TFG}
+	\caption{Panel con botones para generar entidades}
+	\label{fig:Rooster_TFG}
+\end{figure}
+
+Para crear las entidades necesitamos hacer uso de eventos mediante JavaScript. Le asignaremos a cada botón de un "id" distinto para poder acceder a todos ellos como un elemento cualquiera del DOM, y le añadiremos un evento. Este evento se encargará de detectar si en algún momento se ha pulsado sobre un botón, y cuando esto suceda se creará la entidad a la que se refiere el mismo. Para conseguir capturar este evento, debemos dotar a los botones con el atributo "clickable" definido en el script de A-Frame, el cual le da la cualidad de ser pulsado. Si pulsamos todos los botones nos encontraremos una escena como la que se puede observar en la Figura \ref{fig:RoosterEntities_TFG}.
+
+Como queremos mantener el código lo más limpio posible y evitar la repetición de lineas, se crea un apartado en el HTML llamado "assets" donde podemos crear los llamados "mixin". Un mixin es una especie de entidad genérica en la que declaras su material, tamaño, etc, y a partir de ella puedes crear clones. Un ejemplo para comprobar su utilidad podría ser el siguiente: imaginemos que queremos crear tres cubos pulsando un botón, entonces desde el JavaScript debemos manejar el evento y crear desde el mismo la entidad sentencia a sentencia, declarando el color, el tamaño, la posición. Con el mixin ya hemos declarado todos estos atributos, por lo que solo necesitaríamos declarar que es un "mixin-cubo" y nos ahorraríamos todas las sentencias de sus propiedades en el JavaScript. Un mixin para un cubo es como el siguiente:
+
+\begin{verbatim}
+    <a-mixin id="box" hoverable grabbable stretchable draggable
+    geometry="primitive: box; width: 0.5; height: 0.5; depth: 0.5"
+    droppable</a-mixin>
+\end{verbatim} 
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm, keepaspectratio]{IMAGENES/RoosterEntities_TFG}
+	\caption{Entidades generadas con el panel}
+	\label{fig:RoosterEntities_TFG}
+\end{figure}
+
+\subsubsection{Etapa 2:}
+
+Fue entonces cuando surgió la idea de que sería más adecuado tener dos modos de creación de objetos. Una de ellas sería el panel que ya tenemos, y la otra sería una mesa de entidades, donde las encontrases todas y pudieses agarrarlas, dotando al programa de una visión más intuitiva.
+
+Para ello, me apoyé nuevamente de los modelos 3D ofrecidos por la página Sketchfab\footnote{https://sketchfab.com}. Ya que A-Frame no ofrece objetos tan complejos como puede ser una mesa, buscar un diseño agradable y gratuito era la mejor opción. Para agregar a la escena estos objetos, debemos declararlos en el mismo apartado que declaramos los mixin, en "assets". Debemos prestar atención a la escala de los modelos 3D, ya que no están diseñados para añadirlos a las escenas directamente y lo más probable es que sean gigantescos.
+
+Una vez tenemos la mesa en nuestra escena, es hora de colocar las entidades encima de ella para poder elegir. Con el objetivo de dotar a la escena de más movilidad, se añadieron animaciones y se modificó la opacidad y transparencia del color para dar la sensación de unos hologramas flotan encima de la mesa (Figura \ref{fig:Holo_TGF}).
+	
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{IMAGENES/Holo_TGF}
+	\caption{Mesa con entidades holográficas}
+	\label{fig:Holo_TGF}
+\end{figure}
+
+Por último, se debe añadir la funcionalidad de elección para crear un clon de la entidad con la que podamos trabajar (igual que creábamos los objetos al pulsar el botón). En este caso, era el propio holograma el cual, al pulsar sobre él, nos creaba una copia. La copia se generaba delante del usuario y para lograr esto se tomaba como punto de referencia la posición de la cámara, consiguiendo así que la entidad se generase en frente dando igual desde que posición la cogieses.
+
+\subsubsection{Etapa 3:}
+
+Como ya tenemos nuestros modos de selección, ahora debemos añadir una funcionalidad que implique cambios en las entidades. La idea principal es crear una paleta de colores y texturas que nos permita en cualquier momento cambiar el estilo de esta. Esta aparecerá cuando pulsemos sobre la entidad, por lo que debemos tener cuidado con el evento que lance esta acción. 
+
+La paleta nos aporta un buen ejemplo de lo que son los nodos. La entidad tendrá un nodo hijo que será el plano que representa la paleta, que a su vez tendrá x hijos que serán los botones que representan los diferentes colores y texturas (Figura \ref{fig:paleta}). Es aquí, cuando me enfrente a un gran problema, los eventos escalan hacia las entidades padre, por lo que se debe detener el evento para que no afecte y genere comportamiento inadecuados. En esta ocasión, el evento de cambiar el color, afectaba tanto a la entidad como al plano que representa la paleta, por lo que se debía controlar.
+
+La paleta se compone así de un total de ocho opciones dividas en dos filas. La primera fila se corresponde con cuatro colores distintos, y la segunda contiene tres texturas diferentes y un último botón que devuelve a la entidad el color original con el que fue creada.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm, keepaspectratio]{IMAGENES/paleta}
+	\caption{Paleta de colores perteneciente a una entidad}
+	\label{fig:paleta}
+\end{figure}
+
+\subsubsection{Etapa 4:}
+
+Terminadas todas las funcionalidades propuestas, solo restaba unificar los dos modos de selección. Para ello, se optó por un panel con dos opciones a elegir: la mesa o el panel de entidades. Esta tarea es fácil, ya que hemos echo un panel con botones anteriormente, solo debemos controlar los eventos para generar la mesa (ya que ahora no se encuentra nada más iniciar la escena) y el otro panel, pero esto nos conduce al siguiente dilema, los dos modos tienen una forma diferente de generar las entidades.
+
+Esto da lugar a la idea de crear un podio, en el cual, aparecerán las entidades según las seleccionemos tanto en la mesa como en el panel (con el panel aparecían en un lugar predeterminado declarado en el código para cada entidad, y con la mesa aparecían delante nuestra). Se crearán así todas las entidades que necesitemos y por último, las agregaremos el atributo "grabbable", el cual dotará a estas de movilidad para poder arrastrarlas por toda la escena. Quedará entonces una escena como la que podemos ver en la Figura \ref{fig:sprint2}, donde observamos el podio con una entidad sobre él, una entidad aparte con su paleta de edición, la mesa de entidades, el panel donde elegimos el modo de selección y el panel de elección de entidad.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=13cm, keepaspectratio]{IMAGENES/sprint2}
+	\caption{Versión funcional conseguida al final del Sprint 2}
+	\label{fig:sprint2}
+\end{figure}
+
+\subsection{Resultado}
+
+Gracias a esta iteración hemos sentado las bases y varias funcionalidades que darán paso a las siguientes etapas. Todas los eventos y funciones empleadas se recogen el código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%202/improve.js} alojado en el repositorio de GitHub, como el código HTML\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%202/improve.html} donde se definen los elementos iniciales de la escena. Como en el anterior apartado de resultado y en los siguientes, se adjunta la dirección para probar esta versión en tu navegador\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%202/improve.html}.
 
 \section{Sprint 3} 
 \label{sec:sprint3}
