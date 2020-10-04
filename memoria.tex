@@ -625,11 +625,11 @@ Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. P
 \section{Sprint 2} 
 \label{sec:sprint2}
 
-Debido al avance y conocimientos obtenidos gracias a la anterior iteración, en esta se expusieron las bases del proyecto. Debido a todos los objetivos que se verán a continuación, se llevaron a cabo un par más de reuniones para conseguir un asiento adecuado del trabajo.
+Debido al avance y conocimientos obtenidos gracias a la anterior iteración, en esta se expusieron las bases del proyecto. Debido a todos los objetivos que se verán a continuación, se llevaron a cabo un par más de reuniones para conseguir un asentamiento adecuado del trabajo.
 
 \subsection{Objetivo}
 
-El objetivo final de esta fase consiste en establecer un panel de selección que nos deje elegir entre una mesa de entidades u otro panel de entidades. Al lado de ese panel tendremos un podio en el cual, aparecerán entidades que elijamos en el panel o en la mesa infinitamente. Para ello, haré uso de distintos eventos para generarlas y definiré los elementos básicos de la escena en el archivo HTML.
+El objetivo final de esta fase consiste en establecer un panel de selección que nos deje elegir entre una mesa de entidades u otro panel de entidades. Al lado de ese panel tendremos un podio, en el cual aparecerán entidades que elijamos en el panel o en la mesa infinitamente. Para ello, haré uso de distintos eventos para generarlas y definiré los elementos básicos de la escena en el archivo HTML.
 
 \subsection{Desarrollo}
 
@@ -637,7 +637,7 @@ Al tratarse de los cimientos del programa, se trabajarán las fases una encima de
 
 \subsubsection{Etapa 1:}
 
-En esta primera fase se trabajó en una escena que ofreciese un panel con distintos botones, que permitiese la elección de diferentes figuras. Para empezar, se debe crear un entorno en el que el usuario se sienta cómodo, y para ello, se crea un plano en horizontal (para ello lo dotamos de una rotación de 90 grados) que simule el suelo y se dota a la escena del elemento "sky" (con una textura que se asemeje al cielo) para que parezca que nos encontramos en un plano real. Una vez tenemos el suelo, ya podemos empezar a situar nuestros elementos.
+En esta primera fase se trabajó en una escena que ofreciese un panel con distintos botones, que permitiese la elección de diferentes figuras. Para empezar, se debe crear un entorno en el que el usuario se sienta cómodo, y para ello, se crea un plano en horizontal (el cual estará dotado de una rotación de 90 grados) que simule el suelo y se dota a la escena del elemento "sky" (con una textura que se asemeje al cielo) para que parezca que nos encontramos en un plano real. Una vez tenemos el suelo, ya podemos empezar a situar nuestros elementos.
 
 El panel será entonces un plano, de un tamaño razonable, en el cual se colocarán los botones. Para crear los botones, usaremos un cubo al que le modificaremos su propiedad "depth" (profundidad), para dar la sensación de apretar un botón (Figura \ref{fig:Rooster_TFG}). Cada botón tendrá un texto donde se indica que objeto crea. Este texto se añade creando una entidad "a-text" y enlazándola con el botón.
 
@@ -648,9 +648,9 @@ El panel será entonces un plano, de un tamaño razonable, en el cual se colocarán
 	\label{fig:Rooster_TFG}
 \end{figure}
 
-Para crear las entidades necesitamos hacer uso de eventos mediante JavaScript. Le asignaremos a cada botón de un "id" distinto para poder acceder a todos ellos como un elemento cualquiera del DOM, y le añadiremos un evento. Este evento se encargará de detectar si en algún momento se ha pulsado sobre un botón, y cuando esto suceda se creará la entidad a la que se refiere el mismo. Para conseguir capturar este evento, debemos dotar a los botones con el atributo "clickable" definido en el script de A-Frame, el cual le da la cualidad de ser pulsado. Si pulsamos todos los botones nos encontraremos una escena como la que se puede observar en la Figura \ref{fig:RoosterEntities_TFG}.
+Para crear las entidades necesitamos hacer uso de eventos mediante JavaScript. Le asignaremos a cada botón un "id" distinto para poder acceder a todos ellos como un elemento cualquiera del DOM, y le añadiremos un evento. Este evento se encargará de detectar si en algún momento se ha pulsado sobre un botón, y cuando esto suceda se creará la entidad a la que se refiere el mismo. Para conseguir capturar este evento, debemos dotar a los botones con el atributo "clickable" definido en el script de A-Frame, el cual le da la cualidad de ser pulsado. Si pulsamos todos los botones nos encontraremos una escena como la que se puede observar en la Figura \ref{fig:RoosterEntities_TFG}.
 
-Como queremos mantener el código lo más limpio posible y evitar la repetición de lineas, se crea un apartado en el HTML llamado "assets" donde podemos crear los llamados "mixin". Un mixin es una especie de entidad genérica en la que declaras su material, tamaño, etc, y a partir de ella puedes crear clones. Un ejemplo para comprobar su utilidad podría ser el siguiente: imaginemos que queremos crear tres cubos pulsando un botón, entonces desde el JavaScript debemos manejar el evento y crear desde el mismo la entidad sentencia a sentencia, declarando el color, el tamaño, la posición. Con el mixin ya hemos declarado todos estos atributos, por lo que solo necesitaríamos declarar que es un "mixin-cubo" y nos ahorraríamos todas las sentencias de sus propiedades en el JavaScript. Un mixin para un cubo es como el siguiente:
+Como queremos mantener el código lo más limpio posible y evitar la repetición de lineas, se crea un apartado en el HTML llamado "assets" donde podemos crear los llamados "mixin". Un mixin es una especie de entidad genérica en la que declaras su material, tamaño, etc, y a partir de ella puedes crear clones. Un ejemplo para comprobar su utilidad podría ser el siguiente: imaginemos que queremos crear tres cubos pulsando un botón, entonces desde el JavaScript debemos manejar el evento y crear desde el mismo la entidad, sentencia a sentencia, declarando el color, el tamaño y la posición. Con el mixin ya hemos declarado todos estos atributos, por lo que solo necesitaríamos declarar que es un "mixin-cubo" y nos ahorraríamos todas las sentencias de sus propiedades en el JavaScript. Un mixin para un cubo es como el siguiente:
 
 \begin{verbatim}
     <a-mixin id="box" hoverable grabbable stretchable draggable
@@ -670,9 +670,9 @@ Como queremos mantener el código lo más limpio posible y evitar la repetición de
 
 Fue entonces cuando surgió la idea de que sería más adecuado tener dos modos de creación de objetos. Una de ellas sería el panel que ya tenemos, y la otra sería una mesa de entidades, donde las encontrases todas y pudieses agarrarlas, dotando al programa de una visión más intuitiva.
 
-Para ello, me apoyé nuevamente de los modelos 3D ofrecidos por la página Sketchfab\footnote{https://sketchfab.com}. Ya que A-Frame no ofrece objetos tan complejos como puede ser una mesa, buscar un diseño agradable y gratuito era la mejor opción. Para agregar a la escena estos objetos, debemos declararlos en el mismo apartado que declaramos los mixin, en "assets". Debemos prestar atención a la escala de los modelos 3D, ya que no están diseñados para añadirlos a las escenas directamente y lo más probable es que sean gigantescos.
+Para ello, me apoyé nuevamente en los modelos 3D ofrecidos por la página Sketchfab\footnote{https://sketchfab.com}. Ya que A-Frame no ofrece objetos tan complejos como puede ser una mesa, buscar un diseño agradable y gratuito era la mejor opción. Para agregar a la escena estos objetos, debemos declararlos en el mismo apartado que declaramos los mixin, en "assets". Debemos prestar atención a la escala de los modelos 3D, ya que no están diseñados para añadirlos a las escenas directamente y lo más probable es que sean gigantescos.
 
-Una vez tenemos la mesa en nuestra escena, es hora de colocar las entidades encima de ella para poder elegir. Con el objetivo de dotar a la escena de más movilidad, se añadieron animaciones y se modificó la opacidad y transparencia del color para dar la sensación de unos hologramas flotan encima de la mesa (Figura \ref{fig:Holo_TGF}).
+Una vez tenemos la mesa en nuestra escena, es hora de colocar las entidades encima de ella para poder elegir. Con el objetivo de dotar a la escena de más movilidad, se añadieron animaciones y se modificó la opacidad y transparencia del color para dar la sensación de unos hologramas que flotan por encima de la mesa (Figura \ref{fig:Holo_TGF}).
 	
 \begin{figure}
 	\centering
@@ -681,13 +681,13 @@ Una vez tenemos la mesa en nuestra escena, es hora de colocar las entidades enci
 	\label{fig:Holo_TGF}
 \end{figure}
 
-Por último, se debe añadir la funcionalidad de elección para crear un clon de la entidad con la que podamos trabajar (igual que creábamos los objetos al pulsar el botón). En este caso, era el propio holograma el cual, al pulsar sobre él, nos creaba una copia. La copia se generaba delante del usuario y para lograr esto se tomaba como punto de referencia la posición de la cámara, consiguiendo así que la entidad se generase en frente dando igual desde que posición la cogieses.
+Por último, se debe añadir la funcionalidad de elección para crear un clon de la entidad con la que podamos trabajar (igual que creábamos los objetos al pulsar el botón). En este caso, era el propio holograma el cual, al pulsar sobre él, nos creaba una copia. La copia se generaba delante del usuario y para lograr esto se tomaba como punto de referencia la posición de la cámara, consiguiendo así que la entidad se generase en frente, dando igual desde que posición la cogieses.
 
 \subsubsection{Etapa 3:}
 
 Como ya tenemos nuestros modos de selección, ahora debemos añadir una funcionalidad que implique cambios en las entidades. La idea principal es crear una paleta de colores y texturas que nos permita en cualquier momento cambiar el estilo de esta. Esta aparecerá cuando pulsemos sobre la entidad, por lo que debemos tener cuidado con el evento que lance esta acción. 
 
-La paleta nos aporta un buen ejemplo de lo que son los nodos. La entidad tendrá un nodo hijo que será el plano que representa la paleta, que a su vez tendrá x hijos que serán los botones que representan los diferentes colores y texturas (Figura \ref{fig:paleta}). Es aquí, cuando me enfrente a un gran problema, los eventos escalan hacia las entidades padre, por lo que se debe detener el evento para que no afecte y genere comportamiento inadecuados. En esta ocasión, el evento de cambiar el color, afectaba tanto a la entidad como al plano que representa la paleta, por lo que se debía controlar.
+La paleta nos aporta un buen ejemplo de lo que son los nodos. La entidad tendrá un nodo hijo que será el plano que representa la paleta, que a su vez tendrá x hijos que serán los botones que representan los diferentes colores y texturas (Figura \ref{fig:paleta}). Es aquí, cuando me enfrente a un gran problema, los eventos escalan hacia las entidades padre, por lo que se debe detener el evento para que no afecte y genere comportamientos inadecuados. En esta ocasión, el evento de cambiar el color, afectaba tanto a la entidad como al plano que representa la paleta, por lo que se debía controlar.
 
 La paleta se compone así de un total de ocho opciones dividas en dos filas. La primera fila se corresponde con cuatro colores distintos, y la segunda contiene tres texturas diferentes y un último botón que devuelve a la entidad el color original con el que fue creada.
 
@@ -700,9 +700,9 @@ La paleta se compone así de un total de ocho opciones dividas en dos filas. La p
 
 \subsubsection{Etapa 4:}
 
-Terminadas todas las funcionalidades propuestas, solo restaba unificar los dos modos de selección. Para ello, se optó por un panel con dos opciones a elegir: la mesa o el panel de entidades. Esta tarea es fácil, ya que hemos echo un panel con botones anteriormente, solo debemos controlar los eventos para generar la mesa (ya que ahora no se encuentra nada más iniciar la escena) y el otro panel, pero esto nos conduce al siguiente dilema, los dos modos tienen una forma diferente de generar las entidades.
+Terminadas todas las funcionalidades propuestas, solo restaba unificar los dos modos de selección. Para ello, se optó por un panel con dos opciones a elegir: la mesa o el panel de entidades. Esta tarea es fácil, ya que hemos hecho un panel con botones anteriormente, solo debemos controlar los eventos para generar la mesa (ya que ahora no se encuentra nada más iniciar la escena) y el otro panel, pero esto nos conduce al siguiente dilema, los dos modos tienen una forma diferente de generar las entidades.
 
-Esto da lugar a la idea de crear un podio, en el cual, aparecerán las entidades según las seleccionemos tanto en la mesa como en el panel (con el panel aparecían en un lugar predeterminado declarado en el código para cada entidad, y con la mesa aparecían delante nuestra). Se crearán así todas las entidades que necesitemos y por último, las agregaremos el atributo "grabbable", el cual dotará a estas de movilidad para poder arrastrarlas por toda la escena. Quedará entonces una escena como la que podemos ver en la Figura \ref{fig:sprint2}, donde observamos el podio con una entidad sobre él, una entidad aparte con su paleta de edición, la mesa de entidades, el panel donde elegimos el modo de selección y el panel de elección de entidad.
+Esto da lugar a la idea de crear un podio, en el cual, aparecerán las entidades según las seleccionemos tanto en la mesa como en el panel (con el panel aparecían en un lugar predeterminado declarado en el código para cada entidad, y con la mesa aparecían delante de nosotros). Se crearán así todas las entidades que necesitemos y por último, las agregaremos el atributo "grabbable", el cual dotará a estas de movilidad para poder arrastrarlas por toda la escena. Quedará entonces una escena como la que podemos ver en la Figura \ref{fig:sprint2}, donde observamos el podio con una entidad sobre él, una entidad aparte con su paleta de edición, la mesa de entidades, el panel donde elegimos el modo de selección y el panel de elección de entidad.
 
 \begin{figure}
 	\centering
@@ -713,7 +713,7 @@ Esto da lugar a la idea de crear un podio, en el cual, aparecerán las entidades 
 
 \subsection{Resultado}
 
-Gracias a esta iteración hemos sentado las bases y varias funcionalidades que darán paso a las siguientes etapas. Todas los eventos y funciones empleadas se recogen el código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%202/improve.js} alojado en el repositorio de GitHub, como el código HTML\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%202/improve.html} donde se definen los elementos iniciales de la escena. Como en el anterior apartado de resultado y en los siguientes, se adjunta la dirección para probar esta versión en tu navegador\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%202/improve.html}.
+Gracias a esta iteración hemos sentado las bases y varias funcionalidades que darán paso a las siguientes etapas. Todos los eventos y funciones empleados se recogen en el código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%202/improve.js} alojado en el repositorio de GitHub, así como el código HTML\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%202/improve.html} donde se definen los elementos iniciales de la escena. Como en el anterior apartado de resultado y en los siguientes, se adjunta la dirección para probar esta versión en el navegador\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%202/improve.html}.
 
 \section{Sprint 3} 
 \label{sec:sprint3}
@@ -792,15 +792,15 @@ Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Todos los proyectos basados en ingeniería de software siguen una máxima: un trabajo nunca se termina, siempre podemos mejorarlo y añadir funcionalidades. Por lo que a continuación se incluye algunas ideas que serían factibles añadir en un futuro:
+Todos los proyectos basados en ingeniería de software siguen una máxima: un trabajo nunca se termina, siempre podemos mejorarlo y añadir funcionalidades. Por lo que a continuación se incluyen algunas ideas que serían factibles incluir en un futuro:
 
-\begin{itemize}
-	\item Añadir una función para cambiar entre el láser que se usa actualmente por unas manos con la misión de poder interactuar con las entidades y los botones con ellas.
-	\item Incluir dinámicas las entidades para poder apilarlas, tirarlas y dotarlas de movimiento en general.
-	\item Opción de guardar una entidad específica con su color, tamaño y posición al dejarla sobre un podio o la propia mesa, con el objetivo de usarla más tarde o incluso clonarla.
-	\item Opción de moldear las entidades a nuestro gusto, por ejemplo quitándoles los vértices o creando agujeros en ellas.
-	\item Agregar acciones mediante movimientos de las manos.
-\end{itemize}
+%\begin{itemize}
+%	\item Añadir una función para cambiar entre el láser que se usa actualmente por unas manos con la misión de poder interactuar con las entidades y los botones con ellas.
+%	\item Incluir dinámicas en las entidades para poder apilarlas, tirarlas y dotarlas de movimiento en general.
+%	\item Opción de guardar una entidad específica con su color, tamaño y posición al dejarla sobre un podio o la propia mesa, con el objetivo de usarla más tarde o incluso clonarla.
+%	\item Opción de moldear las entidades a nuestro gusto, por ejemplo quitándoles los vértices o creando agujeros en ellas.
+%	\item Agregar acciones mediante movimientos de las manos.
+%\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
