@@ -625,7 +625,7 @@ Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. P
 \section{Sprint 2} 
 \label{sec:sprint2}
 
-Debido al avance y conocimientos obtenidos gracias a la anterior iteración, en esta se expusieron las bases del proyecto. Debido a todos los objetivos que se verán a continuación, se llevaron a cabo un par más de reuniones para conseguir un asentamiento adecuado del trabajo.
+Debido al avance y conocimientos obtenidos gracias a la anterior iteración, en esta se expusieron las bases del proyecto. Como consecuencia a todos los objetivos que se verán a continuación, se llevaron a cabo un par más de reuniones para conseguir un asentamiento adecuado del trabajo.
 
 \subsection{Objetivo}
 
@@ -718,6 +718,60 @@ Gracias a esta iteración hemos sentado las bases y varias funcionalidades que da
 \section{Sprint 3} 
 \label{sec:sprint3}
 
+Una vez establecidas las bases de la escena, se deben implementar nuevas funcionalidades que aporten dinamismo y utilidad. La reunión que finalizó la anterior iteración, fue la misma que generó los objetivos de esta. Como ya me había adecuado al estilo de A-Frame y al lenguaje JavaScript, era hora de añadir opciones más complejas.
+
+\subsection{Objetivo}
+
+Hasta ahora, podemos generar entidades infinitamente encima del podio y cada una de ellas tiene su propia paleta de colores, pero esta opción no es la más intuitiva. Por ello, la mejor opción es añadir en el propio panel donde creamos las entidades, otra paleta de colores y texturas. Pero existe un problema, la entidad no se crea hasta que no la eliges, y una vez seleccionada ya se ha creado con su color por defecto, por eso se creará la principal funcionalidad propuesta en esta iteración, el podio con entidad dinámica. 
+
+El podio con entidad dinámica trata del mismo podio, pero en este caso ya existe una figura flotando por encima de este, y pulsando sobre los distintos botones de color, textura o incluso entidad, es la propia figura la que cambia. Entonces, existirá una sola figura flotante que cambiará según nuestras indicaciones, y cuando la arrastremos fuera del podio se creará una copia para poder seguir editando entidades infinitamente.
+
+Por último, se añadirá una función para, al igual que elegimos el estilo de las figuras, podamos elegir su tamaño.
+
+\subsection{Desarrollo}
+
+Como el fundamento de esta iteración es la entidad cambiante que se encuentra encima del podio, lo primero es crearla. Para ello, debemos entender como funcionan las relaciones padre-hijo. El podio es una entidad hija de la escena y a su la vez, la entidad cambiante será una hija del podio. Con esto, conseguiremos realizar correctamente la generación de una nueva entidad cuando saquemos la que se encuentra en el podio. A continuación, se explica paso a paso como se realiza esta funcionalidad, para que quede de forma clara:
+
+\begin{enumerate}
+	\item Como en la iteración anterior ya importamos el modelo del podio, no necesitamos crearlo de nuevo. Se crea un entidad aleatoria (en mi caso elegí un cubo), que será la que aparezca al inicio de la escena y sobre la que editaremos.
+	\item Debemos crear esa entidad como hija del podio, de forma que la posición, el tamaño y la función de arrastras se vean afectadas por este. Una entidad que sea hija de otra dependerá en sus atributos de su nodo padre, entonces, si queremos que la entidad este flotando, solo se necesitará modificar la posición en el eje "y" (el padre es la posición de referencia).
+	\item Siguiendo esos pasos, ya tenemos el podio y la entidad colocada perfectamente. Como vamos a necesitar acceder a los atributos de la entidad para realizarle cambios, debemos añadirle un "id" único, el cual nos permitirá hacerle referencia desde nuestro código JavaScript (donde se encuentra toda la funcionalidad).
+	\item Añadimos al panel distintos botones (a los que ya había), con texturas y colores diferentes. Ahora, debemos modificar el código anterior, ya que no vamos a crear entidades directamente, vamos a modificar una existente. Se divide así el código en dos partes: la referente a los colores y texturas, y la referente a las entidades.
+	\item En el caso de los botones de selección de entidad, deben modificar la estructura de la figura, por eso lo más sencillo es realizar lo visto en la anterior iteración, crear un mixin por entidad. Así, cada vez que pulsemos un botón distinto, solo será necesario acceder a la entidad (gracias al "id") y modificar su atributo mixin.
+	\item El caso para colores y texturas es más sencillo. No necesitamos ningún mixin, solo accedemos a su atributo color o source, y lo modificamos.
+	\item Por último, resta crear una nueva entidad cuando saquemos del podio la editada. Se podría repetir el primer paso, crear una entidad aleatorio y vuelta a lo mismo, pero si queremos crear dos entidades iguales, ¿tenemos que editarla dos veces?. Es aquí cuando surge la función "cloneEntity", la cual una vez hemos retirado la entidad del podio, realiza una copia idéntica a la ya creada. La entidad separada, pasará entonces a ser una hija de la escena, y no del podio, y delegará su "id" al clon (el cual será la nueva hija del podio), generando un bucle infinito que permite extraer todas las figuras necesarias.
+\end{enumerate}
+
+De todos estos pasos, podemos generar una nueva funcionalidad de los botones de color y textura. Como el color y la textura se corresponden con distintos atributos de una entidad, podemos combinarlos. Esto es, si pulsamos sobre una textura y luego un color, cambiará la tonalidad de esa textura ofreciendo más combinaciones de estilo. 
+
+Al igual que podemos colorear las figuras, quizás necesitemos eliminar su color. La mejor idea es usar el color blanco debido a que si estableces una textura, no vas a querer pulsar el blanco encima de ella y que no surtiría efecto. Esto hace que el color blanco del panel se convierte en el botón de reinicio de estilo.
+
+Podemos observar un ejemplo de estas funcionalidades (podio con entidad variable y textura combinada con color) en la Figura \ref{fig:paleta23}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/paleta23}
+	\caption{Panel con botones para colores y texturas}
+	\label{fig:paleta23}
+\end{figure}
+
+Lo último que quedaba para terminar esta iteración, era el control de tamaño. Para esta modificación, la idea inicial fue implementarlo como el color y texturas, a través de botones, pero además de no ser intuitivo, solo permitiría editar el tamaño en las mismas cantidades que el número de botones establecidos. La idea sucesora, y la finalmente implementada, fue una barra deslizable.
+
+A-Frame no proporciona ninguna entidad que represente una barra deslizante, pero gracias a GitHub podemos encontrar muchos scripts que definen varios componentes que nos interese importar directamente a nuestro proyecto, entre ellos la barra deslizable. En este caso, la biblioteca aportada por el usuario \textbf{rdub80}\footnote{https://github.com/rdub80/aframe-gui}, proporcionaba diversos elementos como barras de progreso, etiquetas y la empleada, barra deslizante.
+
+Este elemento se divide en: la barra y un punto de referencia. La movilidad del elemento ya esta creado, pero falta enlazarlo con nuestra entidad del podio. La referencia para determinar el tamaño se encuentra en la posición del punto de referencia. Mediante JavaScript, obtenemos la situación del punto de referencia (que por defecto se encuentra en el centro de la barra, para permitirnos elegir aumentar o disminuir) en la escena, y siguiendo un sencillo algoritmo modificamos el atributo escala de la entidad. Quedaría entonces una escena como la que podemos ver en la Figura \ref{fig:slider}, en la que hemos decidido hacer crecer al máximo un cubo.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/slider}
+	\caption{Escena con panel de edición y barra deslizable}
+	\label{fig:slider}
+\end{figure}
+
+\subsection{Resultado}
+
+Hemos conseguido así, una gran funcionalidad para nuestro entorno de realidad virtual. No se encontraron dificultades añadiendo la barra deslizable ni mejorando el panel, pero lo más costoso (y más importante), fue realizar la clonación de entidades y la edición de estas. Como siempre, el código HTML\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%203/improve.html} y JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%203/improve.js}, están almacenados en el repositorio referente al proyecto en GitHub, y se encuentra disponible el enlace para probar la versión funcional de esta iteración \footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%203/improve.html}.
+
 \section{Sprint 4} 
 \label{sec:sprint4}
 
@@ -755,37 +809,48 @@ Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejempl
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
+En este apartado, echaremos una vista atrás al capítulo de objetivos (Capítulo )\ref{sec:intro}) y se debatirá si se logro la consecución y los problemas que surgieron.
 
-%Es aquí donde hay que debatir qué se ha conseguido y qué no. 
-%Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
-%
-%Y si has llegado hasta aquí, siempre es bueno pasarle el corrector ortográfico, que las erratas quedan fatal en la memoria final.
-%Para eso, en Linux tenemos aspell, que se ejecuta de la siguiente manera desde la línea de \emph{shell}:
+En general, todos los objetivos propuestos se han solventado con éxito con el paso de las iteraciones. Se ha logrado desarrollar un entorno en realidad virtual didáctico y de fácil uso en el navegador. Trata de una escena en tres dimensiones, en la cual, encontramos un espacio infinito con un suelo a los pies del usuario y, de frente, un panel y un podio para poder empezar con la tarea deseada. 
 
-\begin{verbatim}
-  aspell --lang=es_ES -c memoria.tex
-\end{verbatim}
+Se aportan dos modos de creación de figuras, mesa de entidades y panel con botones. Cada entidad tiene su propia paleta de edición de color y textura, por si se cambia de opinión sobre su estilo una vez creada. Añadiendo, la capacidad de elección de tamaño a través de una barra deslizable.
+
+Como añadido, se realizaron las modificaciones pertinentes para permitir al usuario cambiar entre la versión de escritorio y la versión con gafas de realidad virtual, agregando botones para hacer más intuitivo su acceso mediante los mandos u acciones como engrandar una entidad con los dos mandos.
+
+Se consiguió una correcta movilidad del usuario por la escena, permitiéndole volar y girar en cualquier dirección, además de agregar su versión con gafas, en la que el sentido de movimiento viene dado por la dirección de nuestra vista.
+
+El modo edición de la escena que nos permite observar los ejes de las entidades, así como su esqueleto, se implementó con éxito permitiendo al usuario obtener una visión más esquemática de la escena.
+
+Por último, se logró correctamente alojar todos los ejemplos funcionales y la versión final del proyecto en GitHub para el uso de cualquier usuario, como se ha podido observar en los enlaces que se adjuntaban a lo largo del capítulo \ref{chap:disenio}. 
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+Durante mi grado he recibido muchas lecciones en diferentes ramas de las tecnologías, entre ellas el software, la cual es la base de este proyecto. Algunas de las asignaturas que me han hecho más llevadero el avance son las siguientes:
 
 \begin{enumerate}
-  \item a
-  \item b
+  \item Asignaturas como \textit{Servicios y Aplicaciones Telemáticas} me han permitido obtener una base en HTML, además de conocer la estructura del DOM y el diagnóstico de errores en la consola del navegador.
+  \item Gracias a la asignatura \textit{Desarrollo de Aplicaciones Telemáticas}, pude cumplimentar mi aprendizaje en JavaScript ya que coincidió el lapso de tiempo de la asignatura con el trabajo.
+  \item \textit{Ingeniería en Sistemas de Información} fue la encargada de enseñarme todos los conocimientos necesarios para el control de versiones y el uso de GitHub.
+  \item \textit{Sistemas Operativos} además de aportarme los conocimientos sobre un lenguaje de programación, me proporcionó unas nociones básicas del manejo de la consola de Linux, con la cual, pude manejar mis archivos, crear un servidor donde probar mi trabajo e instalar diversas aplicaciones como Atom.
+  \item Todas las materias que consistían en fundamentos de programación han sido las responsables de aportarme los cimientos de distintos lenguajes de programación, así como la algoritmia y pensamiento que hay detrás de ello.
 \end{enumerate}
 
 
 \section{Lecciones aprendidas}
 \label{sec:lecciones_aprendidas}
 
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+A continuación, se encuentran todos los conocimientos adquiridos gracias a este Trabajo de Fin de Grado.
 
 \begin{enumerate}
-  \item Aquí viene uno.
-  \item Aquí viene oto.
+  \item Aprendizaje del framework para creación de experiencias A-Frame. En esto se incluye, creación de escenas, desarrollo de componentes, agregación y edición de entidades, control de la cámara e iluminación. Para esto, se profundizó en la estructura ECS y en la estructura de elementos HTML, etiquetas y atributos.
+  \item Manejo de eventos y modificación de elementos a tiempo real mediante el uso de JavaScript.
+  \item Competencia en la resolución de errores, como la propagación de eventos padre-hijo vista en el apartado \ref{sec:sprint2}.
+  \item Capacidad de crear un servidor de forma local donde poder depurar y probar el trabajo realizado.
+  \item Habilidad para desenvolverme con el uso de las gafas de realidad virtual, así como, la adaptación del trabajo a estas y la conexión con el ordenador para permitir una depuración más veloz.
+  \item Importación de modelos 3D a la escena y correcta inyección, permitiendo usar las animaciones vinculadas a estos.
+  \item Manejo de la plataforma de control de versiones GitHub.
+  \item Uso de LaTeX para la edición de textos científico-técnicos.
 \end{enumerate}
 
 
@@ -794,13 +859,13 @@ Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
 
 Todos los proyectos basados en ingeniería de software siguen una máxima: un trabajo nunca se termina, siempre podemos mejorarlo y añadir funcionalidades. Por lo que a continuación se incluyen algunas ideas que serían factibles incluir en un futuro:
 
-%\begin{itemize}
-%	\item Añadir una función para cambiar entre el láser que se usa actualmente por unas manos con la misión de poder interactuar con las entidades y los botones con ellas.
-%	\item Incluir dinámicas en las entidades para poder apilarlas, tirarlas y dotarlas de movimiento en general.
-%	\item Opción de guardar una entidad específica con su color, tamaño y posición al dejarla sobre un podio o la propia mesa, con el objetivo de usarla más tarde o incluso clonarla.
-%	\item Opción de moldear las entidades a nuestro gusto, por ejemplo quitándoles los vértices o creando agujeros en ellas.
-%	\item Agregar acciones mediante movimientos de las manos.
-%\end{itemize}
+\begin{itemize}
+	\item Añadir una función para cambiar entre el láser que se usa actualmente por unas manos con la misión de poder interactuar con las entidades y los botones con ellas.
+	\item Incluir dinámicas en las entidades para poder apilarlas, tirarlas y dotarlas de movimiento en general.
+	\item Opción de guardar una entidad específica con su color, tamaño y posición al dejarla sobre un podio o la propia mesa, con el objetivo de usarla más tarde o incluso clonarla.
+	\item Opción de moldear las entidades a nuestro gusto, por ejemplo quitándoles los vértices o creando agujeros en ellas.
+	\item Agregar acciones mediante movimientos de las manos.
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
