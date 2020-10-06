@@ -154,8 +154,14 @@ Página de agradecimientos en proceso.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Resumen en proceso. Mejor escribirlo al final.
+El proyecto realizado se centra en la creación de una interfaz para la construcción de escenas en realidad virtual, cuya máxima consiste en acercar a usuarios que no son expertos en este ámbito al manejo de entornos virtuales. Este trabajo ha sido creado gracias al framework de A-Frame para producir experiencias en realidad virtual, enlazado con distintas tecnologías, como JavaScript y HTML.
 
+
+Fusionando los elementos HTML con el lenguaje JavaScript, podemos manejar distintos eventos y crear funcionalidad, que añaden dinamismo a la escena. A-Frame, el cual está construido sobre Three.js, se encargará de generar el entorno, y agregando la biblioteca WebGL se renderizarán todos los elementos.
+
+la escena es accesible desde un navegador como con un dispositivo  de realidad virtual, gracias a WebVR, permitiendo obtener una experiencia completa.
+
+Todos los ejemplos y el código se encuentran alojados en GitHub, para el uso y disfrute de cualquier usuario.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
 
@@ -163,9 +169,13 @@ Resumen en proceso. Mejor escribirlo al final.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-Página de resumen escrito en inglés. Al igual que el 
-resumen, se escribe lo último.
+The current project's aim is the creation of an interface for building scenes in virtual reality, which ultimate goal consist on bring amateur users closer to this technology. This idea has been created thanks to the A-Frame framework linked with several technologies, such as HTML or JavaScript.
 
+Fusing HTML elements with JavaScript, we can handle different events and add functionalities, with the aim of providing dynamism. Furthermore, A-Frame is built on Three.js. It will generate the environment, rendering all the objects through WebGL.
+
+The scene is accessible from a browser or a virtual reality device, allowing to obtain an immersive experience, using WebVR API.
+
+All the code and examples are hosted on GitHub, for the use and enjoyment of any user.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -412,16 +422,26 @@ WebXR \cite{baruah2021ar} es un grupo de estándares que apoyan a la creación de 
 
 Los dispositivos XR serán entonces, aquellos que pueden presentar imágenes al usuario e incorporen un sistema de rastreo de movimiento y orientación, permitiendo la inmersión completa de este.
 
-\section{GitHub}
-\label{sec:github}
-
-GitHub\cite{munaiah2017curating} es una de las mayores plataformas de almacenamiento de software y proyectos basado en el sistema de control de versiones Git\cite{git}, creado por Linus Torvalds\footnote{https://es.wikipedia.org/wiki/Linus\_Torvalds} en el año 2005.
+\section{Git}
+\label{sec:git}
 
 El propósito de Git es la eficiencia de producción y el mantenimiento de un registro de los cambios que se producen, con el fin de coordinar el trabajo compartido. Para lograr esto, se aclaran unas normas a seguir que reciben el nombre de Flujo de Trabajo.
 
 Git sigue una estructura de árbol, en la que cada rama representa un flujo de trabajo. La rama principal recibe el nombre de "master", esta rama contiene la versión funcional del proyecto que se esté llevando a cabo, es la rama de producción. Para crear esta rama necesitamos establecer un repositorio en el que poder añadir nuestros archivos y añadirlos. Git tiene una serie de comandos para realizar todas estas acciones, por ejemplo, para crear el repositorio usamos \textit{git init}, y para añadir nuestros archivos (consiguiendo así protegerlos) \textit{git commit} seguido de \textit{git push}.
 
 Para prevenir que se trabaje todo sobre la versión de producción, Git aporta un comando para crear ramas adicionales en las que distintos grupos de trabajo pueden trabajar para evitar modificar los mismos archivos y eliminar sus propios avances, \textit{git branch}. Una vez terminada la funcionalidad en la que se trabaja en una rama aparte, se debe enlazar con la rama maestra, para ello empleamos el comando \textit{git merge}. Se forma así una estructura de árbol como la que podemos observar en la Figura \ref{fig:git}, en la que cada nodo corresponde con una representación de nuestros archivos comprometidos, lo que se llama "log". Gracias a esto, podemos volver a antiguos nodos del árbol para recuperar versiones anteriores, eliminar otros, etc.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/git}
+	\caption{Estructura de ramas Git}
+	\label{fig:git}
+\end{figure}
+
+\section{GitHub}
+\label{sec:github}
+
+GitHub\cite{munaiah2017curating} es una de las mayores plataformas de almacenamiento de software y proyectos basado en el sistema de control de versiones Git\cite{git}, creado por Linus Torvalds\footnote{https://es.wikipedia.org/wiki/Linus\_Torvalds} en el año 2005.
 
 Tomando como base Git, GitHub nos permite visualizar en su plataforma web el flujo de trabajo conseguido. La principal diferencia entre ambos consiste en que GitHub nos aporta una interfaz gráfica de nuestro árbol, mientras que Git solo funciona a través de comandos en una terminal. Asimismo, GitHub añade más herramientas que nos aportan claridad y orden al proyecto:
 
@@ -434,13 +454,6 @@ Tomando como base Git, GitHub nos permite visualizar en su plataforma web el flu
 \end{itemize}
 
 Todas estas cualidades mostradas, han sido las responsables para decidirme a alojar y proteger mi proyecto en GitHub\footnote{https://github.com/JavierBravoDonaire/A-frame}.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/git}
-	\caption{Estructura de ramas Git}
-	\label{fig:git}
-\end{figure}
 
 \section{Atom}
 \label{sec:atom}
@@ -775,7 +788,87 @@ Hemos conseguido así, una gran funcionalidad para nuestro entorno de realidad vi
 \section{Sprint 4} 
 \label{sec:sprint4}
 
+Esta iteración se corresponde con la recta final del proyecto, y como todas las anteriores, comienza con una reunión con Jesús. En ella se establecieron los objetivos que se exponen en el siguiente apartado y se inició la redacción de este escrito. 
 
+\subsection{Objetivo}
+
+Es hora de adaptar el proyecto a su uso mediante unas gafas de realidad virtual, lo que implica dividir este en dos ramas, la versión de escritorio (navegador) y la versión con gafas de realidad virtual. Cada una tendrá su propio modo de uso y componentes. Para finalizar, se agrega una última funcionalidad, que consta en un modo de edición, donde se generan los ejes correspondientes a la escena y a las entidades para permitir una visión más clara de los tamaños y posiciones.
+
+\subsection{Desarrollo}
+
+Por simplicidad, se empezará añadiendo las funcionalidades nuevas a la versión de escritorio, para más tarde, solo adaptar esta a las gafas VR.
+
+Se trabajará entonces en dos archivos:
+\begin{itemize}
+	\item desktop.html\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%204/desktop.html}
+	\item glasses.html\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%204/glasses.html}
+\end{itemize}
+
+\subsubsection{Versión de Escritorio:}
+
+Al dividir el trabajo, en este apartado solo debemos implementar la nueva funcionalidad (ya que hemos estado trabajando siempre en modo escritorio). El objetivo del modo edición consiste en mostrar una cuadrícula en la escena con el eje de esta y mostrar el esqueleto de las entidades con su propio eje.
+
+Todas las entidades poseen un atributo llamado "wireframe" (estructura metálica), que cuando se activa (se añade como una propiedad cualquiera y se le indica el valor "true"), muestra el esqueleto que sigue la figura. Se puede observar en la Figura \ref{fig:wireframe} que la estructura sigue la unión de pequeños triángulos, ya que es así como se consigue una renderización de figuras más veloz.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=13cm, keepaspectratio]{IMAGENES/wireframe}
+	\caption{Wireframe de distintas entidades}
+	\label{fig:wireframe}
+\end{figure}
+
+Para dotar de ejes a las figuras, debemos agregar como nodos hijos tres entidades "line" (línea). Al ser hijas de la entidad, se moverán con ella y su posición central (0,0,0) será igual a la de la entidad o no a la de la escena, lo que nos permite generar los ejes modificando solo un valor de posición de cada línea (eje 'x', eje 'y' y eje 'z'). La entidad linea contiene las propiedades inicio y fin, si queremos representar el eje 'x' entonces debemos crear una línea como sigue:
+
+\begin{verbatim}
+<a-entity line="start: 0, 0, 0; end: 2 0 0; color: black"</a-entity>
+\end{verbatim}
+
+Una vez tenemos las figuras con su esqueleto y sus ejes, resta generar el eje de la escena, que es el que marca los tamaños y posiciones. Para ello, la idea es generar en el plano 'xz' una cuadrícula de tamaño 1, que nos permita observar la profundidad y desplazamiento, y un plano 'y' que tratará de un eje con marcas cada distancia 1 (estas marcas serán lineas más pequeñas que simulan un eje como el que podemos ver en una gráfica).
+
+Para esta tarea, se crea una función que genera lineas en los distintos plano hasta una distancia que se le pasa como parámetro, por si queremos hacerlo más grande o pequeño, creando así la cuadrícula y el eje 'y'. Además, para que es modo se diferencie y deje apreciar bien los ejes, se cambia la textura del suelo por un color verde que resalte el negro de los ejes.
+
+Para alternar entre la escena en su estado normal de su modo edición, se establecen dos teclas del teclado:
+
+\begin{itemize}
+	\item Tecla G: entra en modo edición. Cambia la textura del suelo por el verde y añade la cuadrícula, los ejes y el esqueleto de las figuras (Figura \ref{fig:grid}).
+	\item Tecla H: sale del modo edición. Las figuras vuelven a su estructura inicial y pierden los ejes. El suelo recupera su textura y desaparece la cuadrícula.
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=15cm, keepaspectratio]{IMAGENES/grid}
+	\caption{Escena en modo edición}
+	\label{fig:grid}
+\end{figure}
+
+\subsubsection{Versión con Gafas VR:}
+
+Para empezar, se debe modificar el elemento que simula al usuario, ya que por el momento solo se movía con comandos del teclado.  Para esto, se le añaden atributos que permita movernos con los mandos de las gafas y dentro de este, se añaden como dos hijos la mano derecha y la mano izquierda.
+
+Como las dos manos son iguales pero cambiando un atributo, es más factible crear un mixin que las represente, en el que añadamos los atributos generales. Entre estas propiedades nos encontramos "raycaster" y controles varios (vive-controls, oculus-touch-controls,
+windows-motion-controls, gearvr-controls, daydream-controls y oculus-go-controls) para los diversos dispositivos en el mercado. "Raycaster" es la propiedad más importante, ya que representa un rayo que intersecciona con los objetos permitiéndonos capturar los eventos. Antes era el ratón el que hacía click y con el que apuntábamos a los botones, de eso se encarga "raycaster" cuando usamos los mandos y apuntamos con ellos. Dentro de la propiedad "raycaster" debemos indicar las clases de todos los elementos HTML con los que podemos interaccionar (los botones por ejemplo).
+
+Una vez creado los mixin, solo necesitamos crear las dos manos como hijas del usuario en una posición que las simulen correctamente. En este caso, decidí emplear la función láser de los mandos, lo que no representa unas manos en la escena, sino que vemos los mandos con un rayo láser con el que podemos apuntar y seleccionar todos los elementos. Esta decisión se tomó para garantizar una movilidad mayor, fusionando los controles del usuario con los "joysticks" de los mandos y el apuntado con láser.
+
+Debido a estas modificaciones, se tuvieron que rediseñar dos funcionalidades para su uso con el láser:
+
+\begin{itemize}
+	\item La barra deslizante se elimina para añadir un gesto que hace aumentar y disminuir a la entidad, este es, apuntar con los dos láseres a la figura y hacer el gesto de estirar o encoger.
+	\item Como el uso del teclado mientras usamos las gafas y los mandos no es muy intuitivo, se añaden en el panel inicial dos botones para entrar y salir del modo edición, Figura \ref{fig:vr}.
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm, keepaspectratio]{IMAGENES/vr}
+	\caption{Panel con botones de modo edición versión VR}
+	\label{fig:vr}
+\end{figure}
+
+Con todos estos cambios, se logra adaptar la versión de escritorio a cualquier dispositivo declarados anteriormente.
+
+\subsection{Resultado}
+
+Se consigue así la versión final de este proyecto, logrando todas las funcionalidades propuestas con éxito. El código HTML de las dos versiones se adjunto anteriormente, pero el código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%204/improve.js} se adjunta en este apartado. Tanto la versión de escritorio como de gafas, usan el mismo JavaScript con el objetivo de lograr una unificación de ambas, en el caso que sea necesario. Por último, la versión final del proyecto se encuentra alojada en el repositorio de GitHub para su libre uso, en versión de escritorio\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%204/desktop.html} y versión VR\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%204/glasses.html}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
