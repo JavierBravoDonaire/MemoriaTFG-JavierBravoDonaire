@@ -157,9 +157,9 @@ Página de agradecimientos en proceso.
 El proyecto realizado se centra en la creación de una interfaz para la construcción de escenas en realidad virtual, cuya máxima consiste en acercar a usuarios que no son expertos en este ámbito al manejo de entornos virtuales. Este trabajo ha sido creado gracias al framework de A-Frame para producir experiencias en realidad virtual, enlazado con distintas tecnologías, como JavaScript y HTML.
 
 
-Fusionando los elementos HTML con el lenguaje JavaScript, podemos manejar distintos eventos y crear funcionalidad, que añaden dinamismo a la escena. A-Frame, el cual está construido sobre Three.js, se encargará de generar el entorno, y agregando la biblioteca WebGL se renderizarán todos los elementos.
+Fusionando los elementos HTML con el lenguaje JavaScript, podemos manejar distintos eventos y crear funcionalidad, para añadir dinamismo a la escena. A-Frame, el cual está construido sobre Three.js, se encargará de generar el entorno, y agregando la biblioteca WebGL se renderizarán todos los elementos.
 
-la escena es accesible desde un navegador como con un dispositivo  de realidad virtual, gracias a WebVR, permitiendo obtener una experiencia completa.
+La escena es accesible desde un navegador como con un dispositivo  de realidad virtual, gracias a WebVR, permitiendo obtener una experiencia completa.
 
 Todos los ejemplos y el código se encuentran alojados en GitHub, para el uso y disfrute de cualquier usuario.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -735,7 +735,7 @@ Una vez establecidas las bases de la escena, se deben implementar nuevas funcion
 
 \subsection{Objetivo}
 
-Hasta ahora, podemos generar entidades infinitamente encima del podio y cada una de ellas tiene su propia paleta de colores, pero esta opción no es la más intuitiva. Por ello, la mejor opción es añadir en el propio panel donde creamos las entidades, otra paleta de colores y texturas. Pero existe un problema, la entidad no se crea hasta que no la eliges, y una vez seleccionada ya se ha creado con su color por defecto, por eso se creará la principal funcionalidad propuesta en esta iteración, el podio con entidad dinámica. 
+Hasta ahora, podemos generar entidades infinitamente encima del podio y cada una de ellas tiene su propia paleta de colores, pero esta opción no es la más intuitiva. Por ello, la mejor opción es añadir en el propio panel, donde creamos las entidades, otra paleta de colores y texturas. Pero existe un problema, la entidad no se crea hasta que no la eliges, y una vez seleccionada ya se ha creado con su color por defecto, por eso se creará la principal funcionalidad propuesta en esta iteración, el podio con entidad dinámica. 
 
 El podio con entidad dinámica trata del mismo podio, pero en este caso ya existe una figura flotando por encima de este, y pulsando sobre los distintos botones de color, textura o incluso entidad, es la propia figura la que cambia. Entonces, existirá una sola figura flotante que cambiará según nuestras indicaciones, y cuando la arrastremos fuera del podio se creará una copia para poder seguir editando entidades infinitamente.
 
@@ -752,12 +752,12 @@ Como el fundamento de esta iteración es la entidad cambiante que se encuentra en
 	\item Añadimos al panel distintos botones (a los que ya había), con texturas y colores diferentes. Ahora, debemos modificar el código anterior, ya que no vamos a crear entidades directamente, vamos a modificar una existente. Se divide así el código en dos partes: la referente a los colores y texturas, y la referente a las entidades.
 	\item En el caso de los botones de selección de entidad, deben modificar la estructura de la figura, por eso lo más sencillo es realizar lo visto en la anterior iteración, crear un mixin por entidad. Así, cada vez que pulsemos un botón distinto, solo será necesario acceder a la entidad (gracias al "id") y modificar su atributo mixin.
 	\item El caso para colores y texturas es más sencillo. No necesitamos ningún mixin, solo accedemos a su atributo color o source, y lo modificamos.
-	\item Por último, resta crear una nueva entidad cuando saquemos del podio la editada. Se podría repetir el primer paso, crear una entidad aleatorio y vuelta a lo mismo, pero si queremos crear dos entidades iguales, ¿tenemos que editarla dos veces?. Es aquí cuando surge la función "cloneEntity", la cual una vez hemos retirado la entidad del podio, realiza una copia idéntica a la ya creada. La entidad separada, pasará entonces a ser una hija de la escena, y no del podio, y delegará su "id" al clon (el cual será la nueva hija del podio), generando un bucle infinito que permite extraer todas las figuras necesarias.
+	\item Por último, resta crear una nueva entidad cuando saquemos del podio la editada. Se podría repetir el primer paso, crear una entidad aleatoria y vuelta a lo mismo, pero si queremos crear dos entidades iguales, ¿tenemos que editarla dos veces?. Es aquí cuando surge la función "cloneEntity", la cual una vez hemos retirado la entidad del podio, realiza una copia idéntica a la ya creada. La entidad separada, pasará entonces a ser una hija de la escena, y no del podio, y delegará su "id" al clon (el cual será el nuevo hijo del podio), generando un bucle infinito que permite extraer todas las figuras necesarias.
 \end{enumerate}
 
 De todos estos pasos, podemos generar una nueva funcionalidad de los botones de color y textura. Como el color y la textura se corresponden con distintos atributos de una entidad, podemos combinarlos. Esto es, si pulsamos sobre una textura y luego un color, cambiará la tonalidad de esa textura ofreciendo más combinaciones de estilo. 
 
-Al igual que podemos colorear las figuras, quizás necesitemos eliminar su color. La mejor idea es usar el color blanco debido a que si estableces una textura, no vas a querer pulsar el blanco encima de ella y que no surtiría efecto. Esto hace que el color blanco del panel se convierte en el botón de reinicio de estilo.
+Al igual que podemos colorear las figuras, quizás necesitemos eliminar su color. La mejor idea es usar el color blanco debido a que si estableces una textura, no vas a querer pulsar el blanco encima de ella y además no surtiría efecto. Esto hace que el color blanco del panel se convierta en el botón de reinicio de estilo.
 
 Podemos observar un ejemplo de estas funcionalidades (podio con entidad variable y textura combinada con color) en la Figura \ref{fig:paleta23}.
 
@@ -770,9 +770,9 @@ Podemos observar un ejemplo de estas funcionalidades (podio con entidad variable
 
 Lo último que quedaba para terminar esta iteración, era el control de tamaño. Para esta modificación, la idea inicial fue implementarlo como el color y texturas, a través de botones, pero además de no ser intuitivo, solo permitiría editar el tamaño en las mismas cantidades que el número de botones establecidos. La idea sucesora, y la finalmente implementada, fue una barra deslizable.
 
-A-Frame no proporciona ninguna entidad que represente una barra deslizante, pero gracias a GitHub podemos encontrar muchos scripts que definen varios componentes que nos interese importar directamente a nuestro proyecto, entre ellos la barra deslizable. En este caso, la biblioteca aportada por el usuario \textbf{rdub80}\footnote{https://github.com/rdub80/aframe-gui}, proporcionaba diversos elementos como barras de progreso, etiquetas y la empleada, barra deslizante.
+A-Frame no proporciona ninguna entidad que represente una barra deslizante, pero gracias a GitHub podemos encontrar muchos scripts que definen varios componentes que nos interesara importar directamente a nuestro proyecto, entre ellos la barra deslizable. En este caso, la biblioteca aportada por el usuario \textbf{rdub80}\footnote{https://github.com/rdub80/aframe-gui}, proporcionaba diversos elementos como barras de progreso, etiquetas y la empleada, barra deslizante.
 
-Este elemento se divide en: la barra y un punto de referencia. La movilidad del elemento ya esta creado, pero falta enlazarlo con nuestra entidad del podio. La referencia para determinar el tamaño se encuentra en la posición del punto de referencia. Mediante JavaScript, obtenemos la situación del punto de referencia (que por defecto se encuentra en el centro de la barra, para permitirnos elegir aumentar o disminuir) en la escena, y siguiendo un sencillo algoritmo modificamos el atributo escala de la entidad. Quedaría entonces una escena como la que podemos ver en la Figura \ref{fig:slider}, en la que hemos decidido hacer crecer al máximo un cubo.
+Este elemento se divide en: la barra y un punto de referencia. La movilidad del elemento ya esta creada, pero falta enlazarla con nuestra entidad del podio. La referencia para determinar el tamaño se encuentra en la posición del punto de referencia. Mediante JavaScript, obtenemos la situación del punto de referencia (que por defecto se encuentra en el centro de la barra, para permitirnos elegir aumentar o disminuir) en la escena, y siguiendo un sencillo algoritmo modificamos el atributo escala de la entidad. Quedaría entonces una escena como la que podemos ver en la Figura \ref{fig:slider}, en la que hemos decidido hacer crecer al máximo un cubo.
 
 \begin{figure}
 	\centering
@@ -825,9 +825,9 @@ Para dotar de ejes a las figuras, debemos agregar como nodos hijos tres entidade
 
 Una vez tenemos las figuras con su esqueleto y sus ejes, resta generar el eje de la escena, que es el que marca los tamaños y posiciones. Para ello, la idea es generar en el plano 'xz' una cuadrícula de tamaño 1, que nos permita observar la profundidad y desplazamiento, y un plano 'y' que tratará de un eje con marcas cada distancia 1 (estas marcas serán lineas más pequeñas que simulan un eje como el que podemos ver en una gráfica).
 
-Para esta tarea, se crea una función que genera lineas en los distintos plano hasta una distancia que se le pasa como parámetro, por si queremos hacerlo más grande o pequeño, creando así la cuadrícula y el eje 'y'. Además, para que es modo se diferencie y deje apreciar bien los ejes, se cambia la textura del suelo por un color verde que resalte el negro de los ejes.
+Para esta tarea, se crea una función que genera lineas en los distintos planos hasta una distancia que se le pasa como parámetro, por si queremos hacerlo más grande o pequeño, creando así la cuadrícula y el eje 'y'. Además, para que este modo se diferencie y deje apreciar bien los ejes, se cambia la textura del suelo por un color verde que resalte el negro de los ejes.
 
-Para alternar entre la escena en su estado normal de su modo edición, se establecen dos teclas del teclado:
+Para alternar entre la escena en su estado normal y la de su modo edición, se establecen dos teclas del teclado:
 
 \begin{itemize}
 	\item Tecla G: entra en modo edición. Cambia la textura del suelo por el verde y añade la cuadrícula, los ejes y el esqueleto de las figuras (Figura \ref{fig:grid}).
@@ -843,10 +843,10 @@ Para alternar entre la escena en su estado normal de su modo edición, se estable
 
 \subsubsection{Versión con Gafas VR:}
 
-Para empezar, se debe modificar el elemento que simula al usuario, ya que por el momento solo se movía con comandos del teclado.  Para esto, se le añaden atributos que permita movernos con los mandos de las gafas y dentro de este, se añaden como dos hijos la mano derecha y la mano izquierda.
+Para empezar, se debe modificar el elemento que simula al usuario, ya que por el momento solo se movía con comandos del teclado.  Para esto, se le añaden atributos que permita movernos con los mandos de las gafas y, dentro de este, se añaden como dos hijos la mano derecha y la mano izquierda.
 
 Como las dos manos son iguales pero cambiando un atributo, es más factible crear un mixin que las represente, en el que añadamos los atributos generales. Entre estas propiedades nos encontramos "raycaster" y controles varios (vive-controls, oculus-touch-controls,
-windows-motion-controls, gearvr-controls, daydream-controls y oculus-go-controls) para los diversos dispositivos en el mercado. "Raycaster" es la propiedad más importante, ya que representa un rayo que intersecciona con los objetos permitiéndonos capturar los eventos. Antes era el ratón el que hacía click y con el que apuntábamos a los botones, de eso se encarga "raycaster" cuando usamos los mandos y apuntamos con ellos. Dentro de la propiedad "raycaster" debemos indicar las clases de todos los elementos HTML con los que podemos interaccionar (los botones por ejemplo).
+windows-motion-controls, gearvr-controls, daydream-controls y oculus-go-controls) para los diversos dispositivos en el mercado. "Raycaster" es la propiedad más importante, ya que representa un rayo que interseca con los objetos permitiéndonos capturar los eventos. Antes era el ratón el que hacía click y con el que apuntábamos a los botones, de eso se encarga "raycaster" cuando usamos los mandos y apuntamos con ellos. Dentro de la propiedad "raycaster" debemos indicar las clases de todos los elementos HTML con los que podemos interaccionar (los botones por ejemplo).
 
 Una vez creado los mixin, solo necesitamos crear las dos manos como hijas del usuario en una posición que las simulen correctamente. En este caso, decidí emplear la función láser de los mandos, lo que no representa unas manos en la escena, sino que vemos los mandos con un rayo láser con el que podemos apuntar y seleccionar todos los elementos. Esta decisión se tomó para garantizar una movilidad mayor, fusionando los controles del usuario con los "joysticks" de los mandos y el apuntado con láser.
 
@@ -864,11 +864,11 @@ Debido a estas modificaciones, se tuvieron que rediseñar dos funcionalidades par
 	\label{fig:vr}
 \end{figure}
 
-Con todos estos cambios, se logra adaptar la versión de escritorio a cualquier dispositivo declarados anteriormente.
+Con todos estos cambios, se logra adaptar la versión de escritorio a cualquier dispositivo declarado anteriormente.
 
 \subsection{Resultado}
 
-Se consigue así la versión final de este proyecto, logrando todas las funcionalidades propuestas con éxito. El código HTML de las dos versiones se adjunto anteriormente, pero el código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%204/improve.js} se adjunta en este apartado. Tanto la versión de escritorio como de gafas, usan el mismo JavaScript con el objetivo de lograr una unificación de ambas, en el caso que sea necesario. Por último, la versión final del proyecto se encuentra alojada en el repositorio de GitHub para su libre uso, en versión de escritorio\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%204/desktop.html} y versión VR\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%204/glasses.html}.
+Se consigue así la versión final de este proyecto, logrando todas las funcionalidades propuestas con éxito. El código HTML de las dos versiones se adjunto anteriormente, pero el código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%204/improve.js} se adjunta en este apartado. Tanto la versión de escritorio como la de las gafas, usan el mismo JavaScript con el objetivo de lograr una unificación de ambas, en caso de que sea necesario. Por último, la versión final del proyecto se encuentra alojada en el repositorio de GitHub para su libre uso, en versión de escritorio\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%204/desktop.html} y versión VR\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%204/glasses.html}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -879,15 +879,87 @@ Se consigue así la versión final de este proyecto, logrando todas las funcionali
 \chapter{Resultado Final}
 \label{chap:resultado}
 
-En este capítulo se incluyen los resultados de tu trabajo fin de grado.
-
-Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejemplos de haberla utilizado para que se vea su utilidad.
+En este capítulo se incluyen el manual de usuario y la arquitectura resultante del proyecto. En el manual se explica el funcionamiento desde un punto de vista sencillo para usuarios novatos, mientras que en la arquitectura resultante se exponen los componentes y estructuración del código.
 
 \section{Manual de Usuario}
 \label{sec:manual}
 
+Existen dos modos de empleo de la interfaz presente: 
+
+\begin{itemize}
+	\item \textbf{Modo escritorio}. Para mover la cámara debemos pulsar con el botón y arrastrar hacia la dirección deseada. Para moverse por la escena se pueden usar tanto las flechas de dirección como las teclas "WASD". Para interactuar con los distintos elementos de la escena se usa el ratón, haciendo click sobre estos.
+	\item \textbf{Gafas VR}.  Con los mandos de las gafas nos movemos y el movimiento viene marcado por la dirección en la que miramos. Existe la posibilidad de movernos en la escena moviéndonos nosotros. Aparecerán dos mandos en la escena con un láser que funcionarán como el ratón e interactuaremos con el apuntando a los elementos.
+\end{itemize}
+
+La escena comienza con un podio y un panel en el que podemos elegir el método de creación de entidades: mesa o panel. Son dos botones por lo que, siguiendo las instrucciones anteriores, interactuaremos con ellos. Pulsando sobre las entidades de la mesa o los botones del panel se editará la entidad que aparece en el podio. Además, se puede editar la textura, color y tamaño de la figura mediante los botones y la barra deslizante. Se pueden combinar colores y texturas, esto es, eligiendo una textura y después un color para colorear esta del color indicado. El botón que representa el color blanco servirá para reiniciar la figura.
+
+Siguiendo todas las indicaciones anteriores, ya se puede editar la figura a tu gusto. Una vez terminada la edición, podemos arrastrar la figura fuera del podio mediante el ratón (o apuntando con el láser y arrastrando), para incluirla en nuestra escena. Al arrastrala, se creará en el podio una figura totalmente idéntica por si queremos crear más de una con el mismo diseño (evitando así la pérdida de tiempo).
+
+Al sacar una figura del podio, esta obtendrá una paleta más pequeña que se moverá con ella permitiendo editar su textura y color después de haber sido creada. El último de los botones de esta paleta, será el color con el que ha sido creada por si queremos volver a este.
+
+\subsubsection{Atajos mediante teclas:}
+Adicionalmente, existen distintas teclas que activan funciones en la escena:
+
+\begin{itemize}
+	\item Mediante la tecla '\textbf{F}' se nos permite entrar tanto en el modo pantalla completa, como en el modo VR cuando estemos usando nuestro dispositivo VR. Para salir de este modo, está habilitada la tecla '\textbf{Esc}'.
+	\item Con la tecla '\textbf{G}', accedemos al modo edición. En este modo la escena cambia, el suelo se sustituye por uno verde y aparece una cuadrícula en el suelo y un eje 'y' para obtener una visión más profesional, que permite centrar las figuras y colocarlas. Además, aparecerán ejes para cada figura creada y se mostrará su wireframe (estructura metálica o esqueleto).
+	\item Para volver al modo de creación y eliminar los ejes de la escena se puede utilizar la tecla '\textbf{H}'.
+\end{itemize}
+
+Estas dos últimas teclas se sustituyen por dos botones en el panel principal en el modo de gafas VR, para un uso más intuitivo. Además, se añade un componente para poder agrandar las figuras sin hacer uso de la barra deslizante con los mandos mediante un gesto (se apunta con los dos mandos a la figura y se separan).
+
+
 \section{Arquitectura resultante}
 \label{sec:arquitectura}
+
+La estructura HTML, que es la que se genera cuando se inicia la escena es la siguiente:
+
+\begin{verbatim}
+<a-scene editor>
+    <a-assets>...</a-assets>
+	<!-- Ground -->
+    <a-plane id="ground" rotation="-90 0 0" static-body></a-plane>
+	<!-- Panel -->
+    <a-plane id="panel" position="0 2 -4"static-body>
+       <a-box id="buttonTable" clickable create-table></a-box>
+       <a-box id="buttonPanel" clickable create-panel></a-box>
+    </a-plane>
+	<!-- Podium -->
+    <a-entity id="baseEntity" gltf-model="#base" static-body>
+       <a-entity id="podiumEntity" mixin="box" editable></a-entity>
+   </a-entity>
+	<!-- User Camera -->
+   <a-entity id="player" movement-controls="fly: true" edit-mode>
+      <a-entity camera position="0 1.7 0"></a-entity>
+   </a-entity>
+	<!-- Sky -->
+   <a-sky src="#sky"></a-sky>
+</a-scene>
+\end{verbatim}
+
+En ella se declaran aquellos elementos que necesitamos que aparezcan en el inicio y aquellos que no van a cambiar (Suelo, cielo o panel principal, por ejemplo). El código que hemos visto es una versión simplificada con los componentes, obviando datos como posiciones y texturas para desarrollar este apartado de una forma más técnica. Dentro de la sección "assets" se encuentran todas las imágenes, modelos 3D y mixin empleados.
+
+Como se observa, varios elementos tienes nodos hijos: panel, podium y user camera. El panel contendrá los botones para generar la mesa y el otro panel, el usuario contiene la cámara y el podio mantiene la entidad. Cuando la entidad abandone el podio, esta pasará a ser un elemento de la escena como podría ser el cielo, y el clon la sustituirá modificando de esta forma el DOM.
+
+\subsubsection{Componentes:}
+
+\begin{itemize}
+	\item \textit{Editable}. Este componente se encarga de la generación de la paleta de colores y texturas cuando una figura deja el podio. En él, se configuran los botones (posiciones, funciones y tamaños) y por último, añade la paleta como hija de la figura en cuestión. Este componente se encuentra en la escena iniciada en la entidad del podio, para conseguir asi que la paleta se genere inmediatamente.
+	\item \textit{Button}. Funciona de forma conjunta al anterior, ya que cada botón de la paleta recibirá este componente como atributo (esto se hace desde el anterior componente), y será este el que se encargue de modificar la textura o el color de la entidad padre. Este no se encontrará en la escena inicial, ya que hasta que no se cree la paleta no se crearán los botones, que son los que adoptan este componente.
+	\item \textit{Create-table}. Es el encargado de crear la mesa de entidades y posicionar las figuras encima de esta (además de añadir sus parámetros y animaciones). Se encuentra enlazado en el botón de creación de mesa al iniciar la escena.
+	\item \textit{Create-panel}. Al igual que se crea la mesa, se crea el panel de colores y la barra deslizante a través de este componente. Tiene la misma funcionalidad que el anterior y se encuentra también al inicio.
+	\item \textit{Edit-mode}. Este componente se enlaza con el elemento que representa al usuario y es el encargado de detectar si se pulsa la tecla necesaria para entrar y salir del modo edición. Dentro de este están declarados todos los parámetros y funciones para dotar tanto a la escena como a las entidades de ejes.
+	\item \textit{Enter-edit-mode}. Como pulsar teclas no es intuitivo, se crean dos botones para entrar y salir del modo edición cuando se usen las gafas VR. Este componente y el siguiente se encargan de ello. Al igual que el anterior, se encarga de los ejes y de detectar en este caso solo el botón de entrada.
+	\item \textit{Exit-edit-mode}. Se enlaza con el botón de salida de modo edición para cuando se usen las gafas VR. Vuelve a dejar la escena como se encontraba antes del modo edición y elimina los ejes.
+\end{itemize}
+
+Por último, cabe mencionar aquellos componentes usados que nos aporta A-Frame y se han usado en la escena:
+
+\begin{itemize}
+	\item \textit{Clickable}. Este componente nos aporta el evento de click que se activa al pulsar sobre las entidades que lo poseen. Junto con el siguiente componte, nos permite manejar la gran parte de los eventos que suceden en la escena (botones).
+	\item \textit{Grabbable}. Dota a las entidades de la capacidad de agarrarlas y moverlas por toda las escena. 
+	\item \textit{Stretchable}. Gracias a este componente podemos realizar el gesto con los mandos para modificar el tamaño de las figuras en nuestra escena.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -902,30 +974,30 @@ Si es una herramienta de análisis lo que has realizado, aquí puedes poner ejempl
 \section{Consecución de objetivos}
 \label{sec:consecucion-objetivos}
 
-En este apartado, echaremos una vista atrás al capítulo de objetivos (Capítulo )\ref{sec:intro}) y se debatirá si se logro la consecución y los problemas que surgieron.
+En este apartado, echaremos la vista atrás al capítulo de objetivos (Capítulo \ref{sec:intro}) y se debatirá si se logró la consecución y los problemas que surgieron.
 
 En general, todos los objetivos propuestos se han solventado con éxito con el paso de las iteraciones. Se ha logrado desarrollar un entorno en realidad virtual didáctico y de fácil uso en el navegador. Trata de una escena en tres dimensiones, en la cual, encontramos un espacio infinito con un suelo a los pies del usuario y, de frente, un panel y un podio para poder empezar con la tarea deseada. 
 
 Se aportan dos modos de creación de figuras, mesa de entidades y panel con botones. Cada entidad tiene su propia paleta de edición de color y textura, por si se cambia de opinión sobre su estilo una vez creada. Añadiendo, la capacidad de elección de tamaño a través de una barra deslizable.
 
-Como añadido, se realizaron las modificaciones pertinentes para permitir al usuario cambiar entre la versión de escritorio y la versión con gafas de realidad virtual, agregando botones para hacer más intuitivo su acceso mediante los mandos u acciones como engrandar una entidad con los dos mandos.
+Como añadido, se realizaron las modificaciones pertinentes para permitir al usuario cambiar entre la versión de escritorio y la versión con gafas de realidad virtual, agregando botones para hacer más intuitivo su acceso mediante los mandos u acciones como agrandar una entidad con los dos mandos.
 
 Se consiguió una correcta movilidad del usuario por la escena, permitiéndole volar y girar en cualquier dirección, además de agregar su versión con gafas, en la que el sentido de movimiento viene dado por la dirección de nuestra vista.
 
-El modo edición de la escena que nos permite observar los ejes de las entidades, así como su esqueleto, se implementó con éxito permitiendo al usuario obtener una visión más esquemática de la escena.
+El modo edición de la escena, que nos permite observar los ejes de las entidades, así como su esqueleto, se implementó con éxito permitiendo al usuario obtener una visión más esquemática de la escena.
 
 Por último, se logró correctamente alojar todos los ejemplos funcionales y la versión final del proyecto en GitHub para el uso de cualquier usuario, como se ha podido observar en los enlaces que se adjuntaban a lo largo del capítulo \ref{chap:disenio}. 
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
 
-Durante mi grado he recibido muchas lecciones en diferentes ramas de las tecnologías, entre ellas el software, la cual es la base de este proyecto. Algunas de las asignaturas que me han hecho más llevadero el avance son las siguientes:
+Durante mi grado he recibido muchas lecciones en diferentes ramas de las tecnologías, entre ellas el software, el cual es la base de este proyecto. Algunas de las asignaturas que me han hecho más llevadero el avance son las siguientes:
 
 \begin{enumerate}
   \item Asignaturas como \textit{Servicios y Aplicaciones Telemáticas} me han permitido obtener una base en HTML, además de conocer la estructura del DOM y el diagnóstico de errores en la consola del navegador.
   \item Gracias a la asignatura \textit{Desarrollo de Aplicaciones Telemáticas}, pude cumplimentar mi aprendizaje en JavaScript ya que coincidió el lapso de tiempo de la asignatura con el trabajo.
   \item \textit{Ingeniería en Sistemas de Información} fue la encargada de enseñarme todos los conocimientos necesarios para el control de versiones y el uso de GitHub.
-  \item \textit{Sistemas Operativos} además de aportarme los conocimientos sobre un lenguaje de programación, me proporcionó unas nociones básicas del manejo de la consola de Linux, con la cual, pude manejar mis archivos, crear un servidor donde probar mi trabajo e instalar diversas aplicaciones como Atom.
+  \item \textit{Sistemas Operativos}, además de aportarme los conocimientos sobre un lenguaje de programación, me proporcionó unas nociones básicas del manejo de la consola de Linux, con la cual pude manejar mis archivos, crear un servidor donde probar mi trabajo e instalar diversas aplicaciones como Atom.
   \item Todas las materias que consistían en fundamentos de programación han sido las responsables de aportarme los cimientos de distintos lenguajes de programación, así como la algoritmia y pensamiento que hay detrás de ello.
 \end{enumerate}
 
@@ -936,11 +1008,11 @@ Durante mi grado he recibido muchas lecciones en diferentes ramas de las tecnolo
 A continuación, se encuentran todos los conocimientos adquiridos gracias a este Trabajo de Fin de Grado.
 
 \begin{enumerate}
-  \item Aprendizaje del framework para creación de experiencias A-Frame. En esto se incluye, creación de escenas, desarrollo de componentes, agregación y edición de entidades, control de la cámara e iluminación. Para esto, se profundizó en la estructura ECS y en la estructura de elementos HTML, etiquetas y atributos.
+  \item Aprendizaje del framework para creación de experiencias A-Frame. En esto se incluye: creación de escenas, desarrollo de componentes, agregación y edición de entidades, control de la cámara e iluminación. Para esto, se profundizó en la estructura ECS y en la estructura de elementos HTML, etiquetas y atributos.
   \item Manejo de eventos y modificación de elementos a tiempo real mediante el uso de JavaScript.
   \item Competencia en la resolución de errores, como la propagación de eventos padre-hijo vista en el apartado \ref{sec:sprint2}.
   \item Capacidad de crear un servidor de forma local donde poder depurar y probar el trabajo realizado.
-  \item Habilidad para desenvolverme con el uso de las gafas de realidad virtual, así como, la adaptación del trabajo a estas y la conexión con el ordenador para permitir una depuración más veloz.
+  \item Habilidad para desenvolverme con el uso de las gafas de realidad virtual, así como la adaptación del trabajo a estas y la conexión con el ordenador para permitir una depuración más veloz.
   \item Importación de modelos 3D a la escena y correcta inyección, permitiendo usar las animaciones vinculadas a estos.
   \item Manejo de la plataforma de control de versiones GitHub.
   \item Uso de LaTeX para la edición de textos científico-técnicos.
@@ -953,7 +1025,7 @@ A continuación, se encuentran todos los conocimientos adquiridos gracias a este 
 Todos los proyectos basados en ingeniería de software siguen una máxima: un trabajo nunca se termina, siempre podemos mejorarlo y añadir funcionalidades. Por lo que a continuación se incluyen algunas ideas que serían factibles incluir en un futuro:
 
 \begin{itemize}
-	\item Añadir una función para cambiar entre el láser que se usa actualmente por unas manos con la misión de poder interactuar con las entidades y los botones con ellas.
+	\item Añadir una función para cambiar entre el láser que se usa actualmente por unas manos, con la misión de poder interactuar con las entidades y los botones con ellas.
 	\item Incluir dinámicas en las entidades para poder apilarlas, tirarlas y dotarlas de movimiento en general.
 	\item Opción de guardar una entidad específica con su color, tamaño y posición al dejarla sobre un podio o la propia mesa, con el objetivo de usarla más tarde o incluso clonarla.
 	\item Opción de moldear las entidades a nuestro gusto, por ejemplo quitándoles los vértices o creando agujeros en ellas.
