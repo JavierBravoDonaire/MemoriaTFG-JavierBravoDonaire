@@ -232,7 +232,7 @@ Todas ellas coinciden en su sencillez para un usuario inexperto y en el atractiv
 
  El modelado 3D, la creación de escenas o la representación de datos en realidad virtual son ejemplos de las muchas ideas que se encuentran en auge en la actualidad. Aplicaciones de escritorio, como podría ser Blender\cite{blender}, adaptadas en un entorno de realidad virtual donde tu puedas modificar el modelo 3D con tus propias manos, o recorrer una ciudad donde cada edificio representa un archivo de tu ordenador e incluso una red de ordenadores donde puedas observar todos los paquetes de comunicación y desplegarlos para ver su información, son ejemplos del alcance al que se puede llegar gracias a la realidad virtual.
   
- A parte de Blender, existen otras herramientas para creación y edición escenas de realidad virtual, como puede ser Spoke\cite{spoke}, desarrollada por Mozilla. Ninguno de los dos trabaja dentro de la propia realidad virtual, sino que usan un método llamado 3d simulado. Cambian la profundidad de la imagen para hacer creer que se está trabajando en un entorno 3D. Es en esta linea, donde se ha querido centrar el proyecto fin de grado que nos ocupa, la creación de escenas.
+ A parte de Blender, existen otras herramientas para creación y edición escenas de realidad virtual, como puede ser Spoke\cite{spoke}, desarrollada por Mozilla. Ninguno de los dos trabaja dentro de la propia realidad virtual, sino que usan un método llamado 3d simulado. Cambian la profundidad de la imagen para hacer creer que se está trabajando en un entorno 3D. Es en esta línea, donde se ha querido centrar el proyecto fin de grado que nos ocupa, la creación de escenas.
 
 
 \section{Objetivo principal}
@@ -272,7 +272,7 @@ de este proyecto se puede simplificar en cuatro fases:
 	de las cuales se decidió por la presente.
 	
 	\item Adaptaci\'on a la tecnolog\'ia. Para adentrarse en las tecnologías mencionadas más adelante en el capítulo \ref{chap:tecnologias}, se decidió realizar un minijuego que me permitiese
-	aprender el funcionamiento de Aframe \ref{sec:aframe} o aprender lenguajes de programación como JavaScript \ref{sec:javascript}.
+	aprender el funcionamiento de A-Frame \ref{sec:aframe} o aprender lenguajes de programación como JavaScript \ref{sec:javascript}.
 	
 	\item Ejecuci\'on de los objetivos. Las distintas reuniones marcaban el inicio y final de las distintas etapas con las
 	que avanzaba el proyecto. Es la fase más amplia de todas ya que es en la que mas documentación es necesaria para avanzar y más tiempo se invierte en la escritura de código, pruebas, etc.
@@ -320,7 +320,7 @@ Para una correcta lectura del presente proyecto, se aclara la estructura que se 
 \section{A-Frame} 
 \label{sec:aframe}
 
-La gran base de este proyecto es A-Frame\cite{aframe}, un framework cimentado sobre JavaScript que nos ofrece la oportunidad de crear escenas en VR (Virtual Reality o Realidad Virtual) sin la necesidad de instalar ninguna dependencia. Gracias a la unión de HTML, JavaScript, WebGL, WebXR y Three.js (comentados en sus respectivos apartados más adelante), A-Frame lleva la arquitectura ECS (Entity-Component-System o Entidad-Componente-Sistema) a otro nivel. Con esta arquitectura, podemos enlazar componentes a entidades, actualizarlos e incluso eliminarlos. Al obtener el DOM característico de HTML, podemos acceder a las entidades con sentencias simples (Query Selectors).
+La gran base de este proyecto es A-Frame\cite{aframe}, un framework cimentado sobre JavaScript que ofrece la oportunidad de crear escenas en VR (Virtual Reality o Realidad Virtual) sin la necesidad de instalar ninguna dependencia. Gracias a la unión de HTML, JavaScript, WebGL, WebXR y Three.js (comentados en sus respectivos apartados más adelante), A-Frame lleva la arquitectura ECS (Entity-Component-System o Entidad-Componente-Sistema) a otro nivel. Con esta arquitectura, se puede enlazar componentes a entidades, actualizarlos e incluso eliminarlos. Al obtener el DOM característico de HTML, es posible acceder a las entidades con sentencias simples (Query Selectors).
 
 Se definen así, entidades y componentes. Una entidad es un objeto que tiene sus propiedades como cualquier elemento HTML; en cambio, un componente es un comportamiento especial que se puede asignar a una entidad. La relación entidad-componente será la esencia de aquellos trabajos realizados en A-Frame. 
 
@@ -349,14 +349,14 @@ A-Frame tiene su propia sección de tutorial práctico en el que se introduce al u
 \end{verbatim}
 \normalsize
 
-Como se puede observar, dentro del campo "head" del código, añadiremos todas las dependencias necesarias. En este caso, al ser un ejemplo sencillo, es necesario únicamente el script básico de A-Frame. En el elemento "body" se inserta la escena (que agrupará todos los elementos que posteriormente queramos añadir). En él, se encuentran un total de cinco entidades: un cubo, una esfera, un cilindro, un plano y el cielo, respectivamente. Todas ellas contienen unos atributos únicos que definen su tamaño, color o posición.
+Como se puede observar, dentro del campo "head" del código, se añaden todas las dependencias necesarias. En este caso, al ser un ejemplo sencillo, es necesario únicamente el script básico de A-Frame. En el elemento "body" se inserta la escena (que agrupará todos los elementos que posteriormente se quieran añadir). En él, se encuentran un total de cinco entidades: un cubo, una esfera, un cilindro, un plano y el cielo, respectivamente. Todas ellas contienen unos atributos únicos que definen su tamaño, color o posición.
 
 Por el momento, no se añade ningún componente en la escena, ya que se usarán en el capítulo \ref{chap:disenio}, pero se añadirían como si de un atributo más se tratase. Estos son creados mediante JavaScript, y se dividen en schema (propiedades del componente) y las funciones init (se ejecuta al inicializar la entidad), update (se ejecuta cuando se modifica la entidad), tick (se ejecuta cada milisegundo), remove (se ejecuta al eliminar la entidad), pause y play. Lo adecuado sería alojarlos en un fichero distinto a este y enlazarlo en el elemento "head" al igual que se ha añadido el script básico de A-Frame.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm, keepaspectratio]{IMAGENES/aframe}
-	\caption{Escena de ejemplo Introducción a Aframe}
+	\caption{Escena de ejemplo Introducción a A-Frame}
 	\label{fig:aframe}
 \end{figure} 
 
@@ -371,13 +371,13 @@ HTML (HyperText Markup Language)\cite{10.5555/2339435} es el lenguaje de marcado
 	\item Los formularios ahora contienen valores adicionales para la etiqueta input y se incorpora el elemento output.
 	\item Nueva interfaz para arrastrar y soltar elementos.
 	\item Trabajo off-line descargando todos los contenidos necesarios.
-	\item Geolocalización
+	\item Geolocalización.
 	\item Ejecución de tareas paralelas (WebWorkers) e interfaz de comunicación entre páginas (WebSockets).
 	\item Almacenamiento de datos en el propio navegador gracias a una base de datos (API Storage).
 	\item Se incluyen muchas APIS, entre las que se encuentran WebGL, de la cual se habla más adelante, o Canvas.
 \end{itemize}
 
-Para finalizar, resta detallar el papel del DOM (Document Object Model) en un documento HTML. Consiste en una interfaz que nos proporciona una estructura lógica de todos los elementos implicados en el documento y los organiza en nodos, apodando a esta unión árbol de nodos (Figura \ref{fig:dom}). Esto crea una potente unión entre las entidades mencionadas antes en Aframe y lo que comentaremos a continuación en el apartado de JavaScript, gracias al DOM podremos acceder a ellas y manejarlas a nuestro antojo.
+Para finalizar, resta detallar el papel del DOM (Document Object Model) en un documento HTML. Consiste en una interfaz que proporciona una estructura lógica de todos los elementos implicados en el documento y los organiza en nodos, apodando a esta unión árbol de nodos (Figura \ref{fig:dom}). Esto crea una potente unión entre las entidades mencionadas antes en A-Frame y lo que se comentará a continuación en el apartado de JavaScript, gracias al DOM se podrá acceder a ellas y manejarlas al antojo del programador.
 
 \begin{figure}
 	\centering
@@ -398,7 +398,7 @@ document.getElementsByTagName("h1");
 
 \end{verbatim}
 
-Dicho esto, igual que accedemos al título, se puede acceder a un componente de nuestra escena en A-Frame: cubos, cilindros, el cielo o incluso a la cámara de nuestra escena. Nos aporta infinidad de opciones: crear botones que activen eventos, movimiento a distintas entidades, etc. Junto con todo lo que nos ofrece A-Frame, JavaScript será la base este proyecto.
+Dicho esto, igual que se accede al título, se puede acceder a un componente de la escena en A-Frame: cubos, cilindros, el cielo o incluso a la cámara de nuestra escena. Aporta infinidad de opciones: crear botones que activen eventos, movimiento a distintas entidades, etc. Junto con todo lo que ofrece A-Frame, JavaScript será la base de este proyecto.
 
 
 Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creó una versión con la capacidad de ser ejecutada en el lado del servidor, Node.js\cite{nodejs}. Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
@@ -421,7 +421,7 @@ Actualmente se encuentra en constante desarrollo, y al estar alojada en GitHub\f
 \section{WebXR}
 \label{sec:webxr}
 
-WebXR \cite{baruah2021ar} es un grupo de estándares que apoyan a la creación de escenas 3D tanto en realidad virtual como en realidad aumentada, que junto con Aframe, WebGL y Three.js permitirán el correcto funcionamiento de la escena y la apropiada ejecución en un dispositivo XR. Es la sucesora de WebVR, la cuál se ha dado como desactualizada este mismo año (2020), y añade la compatibilidad con realidad aumentada, de ahí que el nombre cambie de WebVR a WebXR. La API de WebXR aporta unas funcionalidades extra de las cuales, el usuario puede no necesitar hacerse cargo:
+WebXR \cite{baruah2021ar} es un grupo de estándares que apoyan a la creación de escenas 3D tanto en realidad virtual como en realidad aumentada, que junto con A-Frame, WebGL y Three.js permitirán el correcto funcionamiento de la escena y la apropiada ejecución en un dispositivo XR. Es la sucesora de WebVR, la cuál se ha dado como desactualizada este mismo año (2020), y añade la compatibilidad con realidad aumentada, de ahí que el nombre cambie de WebVR a WebXR. La API de WebXR aporta unas funcionalidades extra de las cuales, el usuario puede no necesitar hacerse cargo:
 
 \begin{itemize}
 	\item Duplicar la salida 3D (en el dispositivo) a una 2D en el caso que fuese necesaria, por ejemplo, para la depuración de una aplicación.
@@ -437,9 +437,9 @@ Los dispositivos XR serán entonces, aquellos que pueden presentar imágenes al us
 
 El propósito de Git es la eficiencia de producción y el mantenimiento de un registro de los cambios que se producen, con el fin de coordinar el trabajo compartido. Para lograr esto, se aclaran unas normas a seguir que reciben el nombre de Flujo de Trabajo.
 
-Git sigue una estructura de árbol, en la que cada rama representa un flujo de trabajo. La rama principal recibe el nombre de "master", esta rama contiene la versión funcional del proyecto que se esté llevando a cabo, es la rama de producción. Para crear esta rama necesitamos establecer un repositorio en el que poder introducir los archivos y añadirlos. Git tiene una serie de comandos para realizar todas estas acciones, por ejemplo, para crear el repositorio se usa \textit{git init}, y para añadir nuestros archivos (consiguiendo así protegerlos) \textit{git commit} seguido de \textit{git push}.
+Git sigue una estructura de árbol, en la que cada rama representa un flujo de trabajo. La rama principal recibe el nombre de "master", esta rama contiene la versión funcional del proyecto que se esté llevando a cabo, es la rama de producción. Para crear esta rama se necesita establecer un repositorio en el que poder introducir los archivos y añadirlos. Git tiene una serie de comandos para realizar todas estas acciones, por ejemplo, para crear el repositorio se usa \textit{git init}, y para añadir archivos (consiguiendo así protegerlos) \textit{git commit} seguido de \textit{git push}.
 
-Para prevenir que se trabaje todo sobre la versión de producción, Git aporta un comando para crear ramas adicionales en las que distintos grupos de trabajo pueden cooperar para evitar modificar los mismos archivos y eliminar sus propios avances, \textit{git branch}. Una vez terminada la funcionalidad en la que se trabaja en una rama aparte, se debe enlazar con la rama maestra, para ello se utiliza el comando \textit{git merge}. Se forma así una estructura de árbol como la que podemos observar en la Figura \ref{fig:git}, en la que cada nodo corresponde con una representación de nuestros archivos comprometidos, lo que se llama "log". Gracias a esto, podemos volver a antiguos nodos del árbol para recuperar versiones anteriores, eliminar otros, etc.
+Para prevenir que se trabaje todo sobre la versión de producción, Git aporta un comando para crear ramas adicionales en las que distintos grupos de trabajo pueden cooperar para evitar modificar los mismos archivos y eliminar sus propios avances, \textit{git branch}. Una vez terminada la funcionalidad en la que se trabaja en una rama aparte, se debe enlazar con la rama maestra, para ello se utiliza el comando \textit{git merge}. Se forma así una estructura de árbol como la que podemos observar en la Figura \ref{fig:git}, en la que cada nodo corresponde con una representación de los archivos comprometidos, lo que se llama "log". Gracias a esto, se puede volver a antiguos nodos del árbol para recuperar versiones anteriores, eliminar otros, etc.
 
 \begin{figure}
 	\centering
@@ -463,7 +463,7 @@ Tomando como base Git, GitHub nos permite visualizar en su plataforma web el flu
 	\item Capacidad de copiar un repositorio ajeno para trabajar sobre él. Esto es lo que se conoce como "fork", permite editar los archivos y en el caso de mejorar alguna funcionalidad, podemos solicitar al autor una unión (merge) con lo que se denomina "pull request". 
 \end{itemize}
 
-Todas estas cualidades mostradas, han sido las responsables para que se decidiese alojar y proteger todo proyecto en el repositorio GitHub\footnote{https://github.com/JavierBravoDonaire/A-frame}. Además, se agrega una página gracias a GitHub pages que muestra todos los contenidos como código, diapositivas y la propia memoria\footnote{https://javierbravodonaire.github.io/A-frame/}.
+Todas estas cualidades mostradas, han sido las responsables para que se decidiese alojar y proteger todo el proyecto en el repositorio GitHub\footnote{https://github.com/JavierBravoDonaire/A-frame}. Además, se agrega una página gracias a GitHub pages que muestra todos los contenidos como código, diapositivas y la propia memoria\footnote{https://javierbravodonaire.github.io/A-frame/}.
 
 \section{Atom}
 \label{sec:atom}
@@ -480,7 +480,7 @@ Atom\cite{atom} ha sido el editor de textos elegido para aposentar todo el códig
 \section{LaTeX}
 \label{sec:latex}
 
-LaTeX\cite{lamport1994latex} trata de un procesador de textos de software libre típicamente utilizado para textos técnico-científicos. Su objetivo principal es separar las reglas de estilo del contenido. La diferencia más importante con respecto a otros editores de textos es su estructura basada en instrucciones. Entre sus ventajas se encuentran la capacidad de establecer órdenes al inicio de nuestro texto que afectarán a este, o la despreocupación a la hora de situar figuras y tablas, ya que como se ha comentado antes, él se encarga del estilo, no del contenido.
+LaTeX\cite{lamport1994latex} trata de un procesador de textos de software libre típicamente utilizado para textos técnico-científicos. Su objetivo principal es separar las reglas de estilo del contenido. La diferencia más importante con respecto a otros editores de textos es su estructura basada en instrucciones. Entre sus ventajas se encuentran la capacidad de establecer órdenes al inicio del texto que afectarán a este, o la despreocupación a la hora de situar figuras y tablas, ya que como se ha comentado antes, él se encarga del estilo, no del contenido.
 
 Al tratarse de un software libre, su uso es completamente gratuito (además de que se mantiene siempre en desarrollo) y se encuentra disponible para múltiples sistemas operativos.\footnote{\url{https://www.latex-project.org}}
 
@@ -505,9 +505,9 @@ Algunas de las ventajas del uso de Scrum son las siguientes:
 	\item Mayor satisfacción moral del equipo y por consiguiente, mejora del ambiente de trabajo.
 \end{itemize}
 
-El equipo que emplee esta metodología debería dividirse en tres partes: el Scrum Master, el Equipo de Trabajo y el Cliente. En este caso, el papel de Scrum Master lo lleva a cabo el profesor tutor, (aunque también podría adquirir el papel de Cliente) y el papel del Equipo de Trabajo lo representa el alumno que realiza el trabajo fin de grado. El objetivo del Scrum Master consiste en asegurar el entendimiento de las reglas y prácticas llevadas acabo. Además, mantiene una estrecha relación con el Cliente haciendo de intermediario entre este y el Equipo de Trabajo, consiguiendo y aclarando los objetivos propuestos y aportando técnicas para una efectiva producción. Por otro lado, el Equipo de Trabajo esta formado por los profesionales que se encargar del desarrollo y resolución de problemas que propone el Cliente. Son los encargados de la consecución de los objetivos para poner fin a los distintos "Sprints".
+El equipo que emplee esta metodología debería dividirse en tres partes: el Scrum Master, el Equipo de Trabajo y el Cliente. En este caso, el papel de Scrum Master lo lleva a cabo el profesor tutor, (aunque también podría adquirir el papel de Cliente) y el papel del Equipo de Trabajo lo representa el alumno que realiza el trabajo fin de grado. El objetivo del Scrum Master consiste en asegurar el entendimiento de las reglas y prácticas llevadas acabo. Además, mantiene una estrecha relación con el Cliente haciendo de intermediario entre este y el Equipo de Trabajo, consiguiendo y aclarando los objetivos propuestos y aportando técnicas para una efectiva producción. Por otro lado, el Equipo de Trabajo está formado por los profesionales que se encargar del desarrollo y resolución de problemas que propone el Cliente. Son los encargados de la consecución de los objetivos para poner fin a los distintos "Sprints".
 
-Para este caso en particular, cada reunión entre el tutor (Scrum Master/Cliente) y el alumno (Equipo de Desarrollo), marcarán el inicio y final de cada "Sprint". Inicialmente, una reunión marcará los objetivos a conseguir en ese "Sprint", durante unas semanas se trabaja en ello y finalmente se prepara una nueva reunión. En esta nueva reunión, se hablan de los problemas que han surgido y lo conseguido. Si se han logrado con éxito cada una de las metas propuestas, esta reunión será la que dará fin a ese "Sprint" e iniciará el siguiente. Normalmente, en cada "Sprint" se crea una versión funcional que implementa lo conseguido y da paso como versión inicial al siguiente. En caso contrario, se tratan las dudas y problemas surgidos intentando llegar a una solución. Se trabaja en esto durante un periodo y se vuelve a tener la reunión hasta conseguir la versión funcional y dar paso al siguiente "Sprint" hasta llegar a la versión final del producto, como se puede observar en la Figura \ref{fig:scrum}.
+Para este caso en particular, cada reunión entre el tutor (Scrum Master/Cliente) y el alumno (Equipo de Desarrollo), marcarán el inicio y final de cada "Sprint". Inicialmente, una reunión marcará los objetivos a conseguir en ese "Sprint", durante unas semanas se trabaja en ello y finalmente se prepara una nueva reunión. En esta nueva reunión, se habla de los problemas que han surgido y lo conseguido. Si se han logrado con éxito cada una de las metas propuestas, esta reunión será la que dará fin a ese "Sprint" e iniciará el siguiente. Normalmente, en cada "Sprint" se crea una versión funcional que implementa lo conseguido y da paso como versión inicial al siguiente. En caso contrario, se tratan las dudas y problemas surgidos intentando llegar a una solución. Se trabaja en esto durante un periodo y se vuelve a tener la reunión hasta conseguir la versión funcional y dar paso al siguiente "Sprint" hasta llegar a la versión final del producto, como se puede observar en la Figura \ref{fig:scrum}.
 
 \begin{figure}
   \centering
@@ -526,7 +526,7 @@ Esta iteración comienza con la primera reunión que se mantuvo entre el Scrum Mas
 
 \subsection{Objetivo}
 
-El objetivo de esta fase es aprender a usar A-Frame, en esto se incluye: aprender que son las entidades, crear entidades, crear eventos, crear componentes, dinámicas y físicas, etc. Como JavaScript es aun desconocido, otro gran objetivo es ir aprendiendo a la vez que se enlaza con A-Frame. El fin del minijuego es hacer un pequeño recorrido en el que se tengan que realizar distintas acciones para llegar a la meta.
+El objetivo de esta fase es aprender a usar A-Frame, en esto se incluye: aprender que son las entidades, crear entidades, crear eventos, crear componentes, dinámicas y físicas, etc. Como JavaScript es aún desconocido, otro gran objetivo es ir aprendiendo a la vez que se enlaza con A-Frame. El fin del minijuego es hacer un pequeño recorrido en el que se tengan que realizar distintas acciones para llegar a la meta.
 
 \subsection{Desarrollo}
 La idea es crear un recorrido con distintos obstáculos que implementen distintas acciones y eventos para adecuarse a ellos. El recorrido es el que sigue a continuación: 
@@ -547,7 +547,7 @@ La idea es crear un recorrido con distintos obstáculos que implementen distintas
 		\label{fig:mini_plataforma}
 	\end{figure}
 	
-	\item Ya subido en la plataforma puedes girar 180 grados para encontrarte un nuevo obstáculo en movimiento, la piedra gigante (Figura \ref{fig:mini_bloque}). Pero para llegar a ella primero se debe empujar las dos piedras que cortan el camino, haciendo así que caigan al vacío.
+	\item Ya subido en la plataforma puedes girar 180 grados para encontrarte un nuevo obstáculo en movimiento, la piedra gigante (Figura \ref{fig:mini_bloque}). Pero para llegar a ella primero se deben empujar las dos piedras que cortan el camino, haciendo así que caigan al vacío.
 	\begin{figure}
 		\centering
 		\includegraphics[width=15cm, keepaspectratio]{IMAGENES/mini_bloque}
@@ -569,7 +569,7 @@ La idea es crear un recorrido con distintos obstáculos que implementen distintas
 
 Son muchos obstáculos pero esto permite utilizar el mayor número de entidades y crear los eventos necesarios. Por último, si caes en cualquier momento, volverás al inicio para además añadirle un nivel de dificultad, al fin y al cabo, es un juego.
 
-Para crear este pequeño juego se comienza con un archivo HTML en el que se importan los scripts necesarios de Aframe para poder comenzar a crear entidades, estos son algunos de ellos:
+Para crear este pequeño juego se comienza con un archivo HTML en el que se importan los scripts necesarios de A-Frame para poder comenzar a crear entidades, estos son algunos de ellos:
 
 
 \scriptsize 
@@ -653,7 +653,7 @@ En este componente aparece la función "tick", la cual se ejecuta cada milisegund
 %\end{itemize}
 
 \subsection{Resultado}
-Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. Se pudo practicar con muchas de las posibilidades que me ofrecía Aframe mientras aprendía JavaScript. Además, se tuvo mi primer contacto con las gafas de realidad virtual en las que se pudo depurar el final del juego (Figura \ref{fig:mini_fin}). El minijuego se encuentra alojado en la página de GitHub del proyecto y puede ser jugado\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%200/my-examples/minigame.html}. El código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%200/my-examples/minijuego.js} se encuentra a su vez alojado en la carpeta correspondiente a este "Sprint" junto a su HTML\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%200/my-examples/minigame.html}. Para terminar, se mantuvo una reunión en la que se comentó lo aprendido gracias a este "Sprint" y dió comienzo al siguiente apartado.
+Como iniciación a las nuevas tecnologías, el resultado fue notablemente bueno. Se pudo practicar con muchas de las posibilidades que ofrecía A-Frame mientras se aprendía JavaScript. Además, se tuvo el primer contacto con las gafas de realidad virtual en las que se pudo depurar el final del juego (Figura \ref{fig:mini_fin}). El minijuego se encuentra alojado en la página de GitHub del proyecto y puede ser jugado\footnote{https://javierbravodonaire.github.io/A-frame/Sprint\%200/my-examples/minigame.html}. El código JavaScript\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%200/my-examples/minijuego.js} se encuentra a su vez alojado en la carpeta correspondiente a este "Sprint" junto a su HTML\footnote{https://github.com/JavierBravoDonaire/A-frame/blob/master/Sprint\%200/my-examples/minigame.html}. Para terminar, se mantuvo una reunión en la que se comentó lo aprendido gracias a este "Sprint" y dió comienzo al siguiente apartado.
 
 \begin{figure}
 	\centering
@@ -678,9 +678,9 @@ Al tratarse de los cimientos del programa, se trabajarán las fases una encima de
 
 \subsubsection{Tarea 1:}
 
-En esta primera tarea se trabajó en una escena que ofreciese un panel con distintos botones, que permitiese la elección de diferentes figuras. Para empezar, se debe crear un entorno en el que el usuario se sienta cómodo, y para ello, se crea un plano en horizontal (el cual estará dotado de una rotación de 90 grados) que simule el suelo y se dota a la escena del elemento "sky" (con una textura que se asemeje al cielo) para que parezca que nos encontramos en un plano real. Una vez establecido el suelo, ya se puede empezar a situar nuestros elementos.
+En esta primera tarea se trabajó en una escena que ofreciese un panel con distintos botones, que permitiese la elección de diferentes figuras. Para empezar, se debe crear un entorno en el que el usuario se sienta cómodo, y para ello, se crea un plano en horizontal (el cual estará dotado de una rotación de 90 grados) que simule el suelo y se dota a la escena del elemento "sky" (con una textura que se asemeje al cielo) para que parezca que nos encontramos en un plano real. Una vez establecido el suelo, ya se pueden empezar a situar nuestros elementos.
 
-El panel será entonces un plano, de un tamaño razonable, en el cual se colocarán los botones. Para crear los botones, se usará un cubo al que le modifica su propiedad "depth" (profundidad), para dar la sensación de apretar un botón (Figura \ref{fig:Rooster_TFG}). Cada botón tendrá un texto donde se indica que objeto crea. Este texto se añade creando una entidad "a-text" y enlazándola con el botón.
+El panel será entonces un plano, de un tamaño razonable, en el cual se colocarán los botones. Para crear los botones, se usará un cubo al que le modifica su propiedad "depth" (profundidad), para dar la sensación de apretar un botón (Figura \ref{fig:Rooster_TFG}). Cada botón tendrá un texto donde se indica qué objeto crea. Este texto se añade creando una entidad "a-text" y enlazándola con el botón.
 
 \begin{figure}[H]
 	\centering
@@ -691,7 +691,7 @@ El panel será entonces un plano, de un tamaño razonable, en el cual se colocarán
 
 Para crear las entidades se necesita hacer uso de eventos mediante JavaScript. Se asigna a cada botón un "id" distinto para poder acceder a todos ellos como un elemento cualquiera del DOM, y se le añade un evento. Este evento se encargará de detectar si en algún momento se ha pulsado sobre un botón, y cuando esto suceda se creará la entidad a la que se refiere el mismo. Para conseguir capturar este evento, los botones deben tener el atributo "clickable" definido en el script de A-Frame, el cual les dará la cualidad de ser pulsados. Pulsando todos los botones se creará una escena como la que se puede observar en la Figura \ref{fig:RoosterEntities_TFG}.
 
-Para mantener el código lo más limpio posible y evitar la repetición de lineas, se crea un apartado en el HTML llamado "assets" donde se crean los llamados "mixin". Un mixin es una especie de entidad genérica en la que declaras su material, tamaño, etc, y a partir de ella puedes crear clones. Un ejemplo para comprobar su utilidad podría ser el siguiente: imagina que queremos crear tres cubos pulsando un botón, entonces desde el JavaScript se debe manejar el evento y crear desde el mismo la entidad, sentencia a sentencia, declarando el color, el tamaño y la posición. Con el mixin ya se ha declarado todos estos atributos, por lo que solo se necesita declarar que es un "mixin-cubo", ahorrándose así todas las sentencias de sus propiedades en el JavaScript. Un mixin para un cubo es como el siguiente:
+Para mantener el código lo más limpio posible y evitar la repetición de líneas, se crea un apartado en el HTML llamado "assets" donde se crean los llamados "mixin". Un mixin es una especie de entidad genérica en la que declaras su material, tamaño, etc, y a partir de ella puedes crear clones. Un ejemplo para comprobar su utilidad podría ser el siguiente: imagina que queremos crear tres cubos pulsando un botón, entonces desde el JavaScript se debe manejar el evento y crear desde el mismo la entidad, sentencia a sentencia, declarando el color, el tamaño y la posición. Con el mixin ya se han declarado todos estos atributos, por lo que solo se necesita declarar que es un "mixin-cubo", ahorrándose así todas las sentencias de sus propiedades en el JavaScript. Un mixin para un cubo es como el siguiente:
 
 \scriptsize 
 \begin{verbatim}
@@ -731,7 +731,7 @@ Como ya se tienen los modos de selección, ahora es imprescindible añadir una fun
 
 La paleta nos aporta un buen ejemplo de lo que son los nodos. La entidad tendrá un nodo hijo que será el plano que representa la paleta, que a su vez tendrá x hijos que serán los botones que representan los diferentes colores y texturas (Figura \ref{fig:paleta}). Es aquí, cuando se encontró un gran problema, los eventos escalan hacia las entidades padre, por lo que se debe detener el evento para que no afecte y genere comportamientos inadecuados. En esta ocasión, el evento de cambiar el color, afectaba tanto a la entidad como al plano que representa la paleta, por lo que se debía controlar.
 
-La paleta se compone así de un total de ocho opciones dividas en dos filas. La primera fila se corresponde con cuatro colores distintos, y la segunda contiene tres texturas diferentes y un último botón que devuelve a la entidad el color original con el que fue creada.
+La paleta se compone así de un total de ocho opciones divididas en dos filas. La primera fila se corresponde con cuatro colores distintos, y la segunda contiene tres texturas diferentes y un último botón que devuelve a la entidad el color original con el que fue creada.
 
 \begin{figure}
 	\centering
@@ -768,7 +768,7 @@ Hasta ahora, se pueden generar entidades infinitamente encima del podio y cada u
 
 El podio con entidad dinámica trata del mismo podio, pero en este caso ya existe una figura flotando por encima de este, y pulsando sobre los distintos botones de color, textura o incluso entidad, es la propia figura la que cambia. Entonces, existirá una sola figura flotante que cambiará según las indicaciones, y cuando sea arrastrada fuera del podio se creará una copia para poder seguir editando entidades infinitamente.
 
-Por último, se añadirá una función para, al igual que se puede elegir el estilo de las figuras, sea posible elegir su tamaño.
+Por último, se añadirá una función para que, al igual que se puede elegir el estilo de las figuras, sea posible elegir su tamaño.
 
 \subsection{Desarrollo}
 
@@ -846,7 +846,7 @@ Todas las entidades poseen un atributo llamado "wireframe" (estructura metálica)
 	\label{fig:wireframe}
 \end{figure}
 
-Para dotar de ejes a las figuras, se deben agregar como nodos hijos tres entidades "line" (línea). Al ser hijas de la entidad, se moverán con ella y su posición central (0,0,0) será igual a la de la entidad y no a la de la escena, lo que permite generar los ejes modificando solo un valor de posición de cada línea (eje 'x', eje 'y' y eje 'z'). La entidad linea contiene las propiedades inicio y fin, si se quiere representar el eje 'x' entonces será necesario crear una línea como sigue:
+Para dotar de ejes a las figuras, se deben agregar como nodos hijos tres entidades "line" (línea). Al ser hijas de la entidad, se moverán con ella y su posición central (0,0,0) será igual a la de la entidad y no a la de la escena, lo que permite generar los ejes modificando solo un valor de posición de cada línea (eje 'x', eje 'y' y eje 'z'). La entidad línea contiene las propiedades inicio y fin, si se quiere representar el eje 'x' entonces será necesario crear una línea como sigue:
 
 \scriptsize 
 \begin{verbatim}
@@ -854,9 +854,9 @@ Para dotar de ejes a las figuras, se deben agregar como nodos hijos tres entidad
 \end{verbatim}
 \normalsize
 
-Una vez se tienen las figuras con su esqueleto y sus ejes, resta generar el eje de la escena, que es el que marca los tamaños y posiciones. Para ello, la idea es generar en el plano 'xz' una cuadrícula de tamaño 1, que permita observar la profundidad y desplazamiento, y un plano 'y' que tratará de un eje con marcas cada distancia 1 (estas marcas serán lineas más pequeñas que simulan un eje como el que podemos ver en una gráfica).
+Una vez se tienen las figuras con su esqueleto y sus ejes, resta generar el eje de la escena, que es el que marca los tamaños y posiciones. Para ello, la idea es generar en el plano 'xz' una cuadrícula de tamaño 1, que permita observar la profundidad y desplazamiento, y un plano 'y' que tratará de un eje con marcas cada distancia 1 (estas marcas serán líneas más pequeñas que simulan un eje como el que podemos ver en una gráfica).
 
-Para esta tarea, se crea una función que genera lineas, en los distintos planos hasta una distancia que se le pasa como parámetro, por si se quiere hacer más grande o más pequeño, creando así la cuadrícula y el eje 'y'. Además, para que este modo se diferencie y deje apreciar bien los ejes, se cambia la textura del suelo por un color verde que resalte el negro de los ejes.
+Para esta tarea, se crea una función que genera líneas, en los distintos planos hasta una distancia que se le pasa como parámetro, por si se quiere hacer más grande o más pequeño, creando así la cuadrícula y el eje 'y'. Además, para que este modo se diferencie y deje apreciar bien los ejes, se cambia la textura del suelo por un color verde que resalte el negro de los ejes.
 
 Para alternar entre la escena en su estado normal y la de su modo edición, se establecen dos teclas del teclado:
 
@@ -1027,7 +1027,7 @@ Con la estructura de la escena vista y una pequeña introducción a los componente
 	\item \textit{Create-table}. Este componente se encuentra en el botón del panel que se encarga de generar la mesa. Para ello, hace uso del evento que surge al pulsar sobre el botón de mesa. Una vez se pulsa, el componente será el encargado de generar la mesa y las entidades que flotan por encima de ellas y añadirlas a la escena.
 	 En este caso la mesa será hija de la escena en el árbol de nodos.
 	\item \textit{Create-panel}. Al igual que se crea la mesa, se crea el panel de colores y la barra deslizante a través de este componente. Maneja un evento igual al que el anterior componente y se encuentra también al inicio, pero enlazado al botón de panel.
-	\item \textit{Edit-mode}. Este componente se enlaza con el elemento que representa al usuario y es el encargado de detectar si se pulsa la tecla necesaria para entrar y salir del modo edición. Para esto, escucha al evento encargado de la pulsación de cualquier teclas, y una vez se activa, diferencia entre las teclas que se han pulsado y realiza una acción u otra. Si se pulsa 'G' entra en el modo edición, si se pulsa 'H' sale. Dentro de este están declarados todos los parámetros y funciones para dotar tanto a la escena como a las entidades de ejes. Todos los ejes (los de la escena y los de las entidades) reciben una clase y un parámetro para que se encuentren invisibles para el usuario. Cuando se pulse la tecla para activar el modo edición, gracias a este componente accedemos a todas las entidades que tienen la clase de los ejes y se hacen visibles creando el modo edición. Al contrario, se vuelven invisibles cuando se quiera volver al modo normal.
+	\item \textit{Edit-mode}. Este componente se enlaza con el elemento que representa al usuario y es el encargado de detectar si se pulsa la tecla necesaria para entrar y salir del modo edición. Para esto, escucha al evento encargado de la pulsación de cualquier tecla, y una vez se activa, diferencia entre las teclas que se han pulsado y realiza una acción u otra. Si se pulsa 'G' entra en el modo edición, si se pulsa 'H' sale. Dentro de este están declarados todos los parámetros y funciones para dotar tanto a la escena como a las entidades de ejes. Todos los ejes (los de la escena y los de las entidades) reciben una clase y un parámetro para que se encuentren invisibles para el usuario. Cuando se pulse la tecla para activar el modo edición, gracias a este componente accedemos a todas las entidades que tienen la clase de los ejes y se hacen visibles creando el modo edición. Al contrario, se vuelven invisibles cuando se quiera volver al modo normal.
 	\item \textit{Enter-edit-mode}. Como pulsar teclas no es intuitivo, se crean dos botones para entrar y salir del modo edición cuando se usen las gafas VR. Este componente y el siguiente se encargan de ello. Al igual que el anterior, se encarga de los ejes y de detectar en este caso solo el botón de entrada al modo edición. 
 	\item \textit{Exit-edit-mode}. Se enlaza con el botón de salida de modo edición para cuando se usen las gafas VR. Vuelve a dejar la escena como se encontraba antes del modo edición y elimina los ejes.
 \end{itemize}
