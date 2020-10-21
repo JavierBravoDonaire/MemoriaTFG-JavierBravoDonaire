@@ -59,7 +59,7 @@ Trabajo Fin de Grado
 \vspace{2.5cm}
 
 \LARGE
-INTERFACES FOR BUILDING SCENES IN VIRTUAL REALITY
+INTERFACES PARA CONSTRUCCIÓN DE ESCENAS EN REALIDAD VIRTUAL
 
 \vspace{4cm}
 
@@ -87,7 +87,7 @@ Tutor : Dr. Jesús María González Barahona
 
 \vspace{1cm}
 \large
-Interfaces for Building Scenes in Virtual Reality
+Interfaces para Construcción de Escenas en Realidad Virtual
 
 \vspace{1cm}
 \large
@@ -230,7 +230,9 @@ Durante décadas, los avances en este ámbito se han ido desarrollando positivamen
 
 Todas ellas coinciden en su sencillez para un usuario inexperto y en el atractivo de imaginarte en un mundo paralelo donde puedes hacer lo que te plazca. Siguiendo las anteriores aplicaciones, muchas se encuentran en constante desarrollo y son el aliciente del surgimiento de este proyecto.
 
- El modelado 3D, la creación de escenas o la representación de datos en realidad virtual son ejemplos de las muchas ideas que se encuentran en auge en la actualidad. Aplicaciones de escritorio, como podría ser Blender \footnote{https://www.blender.org/}, adaptadas en un entorno de realidad virtual donde tu puedas modificar el modelo 3D con tus propias manos, o recorrer una ciudad donde cada edificio representa un archivo de tu ordenador e incluso una red de ordenadores donde puedas observar todos los paquetes de comunicación y desplegarlos para ver su información, son ejemplos del alcance al que se puede llegar gracias a la realidad virtual. Es en esta linea, donde se ha querido centrar el proyecto fin de grado que nos ocupa, la creación de escenas.
+ El modelado 3D, la creación de escenas o la representación de datos en realidad virtual son ejemplos de las muchas ideas que se encuentran en auge en la actualidad. Aplicaciones de escritorio, como podría ser Blender\cite{blender}, adaptadas en un entorno de realidad virtual donde tu puedas modificar el modelo 3D con tus propias manos, o recorrer una ciudad donde cada edificio representa un archivo de tu ordenador e incluso una red de ordenadores donde puedas observar todos los paquetes de comunicación y desplegarlos para ver su información, son ejemplos del alcance al que se puede llegar gracias a la realidad virtual.
+  
+ A parte de Blender, existen otras herramientas para creación y edición escenas de realidad virtual, como puede ser Spoke\cite{spoke}, desarrollada por Mozilla. Ninguno de los dos trabaja dentro de la propia realidad virtual, sino que usan un método llamado 3d simulado. Cambian la profundidad de la imagen para hacer creer que se esta trabajando en un entorno 3D. Es en esta linea, donde se ha querido centrar el proyecto fin de grado que nos ocupa, la creación de escenas.
 
 
 \section{Objetivo principal}
@@ -399,12 +401,12 @@ document.getElementsByTagName("h1");
 Dicho esto, igual que accedemos al título, se puede acceder a un componente de nuestra escena en A-Frame: cubos, cilindros, el cielo o incluso a la cámara de nuestra escena. Nos aporta infinidad de opciones: crear botones que activen eventos, movimiento a distintas entidades, etc. Junto con todo lo que nos ofrece A-Frame, JavaScript será la base este proyecto.
 
 
-Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creó una versión con la capacidad de ser ejecutada en el lado del servidor, Node.js.\cite{nodejs} Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
+Habitualmente, el código JavaScript se encuentra en el lado del cliente, pero debido a su gran popularidad se creó una versión con la capacidad de ser ejecutada en el lado del servidor, Node.js\cite{nodejs}. Al estar basado en JavaScript, mantiene las ventajas de este, sigue siendo software libre y además, es asíncrono. Su función principal es el manejo de solicitudes de entrada y la salida de respuesta, llegando incluso a poder realizar una solicitud HTTP. 
 
 \section{WebGL}
 \label{sec:webgl}
 
-WebGL\cite{Cozzi15} define una API (Application Programming Interfaces o Interfaz de Programación de Aplicaciones) basada en OpenGL\footnote{https://www.opengl.org//documentation/} cuyo fin es la representación tanto en 3D como en 2D de elementos gráficos. Como se ejecuta en el elemento "canvas" de HTML, se integra a la perfección con la interfaz del DOM. Su creación nació en 2006 con el primer prototipo de Canvas 3D presentado por Vladimir Vukicevic\footnote{https://en.wikipedia.org/wiki/Vladimir\_Vuki\%C4\%87evi\%C4\%87}, y no fue hasta principios de 2009 que el consorcio Kronos Group consolidó el WebGL Working Group junto con Google, Mozilla, Apple y Opera, entre otros. Finalmente, en 2011 fue lanzada la primera versión con sus correspondientes especificaciones.
+WebGL\cite{Cozzi15} define una API (Application Programming Interfaces o Interfaz de Programación de Aplicaciones) basada en OpenGL\cite{opengl} cuyo fin es la representación tanto en 3D como en 2D de elementos gráficos. Como se ejecuta en el elemento "canvas" de HTML, se integra a la perfección con la interfaz del DOM. Su creación nació en 2006 con el primer prototipo de Canvas 3D presentado por Vladimir Vukicevic\footnote{https://en.wikipedia.org/wiki/Vladimir\_Vuki\%C4\%87evi\%C4\%87}, y no fue hasta principios de 2009 que el consorcio Kronos Group consolidó el WebGL Working Group junto con Google, Mozilla, Apple y Opera, entre otros. Finalmente, en 2011 fue lanzada la primera versión con sus correspondientes especificaciones.
 
 Al estar asentado en OpenGL, su código está escrito en JavaScript y "shading language". Shading language o lenguaje de sombreado, es un lenguaje de programación basado en la creación de efectos de sombreado, así como superficies, volúmenes, etc. Usa unos tipos de datos más específicos que otros lenguajes, como pueden ser: vectores, matrices o colores. Para el caso de OpenGL, recibe el nombre de GLSL o "glslang".
 
@@ -461,7 +463,7 @@ Tomando como base Git, GitHub nos permite visualizar en su plataforma web el flu
 	\item Capacidad de copiar un repositorio ajeno para trabajar sobre él. Esto es lo que se conoce como "fork", permite editar los archivos y en el caso de mejorar alguna funcionalidad, podemos solicitar al autor una unión (merge) con lo que se denomina "pull request". 
 \end{itemize}
 
-Todas estas cualidades mostradas, han sido las responsables para que se decidiese alojar y proteger todo proyecto en el repositorio GitHub\footnote{https://github.com/JavierBravoDonaire/A-frame}. Además, se agrega una página gracias a GitHub pages que muestra todos los contenidos como código, diapositivas y la propia memoria \footnote{https://javierbravodonaire.github.io/A-frame/}.
+Todas estas cualidades mostradas, han sido las responsables para que se decidiese alojar y proteger todo proyecto en el repositorio GitHub\footnote{https://github.com/JavierBravoDonaire/A-frame}. Además, se agrega una página gracias a GitHub pages que muestra todos los contenidos como código, diapositivas y la propia memoria\footnote{https://javierbravodonaire.github.io/A-frame/}.
 
 \section{Atom}
 \label{sec:atom}
@@ -1066,7 +1068,7 @@ Se consiguió una correcta movilidad del usuario por la escena, permitiéndole vol
 
 El modo edición de la escena, que permite observar los ejes de las entidades, así como su esqueleto, se implementó con éxito permitiendo al usuario obtener una visión más esquemática de la escena.
 
-Por último, se logró correctamente alojar todos los ejemplos funcionales y la versión final del proyecto en GitHub para el uso de cualquier usuario, como se ha podido observar en los enlaces que se adjuntaban a lo largo del capítulo \ref{chap:disenio}. 
+Por último, se logró correctamente alojar todos los ejemplos funcionales y la versión final del proyecto en GitHub\footnote{https://github.com/JavierBravoDonaire/A-frame} para el uso de cualquier usuario, como se ha podido observar en los enlaces que se adjuntaban a lo largo del capítulo \ref{chap:disenio}. 
 
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion}
